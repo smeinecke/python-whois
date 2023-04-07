@@ -113,6 +113,8 @@ class NICClient(object):
     NG_HOST = "whois.nic.net.ng"
     PPUA_HOST = "whois.pp.ua"
     UKR_HOST = "whois.dotukr.com"
+    GOV_HOST = 'IANAHOST'
+    EDU_HOST = 'whois.educause.edu'
 
     WHOIS_RECURSE = 0x01
     WHOIS_QUICK = 0x02
@@ -262,10 +264,14 @@ class NICClient(object):
             return NICClient.DEV_HOST
         elif tld == 'do':
             return NICClient.DO_HOST
+        elif tld == 'edu':
+            return NICClient.EDU_HOST
         elif tld == 'games':
             return NICClient.GAMES_HOST
         elif tld == 'goog' or tld == 'google':
             return NICClient.GOOGLE_HOST
+        elif tld == 'gov':
+            return NICClient.IANAHOST
         elif tld == 'group':
             return NICClient.GROUP_HOST
         elif tld == 'hk':
@@ -323,8 +329,6 @@ class NICClient(object):
         elif tld == 'рус' or tld == 'xn--p1acf':
             return NICClient.RU_HOST
         elif tld == 'direct':
-            return NICClient.IDS_HOST
-        elif tld == 'group':
             return NICClient.IDS_HOST
         elif tld == 'immo':
             return NICClient.IDS_HOST

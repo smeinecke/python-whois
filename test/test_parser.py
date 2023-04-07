@@ -21,7 +21,7 @@ except:
 from glob import glob
 
 from whois.parser import WhoisEntry, cast_date, WhoisCl, WhoisAr, WhoisBy, \
-    WhoisCa, WhoisBiz, WhoisCr, WhoisDe, WhoisNl
+    WhoisCa, WhoisBiz, WhoisCr, WhoisDe, WhoisNl, WhoisEdu
 
 
 class TestParser(unittest.TestCase):
@@ -171,6 +171,142 @@ class TestParser(unittest.TestCase):
         self._parse_and_compare('testcompany.ca', data, expected_results,
                                 whois_entry=WhoisCa)
 
+    def test_edu_parse(self):
+        data = """
+        % IANA WHOIS server
+        % for more information on IANA, visit http://www.iana.org
+        % This query returned 1 object
+
+        refer:        whois.educause.edu
+
+        domain:       EDU
+
+        organisation: EDUCAUSE
+        address:      282 Century Place, Suite 5000
+        address:      Louisville CO 80027
+        address:      United States of America (the)
+
+        contact:      administrative
+        name:         Information Services Administration
+        organisation: EDUCAUSE
+        address:      4772 Walnut Street, Suite 206
+        address:      Boulder CO 80301
+        address:      United States of America (the)
+        phone:        +1-303-449-4430
+        fax-no:       +1-303-440-0461
+        e-mail:       netadmin@educause.edu
+
+        contact:      technical
+        name:         Registry Customer Service
+        organisation: VeriSign Global Registry
+        address:      12061 Bluemont Way
+        address:      Reston VA 20190
+        address:      United States of America (the)
+        phone:        +1-703-925-6999
+        fax-no:       +1-703-948-3978
+        e-mail:       info@verisign-grs.com
+
+        nserver:      A.EDU-SERVERS.NET 192.5.6.30 2001:503:a83e:0:0:0:2:30
+        nserver:      B.EDU-SERVERS.NET 192.33.14.30 2001:503:231d:0:0:0:2:30
+        nserver:      C.EDU-SERVERS.NET 192.26.92.30 2001:503:83eb:0:0:0:0:30
+        nserver:      D.EDU-SERVERS.NET 192.31.80.30 2001:500:856e:0:0:0:0:30
+        nserver:      E.EDU-SERVERS.NET 192.12.94.30 2001:502:1ca1:0:0:0:0:30
+        nserver:      F.EDU-SERVERS.NET 192.35.51.30 2001:503:d414:0:0:0:0:30
+        nserver:      G.EDU-SERVERS.NET 192.42.93.30 2001:503:eea3:0:0:0:0:30
+        nserver:      H.EDU-SERVERS.NET 192.54.112.30 2001:502:8cc:0:0:0:0:30
+        nserver:      I.EDU-SERVERS.NET 192.43.172.30 2001:503:39c1:0:0:0:0:30
+        nserver:      J.EDU-SERVERS.NET 192.48.79.30 2001:502:7094:0:0:0:0:30
+        nserver:      K.EDU-SERVERS.NET 192.52.178.30 2001:503:d2d:0:0:0:0:30
+        nserver:      L.EDU-SERVERS.NET 192.41.162.30 2001:500:d937:0:0:0:0:30
+        nserver:      M.EDU-SERVERS.NET 192.55.83.30 2001:501:b1f9:0:0:0:0:30
+        ds-rdata:     28065 8 2 4172496cde85534e51129040355bd04b1fcfebae996dfdde652006f6f8b2ce76
+
+        whois:        whois.educause.edu
+
+        status:       ACTIVE
+        remarks:      Registration information:
+        remarks:      http://www.educause.edu/edudomain
+
+        created:      1985-01-01
+        changed:      2022-05-06
+        source:       IANA
+
+        # whois.educause.edu
+
+        This Registry database contains ONLY .EDU domains.
+        The data in the EDUCAUSE Whois database is provided
+        by EDUCAUSE for information purposes in order to
+        assist in the process of obtaining information about
+        or related to .edu domain registration records.
+
+        The EDUCAUSE Whois database is authoritative for the
+        .EDU domain.
+
+        A Web interface for the .EDU EDUCAUSE Whois Server is
+        available at: http://whois.educause.edu
+
+        By submitting a Whois query, you agree that this information
+        will not be used to allow, enable, or otherwise support
+        the transmission of unsolicited commercial advertising or
+        solicitations via e-mail.  The use of electronic processes to
+        harvest information from this server is generally prohibited
+        except as reasonably necessary to register or modify .edu
+        domain names.
+
+        -------------------------------------------------------------
+
+        Domain Name: USF.EDU
+
+        Registrant:
+            University of South Florida
+            Information Technology
+            4202 E. Fowler Avenue, SVC 4010
+            Tampa, FL 33620
+            USA
+
+        Administrative Contact:
+            Domain Admin
+            University of South Florida
+            Information Technology
+            4202 E. Fowler Avenue, SVC 4010
+            Tampa, FL 33620
+            USA
+            +1.8139741793
+            ted@usf.edu
+
+        Technical Contact:
+            Eric Stewart
+            University of South Florida
+            Information Technology
+            4202 E. Fowler Avenue, SVC 4010
+            Tampa, FL 33620
+            USA
+            +1.8139746084
+            eric@usf.edu
+
+        Name Servers:
+            MOTHER.USF.EDU
+            AZURE-DR-BNS1.USF.EDU
+            ZIGGY.USF.EDU
+
+        Domain record activated:    29-Sep-1986
+        Domain record last updated: 01-Feb-2022
+        Domain expires:             31-Jul-2024"""
+        expected_results = {
+            "domain_name": "USF.EDU",
+            "registrar": "VeriSign Global Registry",
+            "whois_server": "whois.educause.edu",
+            "referral_url": "whois.educause.edu",
+            "updated_date": "2022-02-01 00:00:00",
+            "creation_date": "1986-09-29 00:00:00",
+            "expiration_date": "2024-07-31 00:00:00",
+            "emails": ['netadmin@educause.edu', 'info@verisign-grs.com', 'ted@usf.edu', 'eric@usf.edu'],
+            "name_servers": ["MOTHER.USF.EDU", "AZURE-DR-BNS1.USF.EDU", "ZIGGY.USF.EDU"],
+            "status": "ACTIVE",
+            "registrant_name": "University of South Florida",
+        }
+        self._parse_and_compare('usf.edu', data, expected_results,
+                                whois_entry=WhoisEdu)
     def test_ai_parse(self):
         data = """
 Domain Name: google.ai
@@ -251,7 +387,7 @@ DNSSEC: unsigned
              'billing_phone': '+1.2083895740',
              'billing_postal_code': '83646',
              'billing_state': 'Idaho',
-             'creation_date': datetime.datetime(2017, 12, 16, 5, 37, 20, 801000),
+             'creation_date': str(datetime.datetime(2017, 12, 16, 5, 37, 20, 801000)),
              'domain_id': '325702_nic_ai',
              'domain_name': 'google.ai',
              'name_servers': ['ns3.zdns.google',
