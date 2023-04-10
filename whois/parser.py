@@ -12,6 +12,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import json
+import logging
 import re
 from builtins import *
 from datetime import datetime
@@ -19,6 +20,8 @@ from inspect import isfunction
 
 from future import standard_library
 from past.builtins import basestring
+
+logger = logging.getLogger(__name__)
 
 standard_library.install_aliases()
 
@@ -551,7 +554,12 @@ class WhoisEntry(dict):
             return WhoisDigital(domain, text)
         elif domain.endswith('.vegas'):
             return WhoisVegas(domain, text)
+        elif domain.endswith('.training'):
+            return WhoisTraining(domain, text)
+        elif domain.endswith('.site'):
+            return WhoisSite(domain, text)
         else:
+            logger.warning(f'No specific TLD parser for domain {domain}. Using generic parser.')
             return WhoisEntry(domain, text)
 
 
@@ -776,6 +784,7 @@ class WhoisGov(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 
 class WhoisRo(WhoisEntry):
@@ -1496,8 +1505,22 @@ class WhoisInfo(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
+class WhoisTraining(WhoisCom):
+    """Whois parser for .training domains"""
+
+    def __init__(self, domain, text):
+        WhoisCom.__init__(self, domain, text)
+
+
+class WhoisSite(WhoisCom):
+    """Whois parser for .site domains"""
+
+    def __init__(self, domain, text):
+        WhoisCom.__init__(self, domain, text)
+
+
 class WhoisRf(WhoisRu):
-    """Whois parser for .su domains"""
+    """Whois parser for .rf domains"""
 
     def __init__(self, domain, text):
         WhoisRu.__init__(self, domain, text)

@@ -117,9 +117,11 @@ class NICClient(object):
     NG_HOST = "whois.nic.net.ng"
     PPUA_HOST = "whois.pp.ua"
     UKR_HOST = "whois.dotukr.com"
-    GOV_HOST = IANAHOST,
+    GOV_HOST = IANAHOST
     EDU_HOST = 'whois.educause.edu'
-    ES_HOST = IANAHOST, # 'whois.nic.es' does not work unless you are allowlisted
+    ES_HOST = IANAHOST
+    SITE_HOST = "whois.nic.site"
+    TRAINING_HOST = "whois.nic.training"
 
     WHOIS_RECURSE = 0x01
     WHOIS_QUICK = 0x02
@@ -183,6 +185,7 @@ class NICClient(object):
         s.settimeout(10)
         try:  # socket.connect in a try, in order to allow things like looping whois on different domains without
             # stopping on timeouts: https://stackoverflow.com/questions/25447803/python-socket-connection-exception
+            print(hostname)
             s.connect((hostname, 43))
             try:
                 query = query.decode('utf-8')
@@ -278,7 +281,7 @@ class NICClient(object):
         elif tld == 'gov':
             return NICClient.GOV_HOST
         elif tld == 'es':
-            return NICClient.ES_HOST,
+            return NICClient.ES_HOST
         elif tld == 'group':
             return NICClient.GROUP_HOST
         elif tld == 'hk':
@@ -361,6 +364,10 @@ class NICClient(object):
             return NICClient.NG_HOST
         elif tld == 'укр' or tld == 'xn--j1amh':
             return NICClient.UKR_HOST
+        elif tld == 'training':
+            return NICClient.TRAINING_HOST
+        elif tld == "site":
+            return NICClient.SITE_HOST
         else:
             server = tld + NICClient.QNICHOST_TAIL
             try:
