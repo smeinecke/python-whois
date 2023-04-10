@@ -142,6 +142,7 @@ class WhoisEntry(dict):
             self.text = text
             if regex is not None:
                 self._regex = regex
+                self._regex['emails'] = EMAIL_REGEX
             self.parse()
 
     def parse(self):
@@ -1192,13 +1193,12 @@ class WhoisFi(WhoisEntry):
 class WhoisJp(WhoisEntry):
     """Whois parser for .jp domains"""
     regex = {
-        'domain_name': r'.*\[Domain Name\]\s*(.+)',
-        'registrant_org': r'.*\[(?:Organization|Registrant)\](.+)',
-        'creation_date': r'\[(?:Registered Date|Created on)\]\s*(.+)',
-        'expiration_date': r'\[Expires on\]\s*(.+)',
-        'name_servers': r'.*\[Name Server\]\s*(.+)',  # list of name servers
-        'updated_date': r'\[Last Updated?\]\s?(.+)',
-        'status': r'\[(?:State|Status)\]\s*(.+)',  # list of statuses
+        'domain_name': r'a. \[ドメイン名]\ *(.+)',
+        'registrant_org': r'g\. \[Organization\] *(.+)',
+        'creation_date': r'\[登録年月日\] *(.+)',
+        'name_servers': r'p\. \[ネームサーバ\] *(.+)',  # list of name servers
+        'updated_date': r'\[最終更新\] *(.+)',
+        'status': r'\[状態\] *(.+)',  # list of statuses
         'emails': EMAIL_REGEX  # list of email addresses
     }
 
@@ -1306,7 +1306,7 @@ class WhoisBr(WhoisEntry):
         'status': r'status: *(.+)',
         'nic_hdl_br': r'nic-hdl-br: *(.+)',
         'person': r'person: *([\S ]+)',
-        'email': r'e-mail: *(.+)',
+        'email': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -1440,7 +1440,7 @@ class WhoisAt(WhoisEntry):
         'phone': r'phone: *(.+)',
         'fax': r'fax-no: *(.+)',
         'updated_date': r'changed: *(.+)',
-        'email': r'e-mail: *(.+)',
+        'email': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2410,7 +2410,7 @@ class WhoisIl(WhoisEntry):
         'dnssec': r'DNSSEC: *(.+)',
         'status': r'status: *(.+)',
         'name_servers': r'nserver: *(.+)',
-        'emails': r'e-mail: *(.+)',
+        'emails': EMAIL_REGEX,
         'phone': r'phone: *(.+)',
         'registrar': r'registrar name: *(.+)',
         'referral_url': r'registrar info: *(.+)',
@@ -2422,11 +2422,6 @@ class WhoisIl(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
-
-    def _preprocess(self, attr, value):
-        if attr == 'emails':
-            value = value.replace(' AT ', '@')
-        return super(WhoisIl, self)._preprocess(attr, value)
 
 
 class WhoisIn(WhoisEntry):
@@ -2489,7 +2484,8 @@ class WhoisIe(WhoisEntry):
         'admin_id': r'Registry Admin ID: *(.+)',
         'tech_id': r'Registry Tech ID: *(.+)',
         'registrar': r'Registrar: *(.+)',
-        'registrar_contact': r'Registrar Abuse Contact Email: *(.+)'
+        'registrar_contact': r'Registrar Abuse Contact Email: *(.+)',
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2549,6 +2545,7 @@ class WhoisLu(WhoisEntry):
         'tech_city': r'tec-city: *(.+)',
         'tech_country': r'tec-country: *(.+)',
         'tech_email': r'tec-email: *(.+)',
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2568,6 +2565,7 @@ class WhoisCz(WhoisEntry):
         'updated_date': r'changed: *(.+)',
         'expiration_date': r'expire: *(.+)',
         'name_servers': r'nserver: *(.+)',
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2596,6 +2594,7 @@ class WhoisOnline(WhoisEntry):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
         'dnssec': r'DNSSEC: *([\S]+)',
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2617,7 +2616,7 @@ class WhoisHr(WhoisEntry):
         'name_servers': r'Name Server: *(.+)',
         'registrant_name': r'Registrant Name:\s(.+)',
         'registrant_address': r'Reigstrant Street:\s*(.+)',
-
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2667,7 +2666,8 @@ class WhoisHk(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'[Registrant Contact Information\w\W]+Domain Name Commencement Date: (.+)',
         'expiration_date': r'[Registrant Contact Information\w\W]+Expiry Date: (.+)',
-        'name_servers': r'Name Servers Information:\s+((?:.+\n)*)'
+        'name_servers': r'Name Servers Information:\s+((?:.+\n)*)',
+        'emails': EMAIL_REGEX,
     }
     dayfirst = True
 
@@ -2766,6 +2766,8 @@ class WhoisUkr(WhoisEntry):
         'creation_date': r'Creation Date: (.+)',
         'expiration_date': r'Expiration Date: (.+)',
         'name_servers': r'Domain servers in listed order:\s+((?:.+\n)*)',
+
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2821,6 +2823,8 @@ class WhoisPpUa(WhoisEntry):
         'creation_date': r'Created On: (.+)',
         'expiration_date': r'Expiration Date: (.+)',
         'name_servers': r'Name Server: *(.+)',
+
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2892,7 +2896,9 @@ class WhoisHn(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
-        'name_servers': r'Name Server: *(.+)'
+        'name_servers': r'Name Server: *(.+)',
+
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):
@@ -2954,7 +2960,8 @@ class WhoisLat(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
-        'name_servers': r'Name Server: *(.+)'
+        'name_servers': r'Name Server: *(.+)',
+        'emails': EMAIL_REGEX,
     }
 
     def __init__(self, domain, text):

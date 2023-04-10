@@ -102,6 +102,10 @@ class NICClient(object):
     WEBSITE_HOST = "whois.nic.website"
     ZA_HOST = "whois.registry.net.za"
     RU_HOST = "whois.nic.ru"
+    CITY_HOST = "whois.nic.city"
+    DESIGN_HOST = "whois.nic.design"
+    NAME_HOST = "whois.name.com"
+    STYLE_HOST = "whois.nic.style"
     IDS_HOST = "whois.identitydigital.services"
     GDD_HOST = "whois.dnrs.godaddy"
     SHOP_HOST = "whois.nic.shop"
@@ -113,8 +117,9 @@ class NICClient(object):
     NG_HOST = "whois.nic.net.ng"
     PPUA_HOST = "whois.pp.ua"
     UKR_HOST = "whois.dotukr.com"
-    GOV_HOST = 'IANAHOST'
+    GOV_HOST = IANAHOST,
     EDU_HOST = 'whois.educause.edu'
+    ES_HOST = IANAHOST, # 'whois.nic.es' does not work unless you are allowlisted
 
     WHOIS_RECURSE = 0x01
     WHOIS_QUICK = 0x02
@@ -271,7 +276,9 @@ class NICClient(object):
         elif tld == 'goog' or tld == 'google':
             return NICClient.GOOGLE_HOST
         elif tld == 'gov':
-            return NICClient.IANAHOST
+            return NICClient.GOV_HOST
+        elif tld == 'es':
+            return NICClient.ES_HOST,
         elif tld == 'group':
             return NICClient.GROUP_HOST
         elif tld == 'hk':
@@ -315,15 +322,15 @@ class NICClient(object):
         elif tld == 'ru':
             return NICClient.RU_HOST
         elif tld == 'bz':
-            return NICClient.RU_HOST
+            return NICClient.IANAHOST
         elif tld == 'city':
-            return NICClient.RU_HOST
+            return NICClient.CITY_HOST
         elif tld == 'design':
-            return NICClient.RU_HOST
+            return NICClient.DESIGN_HOST
         elif tld == 'studio':
-            return NICClient.RU_HOST
+            return NICClient.NAME_HOST
         elif tld == 'style':
-            return NICClient.RU_HOST
+            return NICClient.STYLE_HOST
         elif tld == 'su':
             return NICClient.RU_HOST
         elif tld == 'рус' or tld == 'xn--p1acf':
