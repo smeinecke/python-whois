@@ -185,7 +185,6 @@ class NICClient(object):
         s.settimeout(10)
         try:  # socket.connect in a try, in order to allow things like looping whois on different domains without
             # stopping on timeouts: https://stackoverflow.com/questions/25447803/python-socket-connection-exception
-            print(hostname)
             s.connect((hostname, 43))
             try:
                 query = query.decode('utf-8')
