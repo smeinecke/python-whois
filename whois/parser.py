@@ -3405,7 +3405,7 @@ class WhoisKZ(WhoisEntry):
         'registrar_created': r'Registrar Created: *(.+)',
         'current_registrar': r'Current Registrar: *(.+)',
         'creation_date': r'Domain created: *(.+)',
-        'last_modified': r'Last modified : *(.+)',
+        'updated_date': r'Last modified : *(.+)',
         'name_servers': r'server.*: *(.+)',  # list of name servers
         'status': r' (.+?) -',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
