@@ -257,6 +257,8 @@ class WhoisEntry(dict):
             return WhoisAM(domain, text)            
         elif domain.endswith('.ru'):
             return WhoisRu(domain, text)
+        elif domain.endswith('.rs'):
+            return WhoisRs(domain, text)            
         elif domain.endswith('.us'):
             return WhoisUs(domain, text)
         elif domain.endswith('.uk'):
@@ -831,6 +833,24 @@ class WhoisTh(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'No information available about domain name' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisRs(WhoisEntry):
+    """Whois parser for .rs domains"""
+    regex = {
+        'domain_name': r'Domain name: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+        'creation_date': r'Registration date: *(.+)',
+        'expiration_date': r'Expiration date: *(.+)',
+        'updated_date': r'Modification date: *(.+)',
+        'emails': EMAIL_REGEX,  # list of email addresses
+    }
+
+    def __init__(self, domain, text):
+        if 'No entries found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
