@@ -281,6 +281,8 @@ class WhoisEntry(dict):
             return WhoisPl(domain, text)
         elif domain.endswith('.br'):
             return WhoisBr(domain, text)
+        elif domain.endswith('.th'):
+            return WhoisTh(domain, text)            
         elif domain.endswith('.eu'):
             return WhoisEu(domain, text)
         elif domain.endswith('.ee'):
@@ -791,7 +793,6 @@ class WhoisGov(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-
 class WhoisRo(WhoisEntry):
     """Whois parser for .ro domains"""
     regex = {
@@ -811,6 +812,25 @@ class WhoisRo(WhoisEntry):
 
     def __init__(self, domain, text):
         if text.strip() == 'NOT FOUND':
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisTh(WhoisEntry):
+    """Whois parser for .th domains"""
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'registrar': r'Registrar:(.+)',
+        'name_servers': r'Name Server: *(.+)',
+        'creation_date': r'Created date: *(.+)', 
+        'expiration_date': r'Exp date: *(.+)',
+        'updated_date': r'Updated Date: (.+)',
+        'status': r'Status: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'No information available about domain name' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
