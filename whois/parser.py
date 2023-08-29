@@ -1965,8 +1965,8 @@ class WhoisKg(WhoisEntry):
         'name_servers': r'Name servers in the listed order: *([\d\w\.\s]+)',
         # 'name_servers':                 r'([\w]+\.[\w]+\.[\w]{2,5}\s*\d{1,3}\.\d]{1,3}\.[\d]{1-3}\.[\d]{1-3})',
         'creation_date': r'Record created: *(.+)',
-        'expiration_date': r'Record expires on \s*(.+)',
-        'updated_date': r'Record last updated on\s*(.+)',
+        'expiration_date': r'Record expires on: *(.+)',
+        'updated_date': r'Record last updated on: *(.+)',
 
     }
 
