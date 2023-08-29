@@ -567,10 +567,31 @@ class WhoisEntry(dict):
             return WhoisTraining(domain, text)
         elif domain.endswith('.site'):
             return WhoisSite(domain, text)
+        elif domain.endswith('.ug'):
+            return WhoisUg(domain, text)            
         else:
             logger.warning(f'No specific TLD parser for domain {domain}. Using generic parser.')
             return WhoisEntry(domain, text)
 
+
+class WhoisUg(WhoisEntry):
+    """Whois parser for .ug domains"""
+
+    regex = {
+        'domain_name': r'Domain name: *(.+)',
+        'registrant_name': r'Registrant name: *(.+)',
+        'registrant_organization': r'Registrant organization: *(.+)',
+        'creation_date': r'Registered On: *(.+)',
+        'expiration_date': r'Expires On: *(.+)',
+        'updated_date': r'Renewed On: *(.+)',        
+        'name_servers': r'Nameserver: *(.+)',  # list of name servers
+    }
+
+    def __init__(self, domain, text):
+        if 'No entries found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 class WhoisCl(WhoisEntry):
     """Whois parser for .cl domains"""
@@ -587,7 +608,7 @@ class WhoisCl(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'No match for "' in text:
+        if 'no entries found.' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
