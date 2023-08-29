@@ -3343,7 +3343,7 @@ class WhoisDo(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.strip() == 'Extensión de dominio no válido.':
+        if text.strip() == 'No Object Found':
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
