@@ -1207,12 +1207,12 @@ class WhoisFi(WhoisEntry):
 class WhoisJp(WhoisEntry):
     """Whois parser for .jp domains"""
     regex = {
-        'domain_name': r'a. \[ドメイン名]\ *(.+)',
+        'domain_name': r'a. \[Domain Name]\ *(.+)',
         'registrant_org': r'g\. \[Organization\] *(.+)',
-        'creation_date': r'\[登録年月日\] *(.+)',
-        'name_servers': r'p\. \[ネームサーバ\] *(.+)',  # list of name servers
-        'updated_date': r'\[最終更新\] *(.+)',
-        'status': r'\[状態\] *(.+)',  # list of statuses
+        'creation_date': r'\[Registered Date\] *(.+)',
+        'name_servers': r'p\. \[Name Server\] *(.+)',  # list of name servers
+        'updated_date': r'\[Last Update\] *(.+)',
+        'status': r'\[State\] *(.+)',  # list of statuses
         'emails': EMAIL_REGEX  # list of email addresses
     }
 
