@@ -253,6 +253,8 @@ class WhoisEntry(dict):
             return WhoisAe(domain, text)
         elif domain.endswith('.au'):
             return WhoisAU(domain, text)
+        elif domain.endswith('.am'):
+            return WhoisAM(domain, text)            
         elif domain.endswith('.ru'):
             return WhoisRu(domain, text)
         elif domain.endswith('.us'):
@@ -1220,6 +1222,19 @@ class WhoisJp(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+class WhoisAM(WhoisEntry):
+    """Whois parser for .am domains"""
+    regex = {
+        'creation_date': r'Registered: *(.+)',
+        'updated_date': r'Last modified: *(.+)',
+        'expiration_date': r'Expires: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if text.strip() == 'No Data Found':
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 class WhoisAU(WhoisEntry):
     """Whois parser for .au domains"""
