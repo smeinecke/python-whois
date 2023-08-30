@@ -3213,6 +3213,8 @@ class WhoisCr(WhoisEntry):
         'phone': r'phone: *(.+)',
     }
 
+    dayfirst = True
+    
     def __init__(self, domain, text):
         if text.strip() == 'El dominio no existe.':
             raise PywhoisError(text)
