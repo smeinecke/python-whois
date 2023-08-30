@@ -2643,6 +2643,8 @@ class WhoisLu(WhoisEntry):
         'emails': EMAIL_REGEX,
     }
 
+    dayfirst = True
+    
     def __init__(self, domain, text):
         if 'No such domain' in text:
             raise PywhoisError(text)
