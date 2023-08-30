@@ -608,7 +608,7 @@ class WhoisCl(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'no entries found.' in text:
+        if 'Invalid domain name:' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
