@@ -617,12 +617,12 @@ class WhoisSG(WhoisEntry):
     """Whois parser for .sg domains"""
 
     regex = {
-        'domain_name': r'Domain name: *(.+)',
-        'registrant_name': r'Registrant:\n\s+Name:(.+)',
+        'domain_name': r'Domain Name: *(.+)',
+        'registrant_name': r'Registrant:\n\s+Name: *(.+)',
         'registrar': r'Registrar: *(.+)',
-        'creation_date': r'Creation date: *(.+)',
-        'expiration_date': r'Expiration date: *(.+)',
-        'dnssec': r'DNSSEC:\n(.*)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Expiration Date: *(.+)',
+        'update_date': r'Modified Date: *(.+)',
     }
 
     def __init__(self, domain, text):
