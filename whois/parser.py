@@ -2593,19 +2593,12 @@ class WhoisIe(WhoisEntry):
 class WhoisNz(WhoisEntry):
     """Whois parser for .nz domains"""
     regex = {
-        'domain_name': r'domain_name:\s*([^\n\r]+)',
-        'registrar': r'registrar_name:\s*([^\n\r]+)',
-        'updated_date': r'domain_datelastmodified:\s*([^\n\r]+)',
-        'creation_date': r'domain_dateregistered:\s*([^\n\r]+)',
-        'expiration_date': r'domain_datebilleduntil:\s*([^\n\r]+)',
-        'name_servers': r'ns_name_\d*:\s*([^\n\r]+)',  # list of name servers
-        'status': r'status:\s*([^\n\r]+)',  # list of statuses
-        'emails': EMAIL_REGEX,  # list of email s
-        'name': r'registrant_contact_name:\s*([^\n\r]+)',
-        'address': r'registrant_contact_address\d*:\s*([^\n\r]+)',
-        'city': r'registrant_contact_city:\s*([^\n\r]+)',
-        'registrant_postal_code': r'registrant_contact_postalcode:\s*([^\n\r]+)',
-        'country': r'registrant_contact_country:\s*([^\n\r]+)',
+        'domain_name': r'Domain Name: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'name_servers': r'Name Server: *(.+)',  # list of name servers
+        'emails': EMAIL_REGEX,  # list of emails
     }
 
     def __init__(self, domain, text):
