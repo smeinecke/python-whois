@@ -79,6 +79,7 @@ class NICClient(object):
     JP_HOST = 'whois.jprs.jp'
     KZ_HOST = "whois.nic.kz"
     LAT_HOST = "whois.nic.lat"
+    MA_HOST = "whois.registre.ma"
     LI_HOST = "whois.nic.li"
     LNICHOST = "whois.lacnic.net"
     LT_HOST = 'whois.domreg.lt'
@@ -261,6 +262,8 @@ class NICClient(object):
             return NICClient.CA_HOST
         elif tld == 'chat':
             return NICClient.CHAT_HOST
+        elif tld == 'ma':
+            return NICClient.MA_HOST
         elif tld == 'cl':
             return NICClient.CL_HOST
         elif tld == 'cr':
