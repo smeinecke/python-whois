@@ -1496,7 +1496,7 @@ class WhoisBg(WhoisEntry):
     dayfirst = True
 
     def __init__(self, domain, text):
-        if 'does not exist in database!' in text:
+        if 'registration status: available' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
