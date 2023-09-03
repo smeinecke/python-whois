@@ -324,6 +324,8 @@ class WhoisEntry(dict):
             return WhoisChLi(domain, text)
         elif domain.endswith('.id'):
             return WhoisID(domain, text)
+        elif domain.endswith('.as') or domain.endswith('.gg') or domain.endswith('.je'):
+            return WhoisAsGgJe(domain, text)            
         elif domain.endswith('.sk'):
             return WhoisSK(domain, text)
         elif domain.endswith('.se'):
@@ -975,6 +977,22 @@ class WhoisLt(WhoisEntry):
             duplicate_nameservers_without_ip = [nameserver.split(' ')[0]
                                                 for nameserver in duplicate_nameservers_with_ip]
             self['name_servers'] = sorted(list(set(duplicate_nameservers_without_ip)))
+
+
+class WhoisAsGgJe(WhoisEntry):
+    """Whois parser for .as .gg .je domains
+    """
+    regex = {
+        'domain_name': r'Domain:[\r\n ]+(.+)',
+        'creation_date': r'Relevant dates:[\r\n ]+ Registered on(.+)',
+        'registrar': r'Registrar:[\r\n ]+(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'NOT FOUND' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisName(WhoisEntry):
