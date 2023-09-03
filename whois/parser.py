@@ -364,6 +364,8 @@ class WhoisEntry(dict):
             return WhoisOnline(domain, text)
         elif domain.endswith('.cn'):
             return WhoisCn(domain, text)
+        elif domain.endswith('.tn'):
+            return WhoisTn(domain, text)            
         elif domain.endswith('.app'):
             return WhoisApp(domain, text)
         elif domain.endswith('.money'):
@@ -3120,6 +3122,22 @@ class WhoisCn(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
+class WhoisTn(WhoisEntry):
+    """Whois parser for .tn domains"""
+    regex = {
+        'domain_name': r'Domain name.........: *(.+)',
+        'registrar': r'Registrar...........: *(.+)',
+        'creation_date': r'Creation date.......: *(.+)',
+        'name_servers': r'Name................: *(.+)\.',  # list of name servers
+        'emails': EMAIL_REGEX,  # list of emails
+    }
+
+    def __init__(self, domain, text):
+        if 'NO OBJECT FOUND!' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 class WhoisApp(WhoisEntry):
     """Whois parser for .app domains"""
