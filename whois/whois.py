@@ -340,6 +340,8 @@ class NICClient(object):
             return NICClient.STYLE_HOST
         elif tld == 'su':
             return NICClient.RU_HOST
+        elif tld == 'pk':
+            return 'whois.pknic.net.pk'            
         elif tld == 'рус' or tld == 'xn--p1acf':
             return NICClient.RU_HOST
         elif tld == 'direct':
