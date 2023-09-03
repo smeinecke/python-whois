@@ -286,6 +286,8 @@ class NICClient(object):
             return NICClient.GOV_HOST
         elif tld == 'es':
             return NICClient.ES_HOST
+        elif tld == 'nc':
+            return 'whois.nc'            
         elif tld == 'group':
             return NICClient.GROUP_HOST
         elif tld == 'hk':
