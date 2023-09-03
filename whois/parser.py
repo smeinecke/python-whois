@@ -540,6 +540,8 @@ class WhoisEntry(dict):
             return WhoisParis(domain, text)
         elif domain.endswith('.ps'):
             return WhoisPs(domain, text)
+        elif domain.endswith('.pk'):
+            return WhoisPk(domain, text)            
         elif domain.endswith('.fashion'):
             return WhoisFashion(domain, text)
         elif domain.endswith('.finance'):
@@ -834,6 +836,25 @@ class WhoisRo(WhoisEntry):
 
     def __init__(self, domain, text):
         if text.strip() == 'NOT FOUND':
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisPk(WhoisEntry):
+    """Whois parser for .pk domains"""
+    regex = {
+        'domain_name': r'Domain: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Expiration Date: *(.+)',
+        'name_servers': r'Name Server: *(.+) \|',  # list of name servers
+        'status': r'Domain Status: *(.+)',  # list of statuses
+        'emails': EMAIL_REGEX,  # list of email addresses
+    }
+    dayfirst = True
+
+    def __init__(self, domain, text):
+        if 'Status: Not Registered' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
