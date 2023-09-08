@@ -274,6 +274,8 @@ class WhoisEntry(dict):
             return WhoisHr(domain, text)
         elif domain.endswith('.hn'):
             return WhoisHn(domain, text)
+        elif domain.endswith('.hu'):
+            return WhoisHu(domain, text)
         elif domain.endswith('.hk'):
             return WhoisHk(domain, text)
         elif domain.endswith('.jp'):
@@ -665,6 +667,22 @@ class WhoisPe(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'No match for "' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisHu(WhoisEntry):
+    """Whois parser for .hu domains"""
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'creation_date': r'record created: *(.+)',
+        'emails': EMAIL_REGEX,
+    }
+
+    def __init__(self, domain, text):
+
+        if 'Nincs talalat / No match' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
