@@ -1575,11 +1575,9 @@ class WhoisAt(WhoisEntry):
 class WhoisBe(WhoisEntry):
     """Whois parser for .be domains"""
     regex = {
-        'name': r'Name: *(.+)',
-        'org': r'Organisation: *(.+)',
-        'phone': r'Phone: *(.+)',
-        'fax': r'Fax: *(.+)',
-        'email': r'Email: *(.+)',
+        'name': r'Domain: *(.+)',
+        'creation_date': r'Registered: *(.+)',
+        'registrar': r'Registrar:[ \n\r]+Name: *(.+)',
     }
 
     def __init__(self, domain, text):
