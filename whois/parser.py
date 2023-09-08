@@ -1302,11 +1302,11 @@ class WhoisFi(WhoisEntry):
 class WhoisJp(WhoisEntry):
     """Whois parser for .jp domains"""
     regex = {
-        'domain_name': r'a. \[ドメイン名]\ *(.+)',
-        'registrant_org': r'g\. \[Organization\] *(.+)',
+        'domain_name': r'\[Domain Name\] *(.+)|a. \[ドメイン名]\ *(.+)',
         'creation_date': r'\[登録年月日\] *(.+)',
         'name_servers': r'p\. \[ネームサーバ\] *(.+)',  # list of name servers
-        'updated_date': r'\[接続年月日\] *(.+)',
+        'updated_date': r'\[最終更新\] *(.+)|\[接続年月日\] *(.+)',
+        'expiration_date': r'\[有効期限\] *(.+)',         
         'status': r'\[状態\] *(.+)',  # list of statuses
         'emails': EMAIL_REGEX  # list of email addresses
     }
