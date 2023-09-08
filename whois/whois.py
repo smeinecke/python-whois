@@ -118,7 +118,6 @@ class NICClient(object):
     NG_HOST = "whois.nic.net.ng"
     PPUA_HOST = "whois.pp.ua"
     UKR_HOST = "whois.dotukr.com"
-    GOV_HOST = IANAHOST
     EDU_HOST = 'whois.educause.edu'
     ES_HOST = IANAHOST
     SITE_HOST = "whois.nic.site"
@@ -282,8 +281,6 @@ class NICClient(object):
             return "whois.nic.group"            
         elif tld == 'goog' or tld == 'google':
             return NICClient.GOOGLE_HOST
-        elif tld == 'gov':
-            return NICClient.GOV_HOST
         elif tld == 'es':
             return NICClient.ES_HOST
         elif tld == 'nc':
