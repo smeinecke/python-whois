@@ -1577,7 +1577,7 @@ class WhoisBe(WhoisEntry):
     regex = {
         'name': r'Domain: *(.+)',
         'creation_date': r'Registered: *(.+)',
-        'registrar': r'Registrar:[ \n\r]+Name: *(.+)',
+        'registrar': r'Registrar: *[\t\r\n]+Name: *(.+)',
     }
 
     def __init__(self, domain, text):
