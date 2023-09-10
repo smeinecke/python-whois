@@ -1628,7 +1628,7 @@ class WhoisInfo(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.strip() == 'NOT FOUND':
+        if 'Domain not found.' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
