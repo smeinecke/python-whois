@@ -3406,7 +3406,7 @@ class WhoisDo(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if text.strip() == 'No Object Found':
+        if 'No Object Found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
