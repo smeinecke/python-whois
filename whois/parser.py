@@ -318,6 +318,8 @@ class WhoisEntry(dict):
             return WhoisIo(domain, text)
         elif domain.endswith('.biz'):
             return WhoisBiz(domain, text)
+        elif domain.endswith('.cc'):
+            return WhoisCc(domain, text)            
         elif domain.endswith('.mobi'):
             return WhoisMobi(domain, text)
         elif domain.endswith('.ch'):
@@ -599,6 +601,27 @@ class WhoisUg(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisCc(WhoisEntry):
+    """Whois parser for .cc domains"""
+
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Registry Expiry Date: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
+        'registrant_name': r'Registrant Name: *(.+)',
+        'iana_id': r'Registrar IANA ID: *(.+)',
+        'name_servers': r'Nameserver: *(.+)',  # list of name servers
+    }
+
+    def __init__(self, domain, text):
+        if 'No match for' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisCl(WhoisEntry):
     """Whois parser for .cl domains"""
