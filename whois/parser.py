@@ -4409,9 +4409,17 @@ class WhoisCi(WhoisEntry):
 class WhoisCo(WhoisCom):
     """Whois parser for .co domains
     """
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Registry Expiry Date: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+        'iana_id': r'Registrar IANA ID: *(.+)',
+    }
 
     def __init__(self, domain, text):
-        if 'Not found:' in text:
+        if 'No Data Found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
