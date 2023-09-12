@@ -3859,7 +3859,7 @@ class WhoisAsia(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'Not found:' in text:
+        if 'Domain not found.' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
