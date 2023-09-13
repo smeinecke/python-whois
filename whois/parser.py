@@ -643,8 +643,6 @@ class WhoisCl(WhoisEntry):
         'name_servers': r'Name server: *(.+)',  # list of name servers
     }
 
-    dayfirst = True
-
     def __init__(self, domain, text):
         if 'no entries found.' in text:
             raise PywhoisError(text)
@@ -3250,6 +3248,8 @@ class WhoisTn(WhoisEntry):
         'name_servers': r'Name................: *(.+)\.',  # list of name servers
         'emails': EMAIL_REGEX,  # list of emails
     }
+
+    dayfirst = True
 
     def __init__(self, domain, text):
         if 'NO OBJECT FOUND!' in text:
