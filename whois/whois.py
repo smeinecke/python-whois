@@ -341,6 +341,8 @@ class NICClient(object):
             return NICClient.RU_HOST
         elif tld == 'sg':
             return 'whois.sgnic.sg'
+        elif tld == 'tz':
+            return 'whois.tznic.or.tz'            
         elif tld == 'tn':
             return 'whois.ati.tn'
         elif tld == 'tv':
