@@ -1863,11 +1863,27 @@ class WhoisDesign(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisStudio(WhoisRu):
+class WhoisStudio(WhoisEntry):
     """Whois parser for .studio domains"""
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'domain_id': r'Registry Domain ID:(.+)',
+        'whois_server': r'Registrar WHOIS Server: *(.+)',
+        'registrar_url': r'Registrar URL: *(.+)',
+        'updated_date': r'Updated Date: (.+)',
+        'creation_date': r'Creation Date: (.+)',
+        'expiration_date': r'Expir\w+ Date:\s?(.+)',
+        'registrar': r'Registrar:(.+)',
+        'status': r'Domain status: *(.+)',
+        'registrant_name': r'Registrant Name:(.+)',
+        'name_servers': r'Name Server: *(.+)',
+    }
 
     def __init__(self, domain, text):
-        WhoisRu.__init__(self, domain, text)
+        if 'Domain not found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisStyle(WhoisRu):
