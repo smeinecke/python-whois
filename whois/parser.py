@@ -652,6 +652,26 @@ class WhoisCl(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
+class WhoisVe(WhoisEntry):
+    """Whois parser for .ve domains"""
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'registrar': r'registrar: *(.+)',
+        'updated_date': r'changed: *(.+)',
+        'creation_date': r'registered: *(.+)',
+        'expiration_date': r'expire: *(.+)',
+        'name_servers': r'nserver: *(.+)',
+    }
+
+    dayfirst = True
+
+    def __init__(self, domain, text):
+        if text.strip() == 'El dominio no existe.':
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
 class WhoisSG(WhoisEntry):
     """Whois parser for .sg domains"""
 
