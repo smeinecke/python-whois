@@ -344,7 +344,7 @@ class NICClient(object):
         elif tld == 'design':
             return NICClient.DESIGN_HOST
         elif tld == 'studio':
-            return NICClient.NAME_HOST
+            return 'whois.nic.studio'
         elif tld == 'style':
             return NICClient.STYLE_HOST
         elif tld == 'su':
