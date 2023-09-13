@@ -301,6 +301,8 @@ class NICClient(object):
             return NICClient.JP_HOST
         elif tld == 'kz':
             return NICClient.KZ_HOST
+        elif tld == 'ge':
+            return 'whois.nic.ge'
         elif tld == 'lat':
             return NICClient.LAT_HOST
         elif tld == 'li':
