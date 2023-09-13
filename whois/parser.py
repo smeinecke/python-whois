@@ -951,12 +951,10 @@ class WhoisPk(WhoisEntry):
     regex = {
         'domain_name': r'Domain: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Expiration Date: *(.+)',
+        'expiration_date': r'Expiry Date: *(.+)',
         'name_servers': r'Name Server: *(.+) \|',  # list of name servers
-        'status': r'Domain Status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
     }
-    dayfirst = True
 
     def __init__(self, domain, text):
         if 'Status: Not Registered' in text:
