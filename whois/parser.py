@@ -2654,6 +2654,7 @@ class WhoisIe(WhoisEntry):
         'domain_name': r'Domain Name: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
         'name_servers': r'Name Server: *(.+)',
         'status': r'Domain status: *(.+)',
         'admin_id': r'Registry Admin ID: *(.+)',
