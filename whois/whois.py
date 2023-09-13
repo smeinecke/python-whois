@@ -323,6 +323,8 @@ class NICClient(object):
             return NICClient.PAGE_HOST
         elif tld == 'pe':
             return NICClient.PE_HOST
+        elif tld == 'pf':
+            return 'whois.registry.pf'
         elif tld == 'website':
             return NICClient.WEBSITE_HOST
         elif tld == 'za':
