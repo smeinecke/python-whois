@@ -324,6 +324,8 @@ class WhoisEntry(dict):
             return WhoisMobi(domain, text)
         elif domain.endswith('.ch'):
             return WhoisChLi(domain, text)
+        elif domain.endswith('.pf'):
+            return WhoisPf(domain, text)            
         elif domain.endswith('.li'):
             return WhoisChLi(domain, text)
         elif domain.endswith('.id'):
@@ -715,6 +717,24 @@ class WhoisRe(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
+class WhoisPf(WhoisEntry):
+    """Whois parser for .pf domains"""
+    regex = {
+        'domain_name': r'Informations about \'(.+)\' :',
+        'registrar': r'Registrar Company Name : (.+)',
+        'creation_date': r'Created (JJ/MM/AAAA) : (.+)',
+        'update_date': r'Last renewed (JJ/MM/AAAA) : (.+)',
+        'expiration_date': r'Expire (JJ/MM/AAAA) : (.+)',
+        'emails': EMAIL_REGEX,
+    }
+
+    def __init__(self, domain, text):
+
+        if 'Domain unknown' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 class WhoisHu(WhoisEntry):
     """Whois parser for .hu domains"""
