@@ -995,6 +995,8 @@ class WhoisRs(WhoisEntry):
         'emails': EMAIL_REGEX,  # list of email addresses
     }
 
+    dayfirst = True
+
     def __init__(self, domain, text):
         if 'No entries found' in text:
             raise PywhoisError(text)
