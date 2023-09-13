@@ -2815,6 +2815,8 @@ class WhoisCz(WhoisEntry):
         'emails': EMAIL_REGEX,
     }
 
+    dayfirst = True
+
     def __init__(self, domain, text):
         if '% No entries found.' in text or 'Your connection limit exceeded' in text:
             raise PywhoisError(text)
