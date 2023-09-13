@@ -723,9 +723,9 @@ class WhoisPf(WhoisEntry):
     regex = {
         'domain_name': r'Informations about \'(.+)\' :',
         'registrar': r'Registrar Company Name : (.+)',
-        'creation_date': r'Created (JJ/MM/AAAA) : (.+)',
-        'update_date': r'Last renewed (JJ/MM/AAAA) : (.+)',
-        'expiration_date': r'Expire (JJ/MM/AAAA) : (.+)',
+        'creation_date': r'Created \(JJ/MM/AAAA\) : (.+)',
+        'update_date': r'Last renewed \(JJ/MM/AAAA\) : (.+)',
+        'expiration_date': r'Expire \(JJ/MM/AAAA\) : (.+)',
         'emails': EMAIL_REGEX,
     }
 
