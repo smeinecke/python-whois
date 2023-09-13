@@ -3418,53 +3418,15 @@ class WhoisCr(WhoisEntry):
 class WhoisVe(WhoisEntry):
     """Whois parser for .ve domains"""
     regex = {
-        'domain_name': r'Nombre de Dominio: *(.+)',
-        'status': r'Estatus del dominio: *(.+)',
-
+        'domain_name': r'domain: *(.+)',
         'registrar': r'registrar: *(.+)',
-
-        'updated_date': r'Ultima Actualización: *(.+)',
-        'creation_date': r'Fecha de Creación: *(.+)',
-        'expiration_date': r'Fecha de Vencimiento: *(.+)',
-
-        'name_servers': r'Nombres de Dominio:((?:\s+- .*)*)',
-
-        'registrant_name': r'Titular:\s*(?:.*\n){1}\s+(.*)',
-        'registrant_city': r'Titular:\s*(?:.*\n){3}\s+([\s\w]*)',
-        'registrant_street': r'Titular:\s*(?:.*\n){2}\s+(.*)',
-        'registrant_state_province': r'Titular:\s*(?:.*\n){3}\s+.*?,(.*),',
-        'registrant_country': r'Titular:\s*(?:.*\n){3}\s+.*, .+  (.*)',
-        'registrant_phone': r'Titular:\s*(?:.*\n){4}\s+(\+*\d.+)',
-        'registrant_email': r'Titular:\s*.*\t(.*)',
-
-        'tech': r'Contacto Técnico:\s*(?:.*\n){1}\s+(.*)',
-        'tech_city': r'Contacto Técnico:\s*(?:.*\n){3}\s+([\s\w]*)',
-        'tech_street': r'Contacto Técnico:\s*(?:.*\n){2}\s+(.*)',
-        'tech_state_province': r'Contacto Técnico:\s*(?:.*\n){3}\s+.*?,(.*),',
-        'tech_country': r'Contacto Técnico:\s*(?:.*\n){3}\s+.*, .+  (.*)',
-        'tech_phone': r'Contacto Técnico:\s*(?:.*\n){4}\s+(\+*\d.*)\(',
-        'tech_fax': r'Contacto Técnico:\s*(?:.*\n){4}\s+.*\(FAX\) (.*)',
-        'tech_email': r'Contacto Técnico:\s*.*\t(.*)',
-
-        'admin': r'Contacto Administrativo:\s*(?:.*\n){1}\s+(.*)',
-        'admin_city': r'Contacto Administrativo:\s*(?:.*\n){3}\s+([\s\w]*)',
-        'admin_street': r'Contacto Administrativo:\s*(?:.*\n){2}\s+(.*)',
-        'admin_state_province': r'Contacto Administrativo:\s*(?:.*\n){3}\s+.*?,(.*),',
-        'admin_country': r'Contacto Administrativo:\s*(?:.*\n){3}\s+.*, .+  (.*)',
-        'admin_phone': r'Contacto Administrativo:\s*(?:.*\n){4}\s+(\+*\d.*)\(',
-        'admin_fax': r'Contacto Administrativo:\s*(?:.*\n){4}\s+.*\(FAX\) (.*)',
-        'admin_email': r'Contacto Administrativo:\s*.*\t(.*)',
-
-        'billing': r'Contacto de Cobranza:\s*(?:.*\n){1}\s+(.*)',
-        'billing_city': r'Contacto de Cobranza:\s*(?:.*\n){3}\s+([\s\w]*)',
-        'billing_street': r'Contacto de Cobranza:\s*(?:.*\n){2}\s+(.*)',
-        'billing_state_province': r'Contacto de Cobranza:\s*(?:.*\n){3}\s+.*?,(.*),',
-        'billing_country': r'Contacto de Cobranza:\s*(?:.*\n){3}\s+.*, .+  (.*)',
-        'billing_phone': r'Contacto de Cobranza:\s*(?:.*\n){4}\s+(\+*\d.*)\(',
-        'billing_fax': r'Contacto de Cobranza:\s*(?:.*\n){4}\s+.*\(FAX\) (.*)',
-        'billing_email': r'Contacto de Cobranza:\s*.*\t(.*)',
-
+        'updated_date': r'changed: *(.+)',
+        'creation_date': r'registered: *(.+)',
+        'expiration_date': r'expire: *(.+)',
+        'name_servers': r'nserver: *(.+)',
     }
+
+    dayfirst = True
 
     def __init__(self, domain, text):
         if text.strip() == 'El dominio no existe.':
