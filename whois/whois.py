@@ -331,6 +331,8 @@ class NICClient(object):
             return NICClient.WEBSITE_HOST
         elif tld == 'za':
             return NICClient.ZA_HOST
+        elif tld == 'fj':
+            return 'www.whois.fj'            
         elif tld == 'ru':
             return NICClient.RU_HOST
         elif tld == 'sg':
