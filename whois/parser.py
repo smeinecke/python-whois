@@ -262,6 +262,8 @@ class WhoisEntry(dict):
             return WhoisUs(domain, text)
         elif domain.endswith('.uk'):
             return WhoisUk(domain, text)
+        elif domain.endswith('.qa'):
+            return WhoisQa(domain, text)            
         elif domain.endswith('.fr'):
             return WhoisFr(domain, text)
         elif domain.endswith('.nl'):
@@ -698,6 +700,23 @@ class WhoisPe(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
+class WhoisQa(WhoisEntry):
+    """Whois parser for .qa domains"""
+
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'status': r'Status: *(.+)',
+        'registrar': r'Registrar Name: *(.+)',
+        'update_date': r'Last Modified: *(.+)',    
+        'name_servers': r'Name Server: *(.+)',  # list of name servers
+    }
+
+    def __init__(self, domain, text):
+        if 'No Data Found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 class WhoisRe(WhoisEntry):
     """Whois parser for .re domains"""
