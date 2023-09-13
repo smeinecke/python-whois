@@ -576,6 +576,8 @@ class WhoisEntry(dict):
             return WhoisTraining(domain, text)
         elif domain.endswith('.site'):
             return WhoisSite(domain, text)
+        elif domain.endswith('.re'):
+            return WhoisRe(domain, text)
         elif domain.endswith('.ug'):
             return WhoisUg(domain, text)            
         else:
@@ -690,6 +692,25 @@ class WhoisPe(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'No match for "' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisRe(WhoisEntry):
+    """Whois parser for .re domains"""
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'registrar': r'registrar: *(.+)',
+        'creation_date': r'created: *(.+)',
+        'update_date': r'Expiry Date: *(.+)',
+        'expiration_date': r'last-update: *(.+)',
+        'emails': EMAIL_REGEX,
+    }
+
+    def __init__(self, domain, text):
+
+        if 'NOT FOUND' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
