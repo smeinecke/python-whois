@@ -643,6 +643,8 @@ class WhoisCl(WhoisEntry):
         'name_servers': r'Name server: *(.+)',  # list of name servers
     }
 
+    dayfirst = True
+
     def __init__(self, domain, text):
         if 'no entries found.' in text:
             raise PywhoisError(text)
