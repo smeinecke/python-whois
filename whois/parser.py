@@ -791,6 +791,7 @@ class WhoisPf(WhoisEntry):
         'expiration_date': r'Expire \(JJ/MM/AAAA\) : (.+)',
         'emails': EMAIL_REGEX,
     }
+    dayfirst = True
 
     def __init__(self, domain, text):
 
