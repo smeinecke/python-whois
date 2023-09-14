@@ -668,8 +668,6 @@ class WhoisMk(WhoisEntry):
     
     def __init__(self, domain, text):
 
-        print(text)
-
         if 'No entries found' in text:
             raise PywhoisError(text)
         else:
