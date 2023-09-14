@@ -328,6 +328,8 @@ class WhoisEntry(dict):
             return WhoisMobi(domain, text)
         elif domain.endswith('.ch'):
             return WhoisChLi(domain, text)
+        elif domain.endswith('.sn'):
+            return WhoisSn(domain, text)            
         elif domain.endswith('.pf'):
             return WhoisPf(domain, text)            
         elif domain.endswith('.li'):
@@ -630,6 +632,24 @@ class WhoisCc(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'No match for' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisSn(WhoisEntry):
+    """Whois parser for .sn domains"""
+
+    regex = {
+        'domain_name': r'Nom de domaine: *(.+)',
+        'creation_date': r'Date de création: *(.+)',
+        'expiration_date': r'Date d\'expiration: *(.+)',
+        'updated_date': r'Dernière modification: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'NOT FOUND' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
