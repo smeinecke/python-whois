@@ -349,6 +349,8 @@ class NICClient(object):
             return 'whois.nic.tv'            
         elif tld == 'bz':
             return NICClient.IANAHOST
+        elif tld == 'mw':
+            return 'whois.nic.mw'            
         elif tld == 'city':
             return NICClient.CITY_HOST
         elif tld == 'design':
