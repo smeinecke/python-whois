@@ -352,6 +352,8 @@ class WhoisEntry(dict):
             return WhoisIt(domain, text)
         elif domain.endswith('.mx'):
             return WhoisMx(domain, text)
+        elif domain.endswith('.mw'):
+            return WhoisMw(domain, text)            
         elif domain.endswith('.ai'):
             return WhoisAi(domain, text)
         elif domain.endswith('.il'):
@@ -776,6 +778,26 @@ class WhoisRe(WhoisEntry):
     def __init__(self, domain, text):
 
         if 'NOT FOUND' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMw(WhoisEntry):
+    """Whois parser for .mw domains"""
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'registrar': r'registrar: *(.+)',
+        'creation_date': r'registered: *(.+)',
+        'updated_date': r'changed: *(.+)',
+        'expiration_date': r'expire: *(.+)',
+        'emails': EMAIL_REGEX,
+    }
+    dayfirst = True
+    
+    def __init__(self, domain, text):
+
+        if 'No entries found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
