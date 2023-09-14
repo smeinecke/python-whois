@@ -803,7 +803,8 @@ class WhoisTz(WhoisEntry):
         'expiration_date': r'expire: *(.+)',
         'emails': EMAIL_REGEX,
     }
-
+    dayfirst = True
+    
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
