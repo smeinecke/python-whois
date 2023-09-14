@@ -300,7 +300,7 @@ class NICClient(object):
         elif tld == 'cc':
             return 'ccwhois.verisign-grs.com'
         elif tld == 'sn':
-            return 'hosting100.arc.sn'
+            return 'whois.nic.sn'
         elif tld == 'jp':
             return NICClient.JP_HOST
         elif tld == 'kz':
