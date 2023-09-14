@@ -299,6 +299,8 @@ class NICClient(object):
             return NICClient.JOBS_HOST
         elif tld == 'cc':
             return 'ccwhois.verisign-grs.com'
+        elif tld == 'sn':
+            return 'hosting100.arc.sn'
         elif tld == 'jp':
             return NICClient.JP_HOST
         elif tld == 'kz':
