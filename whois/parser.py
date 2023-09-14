@@ -484,6 +484,8 @@ class WhoisEntry(dict):
             return WhoisBio(domain, text)
         elif domain.endswith('.ac'):
             return WhoisAc(domain, text)
+        elif domain.endswith('.mk'):
+            return WhoisMk(domain, text)
         elif domain.endswith('.ag'):
             return WhoisAg(domain, text)
         elif domain.endswith('.cd'):
@@ -647,6 +649,28 @@ class WhoisCl(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'no entries found.' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMk(WhoisEntry):
+    """Whois parser for .mk domains"""
+    regex = {
+        'domain_name': r'domain: *(.+)',
+        'registrar': r'registrar: *(.+)',
+        'creation_date': r'registered: *(.+)',
+        'updated_date': r'changed: *(.+)',
+        'expiration_date': r'expire: *(.+)',
+        'emails': EMAIL_REGEX,
+    }
+    dayfirst = True
+    
+    def __init__(self, domain, text):
+
+        print(text)
+
+        if 'No entries found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
