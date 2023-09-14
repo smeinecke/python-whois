@@ -357,6 +357,8 @@ class NICClient(object):
             return 'whois.nic.studio'
         elif tld == 'style':
             return NICClient.STYLE_HOST
+        elif tld == 'mk':
+            return 'whois.marnet.mk'
         elif tld == 'su':
             return NICClient.RU_HOST
         elif tld == 'pk':
