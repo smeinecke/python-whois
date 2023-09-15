@@ -102,7 +102,7 @@ class NICClient(object):
     SNICHOST = "whois.6bone.net"
     WEBSITE_HOST = "whois.nic.website"
     ZA_HOST = "whois.registry.net.za"
-    RU_HOST = "whois.nic.ru"
+    RU_HOST = "whois.tcinet.ru"
     CITY_HOST = "whois.nic.city"
     DESIGN_HOST = "whois.nic.design"
     NAME_HOST = "whois.name.com"
