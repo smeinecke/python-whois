@@ -354,7 +354,7 @@ class NICClient(object):
         elif tld == 'tv':
             return 'whois.nic.tv'            
         elif tld == 'bz':
-            return NICClient.IANAHOST
+            return 'whois.rrpproxy.net'
         elif tld == 'ky':
             return 'whois.uniregistrar.com'
         elif tld == 'mw':
