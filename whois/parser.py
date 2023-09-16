@@ -811,7 +811,7 @@ class WhoisBn(WhoisEntry):
         'domain_name': r'Domain Name: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'update_date': r'Modified Date: *(.+)',
-        'create_date': r'Created Date: *(.+)',   
+        'create_date': r'Creation Date: *(.+)',   
         'expiration_date': r'Expiration Date: *(.+)',           
     }
 
