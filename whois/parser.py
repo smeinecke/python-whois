@@ -270,6 +270,8 @@ class WhoisEntry(dict):
             return WhoisFr(domain, text)
         elif domain.endswith('.nl'):
             return WhoisNl(domain, text)
+        elif domain.endswith('.mo'):
+            return WhoisMo(domain, text)            
         elif domain.endswith('.lt'):
             return WhoisLt(domain, text)
         elif domain.endswith('.fi'):
@@ -691,6 +693,21 @@ class WhoisMk(WhoisEntry):
     def __init__(self, domain, text):
 
         if 'No entries found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisMo(WhoisEntry):
+    """Whois parser for .mo domains"""
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'creation_date': r'Record created on *(.+)',
+        'expiration_date': r'Record expires on *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'No match for' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
