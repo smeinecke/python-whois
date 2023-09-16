@@ -278,6 +278,8 @@ class WhoisEntry(dict):
             return WhoisFi(domain, text)
         elif domain.endswith('.hr'):
             return WhoisHr(domain, text)
+        elif domain.endswith('.bn'):
+            return WhoisBn(domain, text)            
         elif domain.endswith('.hn'):
             return WhoisHn(domain, text)
         elif domain.endswith('.hu'):
@@ -800,6 +802,25 @@ class WhoisQa(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisBn(WhoisEntry):
+    """Whois parser for .bn domains"""
+
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+        'update_date': r'Modified Date: *(.+)',
+        'create_date': r'Created Date: *(.+)',   
+        'expiration_date': r'Expiration Date: *(.+)',           
+    }
+
+    def __init__(self, domain, text):
+        if 'Domain Not Found' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisRe(WhoisEntry):
     """Whois parser for .re domains"""
