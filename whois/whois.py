@@ -349,6 +349,8 @@ class NICClient(object):
             return 'whois.tznic.or.tz'
         elif tld == 'mo':
             return 'whois.monic.mo'
+        elif tld == 'my':
+            return 'whois.mynic.my'
         elif tld == 'tn':
             return 'whois.ati.tn'
         elif tld == 'tv':
