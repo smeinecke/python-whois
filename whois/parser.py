@@ -268,7 +268,7 @@ class WhoisEntry(dict):
             return WhoisQa(domain, text)
         elif domain.endswith('.so'):
             return WhoisSo(domain, text)
-        elif domain.endswith('.fr'):
+        elif domain.endswith('.fr') or domain.endswith('.pm'):
             return WhoisFr(domain, text)
         elif domain.endswith('.nl'):
             return WhoisNl(domain, text)
