@@ -3541,9 +3541,11 @@ class WhoisBy(WhoisEntry):
         'status': r'Domain Status: *(.+)',  # could not be found in sample, but might be correct
         'name': r'Person: *(.+)',  # could not be found in sample, but might be correct
         'org': r'Org: *(.+)',
+        'registration_id': r'Registration or other identification number: *(.+)',
         'registrant_country': r'Country: *(.+)',
         'registrant_address': r'Address: *(.+)',
         'registrant_phone': r'Phone: *(.+)',
+        'registrant_email': r'Email: *(.+)',
     }
 
     def __init__(self, domain, text):
