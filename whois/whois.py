@@ -282,13 +282,13 @@ class NICClient(object):
         elif tld == 'games':
             return NICClient.GAMES_HOST
         elif tld == 'group':
-            return "whois.nic.group"            
+            return "whois.nic.group"
         elif tld == 'goog' or tld == 'google':
             return NICClient.GOOGLE_HOST
         elif tld == 'es':
             return NICClient.ES_HOST
         elif tld == 'nc':
-            return 'whois.nc'            
+            return 'whois.nc'
         elif tld == 'group':
             return NICClient.GROUP_HOST
         elif tld == 'hk':
@@ -308,7 +308,7 @@ class NICClient(object):
         elif tld == 'kz':
             return NICClient.KZ_HOST
         elif tld == 'lb':
-            return 'whois.lbdr.org.lb'            
+            return 'whois.lbdr.org.lb'
         elif tld == 'ge':
             return 'whois.nic.ge'
         elif tld == 'lat':
@@ -340,7 +340,7 @@ class NICClient(object):
         elif tld == 'za':
             return NICClient.ZA_HOST
         elif tld == 'fj':
-            return 'www.whois.fj'            
+            return 'www.whois.fj'
         elif tld == 'ru':
             return NICClient.RU_HOST
         elif tld == 'sg':
@@ -354,13 +354,13 @@ class NICClient(object):
         elif tld == 'tn':
             return 'whois.ati.tn'
         elif tld == 'tv':
-            return 'whois.nic.tv'            
+            return 'whois.nic.tv'
         elif tld == 'bz':
             return 'whois.rrpproxy.net'
         elif tld == 'ky':
             return 'whois.uniregistrar.com'
         elif tld == 'mw':
-            return 'whois.nic.mw'            
+            return 'whois.nic.mw'
         elif tld == 'city':
             return NICClient.CITY_HOST
         elif tld == 'design':
@@ -374,7 +374,7 @@ class NICClient(object):
         elif tld == 'su':
             return NICClient.RU_HOST
         elif tld == 'pk':
-            return 'whois.pknic.net.pk'            
+            return 'whois.pknic.net.pk'
         elif tld == 'рус' or tld == 'xn--p1acf':
             return NICClient.RU_HOST
         elif tld == 'direct':
@@ -416,7 +416,7 @@ class NICClient(object):
             except socket.gaierror:
                 server = NICClient.QNICHOST_HEAD + tld
             return server
-        
+
     def whois_lookup(self, options, query_arg, flags, quiet=False):
         """Main entry point: Perform initial lookup on TLD whois server,
         or other server to get region-specific whois server, then if quick
