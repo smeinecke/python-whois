@@ -2453,17 +2453,27 @@ class WhoisAt(WhoisEntry):
 class WhoisBe(WhoisEntry):
     """Whois parser for .be domains"""
     regex = {
-        'name': r'Domain: *(.+)',
-        'creation_date': r'Registered: *(.+)',
-        'registrar': r'Registrar: *[\t\r\n]+Name: *(.+)',
+        'name': r'Domain:\s*(.+)',
+        'creation_date': r'Registered:\s*(.+)',
+        'registrar': r'Registrar:\s*[\s\t\n]+Name:\s*(.+)',
+        'name_servers': r'Nameservers:\n([\sa-z0-9\-\.]+)\n\n',  # list of name servers
+        'status': r'Flags:\n([\sa-z0-9\-\.]+)\n\n',  # list of flags
     }
 
     def __init__(self, domain, text):
         if 'Status: AVAILABLE' in text:
             raise PywhoisError(text)
         else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
+            WhoisEntry.__init__(self, domain, text.replace('\r', ''), self.regex)
 
+    def _preprocess(self, attr, value):
+        value = super(WhoisBe, self)._preprocess(attr, value)
+        if attr in ('name_servers', 'status') and value:
+            res = set()
+            for val in value.strip().split('\n'):
+                res.add(val.strip())
+            return list(res)
+        return value
 
 class WhoisInfo(WhoisEntry):
     """Whois parser for .info domains"""
