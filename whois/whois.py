@@ -46,11 +46,15 @@ logger = logging.getLogger(__name__)
 
 
 class NICClient(object):
+    WHOIS_BY_TLD = {
+        "whois.nic.google": ['xn--q9jyb4c', 'meet', 'foo', 'soy', 'prod', 'how', 'mov', 'youtube', 'channel', 'boo', 'dad', 'new', 'eat', 'ing', 'meme', 'here', 'zip', 'day', 'gmail', 'fly', 'gbiz', 'rsvp', 'esq', 'xn--flw351e',
+                        'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd'],
+        "whois.tucowsregistry.net": ['sexy', 'tattoo', 'gift', 'link', 'country', 'hiphop', 'juegos', 'hiv', 'property', 'click', 'yandex', 'trust', 'love', 'creditunion', 'cloud']
+    }
 
     ABUSEHOST = "whois.abuse.net"
     AI_HOST = "whois.nic.ai"
     ANICHOST = "whois.arin.net"
-    APP_HOST = "whois.nic.google"
     AR_HOST = "whois.nic.ar"
     BNICHOST = "whois.registro.br"
     BY_HOST = "whois.cctld.by"
@@ -60,14 +64,12 @@ class NICClient(object):
     CR_HOST = "whois.nic.cr"
     DEFAULT_PORT = "nicname"
     DENICHOST = "whois.denic.de"
-    DEV_HOST = "whois.nic.google"
     DE_HOST = "whois.denic.de"
     DK_HOST = "whois.dk-hostmaster.dk"
     DNICHOST = "whois.nic.mil"
     DO_HOST = "whois.nic.do"
     GAMES_HOST = "whois.nic.games"
     GNICHOST = "whois.nic.gov"
-    GOOGLE_HOST = "whois.nic.google"
     GROUP_HOST = 'whois.namecheap.com'
     HK_HOST = "whois.hkirc.hk"
     HN_HOST = "whois.nic.hn"
@@ -249,10 +251,13 @@ class NICClient(object):
         tld = domain[-1]
         if tld[0].isdigit():
             return NICClient.ANICHOST
-        elif tld == 'ai':
+
+        for host, tlds in NICClient.WHOIS_BY_TLD.items():
+            if tld in tlds:
+                return host
+
+        if tld == 'ai':
             return NICClient.AI_HOST
-        elif tld == 'app':
-            return NICClient.APP_HOST
         elif tld == 'ar':
             return NICClient.AR_HOST
         elif tld == 'by':
@@ -273,8 +278,6 @@ class NICClient(object):
             return NICClient.CR_HOST
         elif tld == 'de':
             return NICClient.DE_HOST
-        elif tld == 'dev':
-            return NICClient.DEV_HOST
         elif tld == 'do':
             return NICClient.DO_HOST
         elif tld == 'edu':
@@ -283,8 +286,6 @@ class NICClient(object):
             return NICClient.GAMES_HOST
         elif tld == 'group':
             return "whois.nic.group"
-        elif tld == 'goog' or tld == 'google':
-            return NICClient.GOOGLE_HOST
         elif tld == 'es':
             return NICClient.ES_HOST
         elif tld == 'nc':
@@ -329,8 +330,6 @@ class NICClient(object):
             return NICClient.ONLINE_HOST
         elif tld == 'ooo':
             return NICClient.OOO_HOST
-        elif tld == 'page':
-            return NICClient.PAGE_HOST
         elif tld == 'pe':
             return NICClient.PE_HOST
         elif tld == 'pf':
