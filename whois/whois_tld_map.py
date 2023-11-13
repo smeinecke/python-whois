@@ -11,7 +11,8 @@ COMMENTS_RE = re.compile(r"#.*")
 MANUAL_OVERRIDE = {
     "ru": "whois.nic.ru",
     "su": "whois.nic.ru",
-    "xn--p1ai": "whois.nic.ru"
+    "xn--p1ai": "whois.nic.ru",
+    "bz": "whois2.afilias-grs.net"
 }
 
 

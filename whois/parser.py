@@ -626,6 +626,10 @@ WHOIS_BY_TLD = {
         "xn--vhquv",
         "zara",
         "zone",
+        "vc",
+        "bz",
+        "gi",
+        "sc",
     ],
     "WhoisCentralNic": [
         "adac",
