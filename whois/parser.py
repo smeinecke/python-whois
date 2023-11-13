@@ -391,14 +391,10 @@ class WhoisEntry(dict):
             return WhoisIe(domain, text)
         elif domain.endswith('.nz'):
             return WhoisNz(domain, text)
-        elif domain.endswith('.space'):
-            return WhoisSpace(domain, text)
         elif domain.endswith('.lu'):
             return WhoisLu(domain, text)
         elif domain.endswith('.cz'):
             return WhoisCz(domain, text)
-        elif domain.endswith('.online'):
-            return WhoisOnline(domain, text)
         elif domain.endswith('.cn'):
             return WhoisCn(domain, text)
         elif domain.endswith('.tn'):
@@ -415,8 +411,6 @@ class WhoisEntry(dict):
             return WhoisDo(domain, text)
         elif domain.endswith('.jobs'):
             return WhoisJobs(domain, text)
-        elif domain.endswith('.lat'):
-            return WhoisLat(domain, text)
         elif domain.endswith('.pe'):
             return WhoisPe(domain, text)
         elif domain.endswith('.ro'):
@@ -441,16 +435,10 @@ class WhoisEntry(dict):
             return WhoisIR(domain, text)
         elif domain.endswith('.中国'):
             return WhoisZhongGuo(domain, text)
-        elif domain.endswith('.website'):
-            return WhoisWebsite(domain, text)
         elif domain.endswith('.sg'):
             return WhoisSG(domain, text)
         elif domain.endswith('.ml'):
             return WhoisML(domain, text)
-        elif domain.endswith('.ooo'):
-            return WhoisOoo(domain, text)
-        elif domain.endswith('.market'):
-            return WhoisMarket(domain, text)
         elif domain.endswith('.za'):
             return WhoisZa(domain, text)
         elif domain.endswith('.bz'):
@@ -541,12 +529,6 @@ class WhoisEntry(dict):
             return WhoisNg(domain, text)
         elif domain.endswith('.om'):
             return WhoisOm(domain, text)
-        elif domain.endswith('.cloud'):
-            return WhoisCloud(domain, text)
-        elif domain.endswith('.icu'):
-            return WhoisIcu(domain, text)
-        elif domain.endswith('.xyz'):
-            return WhoisXyz(domain, text)
         elif domain.endswith('.paris'):
             return WhoisParis(domain, text)
         elif domain.endswith('.ps'):
@@ -555,18 +537,10 @@ class WhoisEntry(dict):
             return WhoisPk(domain, text)
         elif domain.endswith('.fashion'):
             return WhoisFashion(domain, text)
-        elif domain.endswith('.london'):
-            return WhoisLondon(domain, text)
-        elif domain.endswith('.estate'):
-            return WhoisEstate(domain, text)
-        elif domain.endswith('.rocks'):
-            return WhoisRocks(domain, text)
         elif domain.endswith('.melbourne'):
             return WhoisMelbourne(domain, text)
         elif domain.endswith('.wales'):
             return WhoisWales(domain, text)
-        elif domain.endswith('.site'):
-            return WhoisSite(domain, text)
         elif domain.endswith('.re'):
             return WhoisRe(domain, text)
         elif domain.endswith('.ug'):
@@ -928,7 +902,6 @@ class WhoisTz(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
-
 
 
 class WhoisCom(WhoisEntry):
@@ -1868,8 +1841,6 @@ class WhoisInfo(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
-
-
 
 
 class WhoisRf(WhoisRu):
@@ -2935,8 +2906,6 @@ class WhoisCz(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-
-
 class WhoisHr(WhoisEntry):
     """Whois parser for .hr domains"""
     regex = {
@@ -3239,8 +3208,6 @@ class WhoisHn(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
-
-
 
 
 class WhoisCn(WhoisEntry):
@@ -3579,17 +3546,6 @@ class WhoisML(WhoisEntry):
                 if line != ""
             ]
         return super(WhoisML, self)._preprocess(attr, value)
-
-
-
-class WhoisMarket(WhoisEntry):
-    """Whois parser for .market domains"""
-
-    def __init__(self, domain, text):
-        if 'No entries found for the selected source(s).' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisZa(WhoisEntry):
@@ -5583,19 +5539,6 @@ class WhoisOm(WhoisEntry):
     }
 
 
-class WhoisCloud(WhoisCom):
-    """Whois parser for .cloud domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-
-
 class WhoisCentralNic(WhoisEntry):
     """Whois parser for CentralNic domains
     """
@@ -5821,29 +5764,6 @@ class WhoisScience(WhoisCom):
 
 class WhoisFashion(WhoisCom):
     """Whois parser for .fashion domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-
-class WhoisEstate(WhoisCom):
-    """Whois parser for .estate domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisRocks(WhoisCom):
-    """Whois parser for .rocks domains
     """
 
     def __init__(self, domain, text):
