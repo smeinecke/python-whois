@@ -1201,6 +1201,8 @@ class WhoisEntry(dict):
             return WhoisRe(domain, text)
         elif domain.endswith('.ug'):
             return WhoisUg(domain, text)
+        elif domain.endswith('.ws'):
+            return WhoisWs(domain, text)
         else:
             logger.warning(f'No specific TLD parser for domain {domain}. Using generic parser.')
             return WhoisEntry(domain, text)
@@ -1236,6 +1238,7 @@ class WhoisCc(WhoisEntry):
         'updated_date': r'Updated Date: *(.+)',
         'registrant_name': r'Registrant Name: *(.+)',
         'registrar_iana_id': r'Registrar IANA ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'name_servers': r'Nameserver: *(.+)',  # list of name servers
     }
 
@@ -1884,6 +1887,7 @@ class WhoisName(WhoisEntry):
         'domain_name': r'Domain Name: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_iana_id': r'Registrar IANA ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'creation_date': r'Created On: *(.+)',
         'expiration_date': r'Expires On: *(.+)',
         'updated_date': r'Updated On: *(.+)',
@@ -4908,6 +4912,7 @@ class WhoisCo(WhoisCom):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_iana_id': r'Registrar IANA ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
     }
 
     def __init__(self, domain, text):
@@ -6580,6 +6585,33 @@ class WhoisIdentityDigitalInc(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
+
+
+class WhoisWs(WhoisEntry):
+    """Whois parser for .ws domains
+    """
+    regex = {
+        'domain_name': r'Domain Name: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
+        'whois_server': r'Whois Server: *(.+)',
+        'registrar_url': r'Registrar URL: *(.+)',
+        'updated_date': r'Updated Date: *(.+)',
+        'creation_date': r'Creation Date: *(.+)',
+        'expiration_date': r'Registrar Registration Expiration Date: *(.+)',
+        'registrar': r'Registrar: *(.+)',
+        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
+        'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
+        'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
+        'status': r'Domain Status: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
+        'dnssec': r'DNSSEC: *(.+)',
+    }
+
+    def __init__(self, domain, text):
+        if 'The queried object does not exist:' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
