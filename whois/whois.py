@@ -113,6 +113,7 @@ class NICClient(object):
     EDU_HOST = 'whois.educause.edu'
     ES_HOST = IANAHOST
     TRAINING_HOST = "whois.nic.training"
+    WS_HOST = "whois.website.ws"
 
     WHOIS_RECURSE = 0x01
     WHOIS_QUICK = 0x02
@@ -365,8 +366,8 @@ class NICClient(object):
             return NICClient.UKR_HOST
         elif tld == 'training':
             return NICClient.TRAINING_HOST
-        elif tld == "site":
-            return NICClient.SITE_HOST
+        elif tld == "ws":
+            return NICClient.WS_HOST
         else:
             server = tld + NICClient.QNICHOST_TAIL
             try:
