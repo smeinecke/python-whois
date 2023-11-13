@@ -119,7 +119,7 @@ class WhoisEntry(dict):
         'domain_name': r'Domain Name: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'whois_server': r'Whois Server: *(.+)',
-        'iana_id': r'Registrar IANA ID: *(.+)',
+        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
         'referral_url': r'Referral URL: *(.+)',  # http url of whois_server
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
@@ -634,7 +634,7 @@ class WhoisCc(WhoisEntry):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
         'registrant_name': r'Registrant Name: *(.+)',
-        'iana_id': r'Registrar IANA ID: *(.+)',
+        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
         'name_servers': r'Nameserver: *(.+)',  # list of name servers
     }
 
@@ -973,7 +973,7 @@ class WhoisCom(WhoisEntry):
     """Whois parser for .com domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -1292,7 +1292,7 @@ class WhoisName(WhoisEntry):
     regex = {
         'domain_name': r'Domain Name: *(.+)',
         'registrar': r'Registrar: *(.+)',
-        'iana_id': r'Registrar IANA ID: *(.+)',
+        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
         'creation_date': r'Created On: *(.+)',
         'expiration_date': r'Expires On: *(.+)',
         'updated_date': r'Updated On: *(.+)',
@@ -1312,7 +1312,7 @@ class WhoisUs(WhoisEntry):
     """Whois parser for .us domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain__id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_id': r'Registrar IANA ID: *(.+)',
@@ -1397,7 +1397,7 @@ class WhoisGroup(WhoisEntry):
     """Whois parser for .group domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Registry Domain ID:(.+)',
+        'registry_domain_id': r'Registry Domain ID:(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: (.+)',
@@ -1447,7 +1447,7 @@ class WhoisCa(WhoisEntry):
 class WhoisMe(WhoisEntry):
     """Whois parser for .me domains"""
     regex = {
-        'domain_id': r'Registry Domain ID:(.+)',
+        'registry_domain_id': r'Registry Domain ID:(.+)',
         'domain_name': r'Domain Name:(.+)',
         'creation_date': r'Creation Date:(.+)',
         'updated_date': r'Updated Date:(.+)',
@@ -1940,7 +1940,7 @@ class WhoisBz(WhoisRu):
     """Whois parser for .bz domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_id': r'Registrar IANA ID: *(.+)',
@@ -2011,7 +2011,7 @@ class WhoisDesign(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -2077,7 +2077,7 @@ class WhoisStudio(WhoisEntry):
     """Whois parser for .studio domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Registry Domain ID:(.+)',
+        'registry_domain_id': r'Registry Domain ID:(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: (.+)',
@@ -2115,7 +2115,7 @@ class WhoisClub(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain__id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'registrar': r'Sponsoring Registrar: *(.+)',
         'registrar_id': r'Sponsoring Registrar IANA ID: *(.+)',
         'registrar_url': r'Registrar URL \(registration services\): *(.+)',
@@ -2193,7 +2193,7 @@ class WhoisIo(WhoisEntry):
     """Whois parser for .io domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_id': r'Registrar IANA ID: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
@@ -2218,7 +2218,7 @@ class WhoisBiz(WhoisEntry):
     """Whois parser for .biz domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain__id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'registrar_id': r'Registrar IANA ID: *(.+)',
@@ -2271,7 +2271,7 @@ class WhoisBiz(WhoisEntry):
 class WhoisMobi(WhoisEntry):
     """Whois parser for .mobi domains"""
     regex = {
-        'domain_id': r'Registry Domain ID:(.+)',
+        'registry_domain_id': r'Registry Domain ID:(.+)',
         'domain_name': r'Domain Name:(.+)',
         'creation_date': r'Creation Date:(.+)',
         'updated_date': r'Updated Date:(.+)',
@@ -2381,7 +2381,7 @@ class WhoisChLi(WhoisEntry):
 class WhoisID(WhoisEntry):
     """Whois parser for .id domains"""
     regex = {
-        'domain_id': r'Domain ID:(.+)',
+        'registry_domain_id': r'Domain ID:(.+)',
         'domain_name': r'Domain Name:(.+)',
         'creation_date': r'Created On:(.+)',
         'expiration_date': r'Expiration Date:(.+)',
@@ -2446,7 +2446,7 @@ class WhoisJobs(WhoisEntry):
     """Whois parser for .jobs domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'status': r'Domain Status: *(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
 
@@ -2791,7 +2791,7 @@ class WhoisAi(WhoisEntry):
     """Whois parser for .ai domains"""
     regex = {
         'domain_name': r'Domain Name\.*: *(.+)',
-        'domain_id': r'Registry Domain ID\.*: *(.+)',
+        'registry_domain_id': r'Registry Domain ID\.*: *(.+)',
         'creation_date': r'Creation Date: (.+)',
         'registrar': r'Registrar: (.+)',
         'registrar_phone': r'Registrar Abuse Contact Phone:(.+)',
@@ -3019,7 +3019,7 @@ class WhoisOnline(WhoisEntry):
     """Whois parser for .online domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain__id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_id': r'Registrar IANA ID: *(.+)',
@@ -3174,7 +3174,7 @@ class WhoisUkr(WhoisEntry):
     """Whois parser for .укр domains"""
     regex = {
         'domain_name': r'Domain name \(UTF8\): *(.+)',
-        'domain_id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'status': r'Registry Status: *(.+)',
 
         'registrar': r'Registrar: *(.+)',
@@ -3230,7 +3230,7 @@ class WhoisPpUa(WhoisEntry):
     """Whois parser for .pp.ua domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'status': r'status: *(.+)',
 
         'registrar': r'Sponsoring Registrar: *(.+)',
@@ -3278,7 +3278,7 @@ class WhoisHn(WhoisEntry):
     """Whois parser for .hn domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'status': r'Domain Status: *(.+)',
         'whois_server': r'WHOIS Server: *(.+)',
 
@@ -3352,7 +3352,7 @@ class WhoisLat(WhoisEntry):
     """Whois parser for .lat domains"""
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'status': r'Domain Status: *(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
 
@@ -3844,7 +3844,7 @@ class WhoisZa(WhoisEntry):
 
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'domain__id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'registrar_id': r'Registrar IANA ID: *(.+)',
@@ -3950,7 +3950,7 @@ class WhoisAero(WhoisEntry):
         """Whois parser for .aero domains
         """
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -3994,7 +3994,7 @@ class WhoisGoog(WhoisEntry):
         """Whois parser for .goog domains
         """
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -4072,7 +4072,7 @@ class WhoisAsia(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -4116,7 +4116,7 @@ class WhoisBerlin(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
@@ -4362,7 +4362,7 @@ class WhoisPhoto(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -4569,7 +4569,7 @@ class WhoisCi(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -4651,7 +4651,7 @@ class WhoisCo(WhoisCom):
         'creation_date': r'Creation Date: *(.+)',
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'registrar': r'Registrar: *(.+)',
-        'iana_id': r'Registrar IANA ID: *(.+)',
+        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
     }
 
     def __init__(self, domain, text):
@@ -4666,7 +4666,7 @@ class WhoisCx(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -4744,7 +4744,7 @@ class WhoisDm(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -4933,7 +4933,7 @@ class WhoisGs(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5011,7 +5011,7 @@ class WhoisGy(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5089,7 +5089,7 @@ class WhoisHt(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5167,7 +5167,7 @@ class WhoisKe(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5208,7 +5208,7 @@ class WhoisKn(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5286,7 +5286,7 @@ class WhoisKy(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5555,7 +5555,7 @@ class WhoisMg(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5644,7 +5644,7 @@ class WhoisMs(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5722,7 +5722,7 @@ class WhoisMu(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Domain ID: *(.+)',
+        'registry_domain_id': r'Domain ID: *(.+)',
         'registrar_whois_server': r'WHOIS Server: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
         'creation_date': r'Creation Date: *(.+)',
@@ -5766,7 +5766,7 @@ class WhoisNg(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5844,7 +5844,7 @@ class WhoisNf(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5955,7 +5955,7 @@ class WhoisTech(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -5989,7 +5989,7 @@ class WhoisIcu(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -6023,7 +6023,7 @@ class WhoisXyz(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -6068,7 +6068,7 @@ class WhoisParis(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -6157,7 +6157,7 @@ class WhoisProperty(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -6279,7 +6279,7 @@ class WhoisLondon(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -6368,7 +6368,7 @@ class WhoisWales(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -6457,7 +6457,7 @@ class WhoisVegas(WhoisEntry):
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
