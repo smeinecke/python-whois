@@ -227,7 +227,7 @@ class NICClient(object):
         "whois.registry.qa": ["qa", "xn--wgbl6a"],
         "whois.rotld.ro": ["ro"],
         "whois.rnids.rs": ["rs", "xn--90a3ac"],
-        "whois.tcinet.ru": ["ru", "su", "xn--p1ai"],
+        "whois.nic.ru": ["su", "xn--p1ai"],
         "whois.ricta.org.rw": ["rw"],
         "whois.nic.net.sa": ["sa", "xn--mgberp4a5d4ar"],
         "whois.nic.net.sb": ["sb"],

@@ -7,6 +7,13 @@ import requests
 WHOIS_SERVER_RE = re.compile(r"whois:(.*)\n", re.I)
 COMMENTS_RE = re.compile(r"#.*")
 
+# Manual override for some TLDs as whois in IANA is not correct
+MANUAL_OVERRIDE = {
+    "ru": "whois.nic.ru",
+    "su": "whois.nic.ru",
+    "xn--p1ai": "whois.nic.ru"
+}
+
 
 def crawl_iana_whois():
     nc = NICClient()
@@ -26,20 +33,31 @@ def crawl_iana_whois():
             o.write("%s\t%s\n" % (tld, tld_whois))
             print("%s\t%s" % (tld, tld_whois))
 
+
 def get_whois_map():
     whois_servers = {}
     with open('tld_whois_map.txt', 'r') as f:
         for line in f.readlines():
             tld, whois_server = line.split('\t')
             whois_server = whois_server.strip()
-            if not whois_server:
+            if not whois_server or tld in MANUAL_OVERRIDE:
                 continue
 
             # filter generic whois servers
             if 'whois.nic.' + tld == whois_server:
                 continue
 
-            if not whois_server in whois_servers:
+            if whois_server not in whois_servers:
+                whois_servers[whois_server] = []
+
+            whois_servers[whois_server].append(tld)
+
+        for tld, whois_server in MANUAL_OVERRIDE.items():
+            # filter generic whois servers
+            if 'whois.nic.' + tld == whois_server:
+                continue
+
+            if whois_server not in whois_servers:
                 whois_servers[whois_server] = []
 
             whois_servers[whois_server].append(tld)
