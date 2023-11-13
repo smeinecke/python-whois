@@ -783,6 +783,7 @@ class WhoisEntry(dict):
         'domain_name': r'Domain Name: *(.+)',
         'registrar': r'Registrar: *(.+)',
         'whois_server': r'Whois Server: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_iana_id': r'Registrar IANA ID: *(.+)',
         'referral_url': r'Referral URL: *(.+)',  # http url of whois_server
         'updated_date': r'Updated Date: *(.+)',
