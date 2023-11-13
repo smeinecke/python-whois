@@ -78,13 +78,14 @@ KNOWN_FORMATS = [
     '%d.%m.%Y %H:%M:%S',  # 08.03.2014 10:28:24
     'before %b-%Y',  # before aug-1996
     '%Y-%m-%d %H:%M:%S (%Z%z)',  # 2017-09-26 11:38:29 (GMT+00:00)
-    '%Y-%m-%d %H:%M:%S (%Z+0:00)', # 2018-06-21 17:17:59 (GMT+0:00)
+    '%Y-%m-%d %H:%M:%S (%Z+0:00)',  # 2018-06-21 17:17:59 (GMT+0:00)
 ]
 
 WHOIS_BY_TLD = {
     "WhoisGoogle": ['xn--q9jyb4c', 'meet', 'foo', 'soy', 'prod', 'how', 'mov', 'youtube', 'channel', 'boo', 'dad', 'new', 'eat', 'ing', 'meme', 'here', 'zip', 'day', 'gmail', 'fly', 'gbiz', 'rsvp', 'esq', 'xn--flw351e',
                     'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd']
 }
+
 
 class PywhoisError(Exception):
     pass
@@ -204,7 +205,7 @@ class WhoisEntry(dict):
     @staticmethod
     def parse_indented_nameservers(text):
         pattern = re.compile(r'^\s+([\w.-]+)(?=\s*[\r\n]+|$)', re.MULTILINE)
-        name_servers_section_match = re.search(r'Name Servers:(?:\s*[\r\n]+)*(.*)', text, re.DOTALL|re.IGNORECASE)
+        name_servers_section_match = re.search(r'Name Servers:(?:\s*[\r\n]+)*(.*)', text, re.DOTALL | re.IGNORECASE)
 
         name_servers = list()
         if name_servers_section_match:
@@ -707,6 +708,7 @@ class WhoisSo(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
 class WhoisMk(WhoisEntry):
     """Whois parser for .mk domains"""
     regex = {
@@ -926,6 +928,7 @@ class WhoisPf(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
 class WhoisHu(WhoisEntry):
     """Whois parser for .hu domains"""
     regex = {
@@ -1102,10 +1105,11 @@ class WhoisGov(WhoisEntry):
         'referral_url': r'refer: *(.+)',  # http url of whois_server: empty usually
         'updated_date': r'changed: *(.+)',
         'creation_date': r'created: *(.+)',
-        'name_servers': r'nserver: *(.+)', # list of name servers
+        'name_servers': r'nserver: *(.+)',  # list of name servers
         'status': r'status: *(.+)',  # list of statuses
         'emails': EMAIL_REGEX,  # list of email addresses
     }
+
     def __init__(self, domain, text):
         if 'No match for "' in text:
             raise PywhoisError(text)
@@ -1609,6 +1613,7 @@ class WhoisJp(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
+
 class WhoisAM(WhoisEntry):
     """Whois parser for .am domains"""
     regex = {
@@ -1622,6 +1627,7 @@ class WhoisAM(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisAU(WhoisEntry):
     """Whois parser for .au domains"""
@@ -6021,6 +6027,7 @@ class WhoisXyz(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
 
 class WhoisParis(WhoisEntry):
     """Whois parser for .paris domains
