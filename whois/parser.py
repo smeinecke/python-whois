@@ -2453,7 +2453,7 @@ class WhoisAt(WhoisEntry):
 class WhoisBe(WhoisEntry):
     """Whois parser for .be domains"""
     regex = {
-        'name': r'Domain:\s*(.+)',
+        'domain_name': r'Domain:\s*(.+)',
         'creation_date': r'Registered:\s*(.+)',
         'registrar': r'Registrar:\s*[\s\t\n]+Name:\s*(.+)',
         'name_servers': r'Nameservers:\n([\sa-z0-9\-\.]+)\n\n',  # list of name servers
