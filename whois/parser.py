@@ -4144,7 +4144,11 @@ class WhoisSi(WhoisEntry):
 class WhoisNo(WhoisEntry):
     """Whois parser for .no domains"""
     regex = {
-        'domain_name': r'Domain Name.*:\s*(.+)',
+        'domain_name': r'Domain Name\.*:\s*(.+)',
+        'registry_domain_id': r'NORID Handle\.*:\s*(.+)',
+        'registrar_id': r'Registrar Handle\.*:\s*(.+)',
+        'tech_id': r'Tech-c Handle\.*:\s*(.+)',
+        'nameserver_handle': r'Name Server Handle\.*:\s*(.+)',
         'creation_date': r'Additional information:\nCreated:\s*(.+)',
         'updated_date': r'Additional information:\n(?:.*\n)Last updated:\s*(.+)',
     }
