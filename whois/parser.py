@@ -83,7 +83,8 @@ KNOWN_FORMATS = [
 
 WHOIS_BY_TLD = {
     "WhoisGoogle": ['xn--q9jyb4c', 'meet', 'foo', 'soy', 'prod', 'how', 'mov', 'youtube', 'channel', 'boo', 'dad', 'new', 'eat', 'ing', 'meme', 'here', 'zip', 'day', 'gmail', 'fly', 'gbiz', 'rsvp', 'esq', 'xn--flw351e',
-                    'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd']
+                    'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd'],
+    "WhoisTucows": ['sexy', 'tattoo', 'gift', 'link', 'country', 'hiphop', 'juegos', 'hiv', 'property', 'click', 'yandex', 'trust', 'love', 'creditunion', 'cloud']
 }
 
 
@@ -6118,8 +6119,8 @@ class WhoisParty(WhoisCom):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisProperty(WhoisEntry):
-    """Whois parser for .property domains
+class WhoisTucows(WhoisEntry):
+    """Whois parser for Tucows domains
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
