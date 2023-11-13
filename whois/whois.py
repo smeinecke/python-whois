@@ -46,79 +46,256 @@ logger = logging.getLogger(__name__)
 
 
 class NICClient(object):
-    WHOIS_BY_TLD = {
-        "whois.nic.google": ['xn--q9jyb4c', 'meet', 'foo', 'soy', 'prod', 'how', 'mov', 'youtube', 'channel', 'boo', 'dad', 'new', 'eat', 'ing', 'meme', 'here', 'zip', 'day', 'gmail', 'fly', 'gbiz', 'rsvp', 'esq', 'xn--flw351e',
-                        'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd'],
-        "whois.tucowsregistry.net": ['sexy', 'tattoo', 'gift', 'link', 'country', 'hiphop', 'juegos', 'hiv', 'property', 'click', 'yandex', 'trust', 'love', 'creditunion', 'cloud'],
-        "whois.identitydigital.services": ['xn--unup4y', 'ventures', 'equipment', 'singles', 'lighting', 'holdings', 'voyage', 'clothing', 'guru', 'bike', 'camera', 'construction', 'contractors', 'estate', 'gallery', 'graphics', 'land', 'plumbing', 'technology', 'diamonds', 'directory', 'enterprises', 'kitchen', 'photography', 'tips', 'today', 'immobilien', 'email', 'solutions', 'holiday', 'florist', 'coffee', 'builders', 'repair', 'ninja', 'kaufen', 'house', 'training', 'codes', 'international', 'onl', 'glass', 'education', 'farm', 'solar', 'institute', 'recipes', 'computer', 'academy', 'careers', 'cab', 'systems', 'domains', 'viajes', 'company', 'camp', 'limo', 'management', 'photos', 'shoes', 'center', 'support', 'agency', 'marketing', 'cheap', 'zone', 'pink', 'rich', 'red', 'shiksha', 'tools', 'cool', 'kim', 'watch', 'expert', 'works', 'tienda', 'bargains', 'boutique', 'community', 'dating', 'catering', 'cleaning', 'cruises', 'events', 'exposed', 'flights', 'partners', 'properties', 'rentals', 'report', 'blue', 'xn--6frz82g', 'vision', 'cards', 'foundation', 'condos', 'villas', 'parts', 'productions', 'maison', 'dance', 'moda', 'social', 'democrat', 'supplies', 'fish', 'vacations', 'industries', 'supply', 'voto', 'vote', 'xn--c1avg', 'xn--i1b6b1a6a2e', 'xn--nqv7fs00ema', 'xn--nqv7f', 'actor', 'pub', 'black', 'consulting', 'haus', 'vegas', 'archi', 'jetzt', 'reviews', 'futbol', 'rocks', 'pictures', 'university', 'associates', 'reisen', 'media', 'town', 'toys', 'lease', 'services', 'engineering', 'gripe', 'capital', 'frogans', 'limited', 'fail', 'exchange', 'tax', 'wtf', 'fund', 'surgery', 'investments', 'financial', 'gratis', 'furniture', 'dental', 'care', 'cash', 'discount', 'clinic', 'fitness', 'schule', 'creditcard', 'insure', 'finance', 'airforce', 'guide', 'loans', 'church', 'life', 'credit', 'accountants', 'digital', 'claims', 'reise', 'degree', 'bio', 'lawyer', 'vet', 'mortgage', 'software', 'market', 'dentist', 'attorney', 'engineer', 'rehab', 'republican', 'gives', 'navy', 'army', 'global', 'organic', 'lotto', 'green', 'city', 'deals', 'direct', 'place', 'active', 'healthcare', 'restaurant', 'gifts', 'sarl', 'auction', 'ngo', 'nra', 'lgbt', 'ong', 'pizza', 'immo', 'bnpparibas', 'xn--b4w605ferd', 'xn--czrs0t', 'xn--fjq720a', 'xn--vhquv', 'emerck', 'business', 'band', 'crs', 'cern', 'forsale', 'rip', 'network', 'dabur', 'ltda', 'scholarships', 'world', 'shriram', 'mormon', 'temasek', 'hermes', 'bnl', 'java', 'fan', 'lds', 'group', 'sew', 'abbott', 'oracle', 'irish', 'poker', 'ist', 'istanbul', 'ski', 'energy', 'delivery', 'ltd', 'obi', 'coach', 'sanofi', 'marriott', 'memorial', 'money', 'legal', 'video', 'sale', 'abb', 'redstone', 'ice', 'bms', 'zara', 'tires', 'giving', 'jaguar', 'landrover', 'stada', 'barclays', 'barclaycard', 'chat', 'bingo', 'style', 'tennis', 'live', 'dog', 'salon', 'xin', 'forex', 'apartments', 'trading', 'ubs', 'markets', 'broker', 'school', 'news', 'bradesco', 'promo', 'football', 'casino', 'golf', 'edeka', 'stockholm', 'fage', 'xn--5tzm5g', 'watches', 'xn--jlq61u9w7b', 'contact', 'avianca', 'nokia', 'star', 'alipay', 'alibaba', 'taobao', 'tmall', 'gold', 'tours', 'weir', 'helsinki', 'plus', 'movie', 'orientexpress', 'cafe', 'studio', 'hdfcbank', 'express', 'xn--estv75g', 'tvs', 'delta', 'gallup', 'cipriani', 'team', 'show', 'jewelry', 'weibo', 'xn--9krt00a', 'statebank', 'sbi', 'tatamotors', 'sina', 'theater', 'realty', 'run', 'taxi', 'hockey', 'redumbrella', 'travelers', 'travelersinsurance', 'soccer', 'trv', 'coupons', 'lasalle', 'jll', 'homedepot', 'viking', 'fyi', 'jio', 'bcg', 'ril', 'mba', 'family', 'reliance', 'thd', 'kerryproperties', 'chanel', 'ceb', 'kuokgroup', 'kerrylogistics', 'agakhan', 'akdn', 'shaw', 'jcp', 'kerryhotels', 'observer', 'bet', 'metlife', 'pet', 'srl', 'nowtv', 'extraspace', 'beats', 'apple', 'volkswagen', 'vig', 'xn--fzys8d69uvgm', 'hkt', 'pccw', 'richardli', 'dot', 'nikon', 'audi', 'games', 'ott', 'ollo', 'dtv', 'locker', 'lamborghini', 'barefoot', 'gallo', 'vin', 'next', 'wine', 'bosch', 'nextdirect', 'rexroth', 'lipsy', 'ups', 'xn--3oq18vl8pn36a', 'mit', 'dunlop', 'goodyear', 'pnc', 'boehringer', 'itv', 'ericsson', 'lefrak', 'esurance', 'bugatti', 'bbt', 'citadel', 'progressive', 'samsclub', 'mckinsey', 'fiat', 'hughes', 'lancia', 'george', 'latino', 'alfaromeo', 'allstate', 'ferrari', 'blockbuster', 'goodhands', 'sling', 'hdfc', 'asda', 'bestbuy', 'chrysler', 'dodge', 'maserati', 'uconnect', 'juniper', 'walmart', 'abarth', 'mopar', 'jeep', 'srt', 'dish', 'fidelity', 'imamat', 'showtime', 'wolterskluwer', 'fedex', 'ismaili', 'cbs', 'lundbeck', 'aigo', 'rogers', 'fido', 'ubank', 'nab', 'kosher', 'vanguard', 'shangrila', 'caseih', 'iveco', 'newholland', 'aol', 'lamer', 'origins', 'clinique', 'pwc', 'volvo', 'cruise', 'gmbh', 'shopping', 'doctor', 'mobile', 'data', 'phone', 'grocery', 'dvr', 'hospital', 'llc', 'charity', 'spa', 'kids'],
-        "whois.centralnic.com": ['uno', 'ceo', 'ruhr', 'build', 'pics', 'luxury', 'guitars', 'christmas', 'bar', 'xyz', 'best', 'saarland', 'rest', 'london', 'kred', 'qpon', 'feedback', 'college', 'audio', 'yachts', 'homes', 'autos', 'motorcycles', 'xn--4gbrim', 'space', 'website', 'host', 'press', 'bmw', 'mini', 'hosting', 'diet', 'help', 'gent', 'spiegel', 'xn--vermgensberater-ctb', 'xn--vermgensberatung-pwb', 'wme', 'ooo', 'tui', 'frl', 'pohl', 'dvag', 'bond', 'allfinanz', 'flsmidth', 'reit', 'schwarz', 'lidl', 'stc', 'flowers', 'stcgroup', 'lat', 'viva', 'meo', 'fans', 'sbs', 'sapo', 'zuerich', 'cars', 'auto', 'xn--ngbe9e0a', 'boats', 'rent', 'kfh', 'cfd', 'spreadbetting', 'dealer', 'storage', 'icu', 'pid', 'kpn', 'online', 'makeup', 'site', 'skin', 'cyou', 'car', 'tech', 'lol', 'tickets', 'quest', 'forum', 'baby', 'store', 'mom', 'protection', 'theatre', 'security', 'blog', 'game', 'smart', 'adac', 'epost', 'dhl', 'lpl', 'deloitte', 'lplfinancial', 'fresenius', 'sfr', 'xn--mgbaakc7dvf', 'case', 'etisalat', 'monster', 'box', 'hair', 'beauty', 'fun', 'art', 'cam', 'inc', 'llp', 'music']
+    WHOIS_SERVERS = {
+        "whois.nic.google": [
+            "ads",
+            "android",
+            "app",
+            "boo",
+            "cal",
+            "channel",
+            "chrome",
+            "dad",
+            "day",
+            "dclk",
+            "dev",
+            "docs",
+            "drive",
+            "eat",
+            "esq",
+            "fly",
+            "foo",
+            "gbiz",
+            "gle",
+            "gmail",
+            "goog",
+            "guge",
+            "hangout",
+            "here",
+            "how",
+            "ing",
+            "map",
+            "meet",
+            "meme",
+            "mov",
+            "new",
+            "nexus",
+            "page",
+            "phd",
+            "play",
+            "prod",
+            "prof",
+            "rsvp",
+            "search",
+            "soy",
+            "xn--flw351e",
+            "xn--q9jyb4c",
+            "xn--qcka1pmc",
+            "youtube",
+            "zip",
+        ],
+        "whois.aeda.net.ae": ["ae", "xn--mgbaam7a8h"],
+        "whois.aero": ["aero"],
+        "whois.amnic.net": ["am", "xn--y9a3aq"],
+        "whois.teleinfo.cn": [
+            "anquan",
+            "shouji",
+            "xihuan",
+            "xn--3ds443g",
+            "xn--fiq228c5hs",
+            "xn--vuq861b",
+            "yun",
+        ],
+        "whois.iana.org": ["arpa", "int"],
+        "whois.auda.org.au": ["au"],
+        "whois.ax": ["ax"],
+        "whois.gtld.knet.cn": [
+            "baidu",
+            "wang",
+            "xn--30rr7y",
+            "xn--3bst00m",
+            "xn--45q11c",
+            "xn--6qq986b3xl",
+            "xn--9et52u",
+            "xn--czru2d",
+            "xn--fiq64b",
+            "xn--hxt814e",
+        ],
+        "whois.dns.be": ["be"],
+        "whois.registre.bf": ["bf"],
+        "whois.register.bg": ["bg"],
+        "whois1.nic.bi": ["bi"],
+        "whois.bnnic.bn": ["bn"],
+        "whois.gtlds.nic.br": ["bom", "final", "globo", "natura", "rio", "uol"],
+        "whois.registro.br": ["br"],
+        "whois.nic.net.bw": ["bw"],
+        "whois.cctld.by": ["by", "xn--90ais"],
+        "whois.cira.ca": ["ca"],
+        "ccwhois.verisign-grs.com": ["cc"],
+        "whois.dot.cf": ["cf"],
+        "whois.cnnic.cn": ["cn"],
+        "whois.ryce-rsp.com": ["cologne", "koeln"],
+        "whois.verisign-grs.com": ["com", "net"],
+        "whois.nic.gmo": [
+            "datsun",
+            "fujitsu",
+            "goo",
+            "hisamitsu",
+            "hitachi",
+            "infiniti",
+            "jcb",
+            "mitsubishi",
+            "nissan",
+            "panasonic",
+            "sharp",
+            "yodobashi",
+        ],
+        "whois.denic.de": ["de"],
+        "whois.punktum.dk": ["dk"],
+        "whois.dmdomains.dm": ["dm"],
+        "whois.educause.edu": ["edu"],
+        "whois.tld.ee": ["ee"],
+        "whois.centralnic.com": ["etisalat", "xn--mgbaakc7dvf"],
+        "whois.eu": ["eu", "xn--e1a4c", "xn--qxa6a"],
+        "whois.fi": ["fi"],
+        "www.whois.fj": ["fj"],
+        "whois.mediaserv.net": ["gf", "mq"],
+        "whois.gg": ["gg"],
+        "whois2.afilias-grs.net": ["gi", "sc", "vc"],
+        "whois.uniregistry.net": ["gift", "juegos", "link", "tattoo"],
+        "whois.ande.gov.gn": ["gn"],
+        "whois.dotgov.gov": ["gov"],
+        "whois.dominio.gq": ["gq"],
+        "whois.registry.gy": ["gy"],
+        "whois.hkirc.hk": ["hk", "xn--j6w193g"],
+        "whois.registry.hm": ["hm"],
+        "whois.dns.hr": ["hr"],
+        "whois.id": ["id"],
+        "whois.weare.ie": ["ie"],
+        "whois.isoc.org.il": ["il", "xn--4dbrk0ce"],
+        "whois.registry.in": [
+            "in",
+            "xn--2scrj9c",
+            "xn--3hcrj9c",
+            "xn--45br5cyl",
+            "xn--45brj9c",
+            "xn--fpcrj9c3d",
+            "xn--gecrj9c",
+            "xn--h2breg3eve",
+            "xn--h2brj9c",
+            "xn--h2brj9c8c",
+            "xn--mgbbh1a",
+            "xn--mgbbh1a71e",
+            "xn--mgbgu82a",
+            "xn--rvc1e0am3e",
+            "xn--s9brj9c",
+            "xn--xkc2dl3a5ee0h",
+        ],
+        "whois.cmc.iq": ["iq", "xn--mgbtx2b"],
+        "whois.isnic.is": ["is"],
+        "whois.je": ["je"],
+        "whois.jprs.jp": ["jp"],
+        "whois.kenic.or.ke": ["ke"],
+        "whois.kg": ["kg"],
+        "whois.kr": ["kr", "xn--3e0b707e", "xn--cg4bki"],
+        "whois.kyregistry.ky": ["ky"],
+        "whois.lbdr.org.lb": ["lb"],
+        "whois.domreg.lt": ["lt"],
+        "whois.dns.lu": ["lu"],
+        "whois.registre.ma": ["ma"],
+        "whois.marnet.mk": ["mk", "xn--d1alf"],
+        "whois.registry.gov.mm": ["mm"],
+        "whois.monic.mo": ["mo", "xn--mix891f"],
+        "whois.mx": ["mx"],
+        "whois.mynic.my": ["my", "xn--mgbx4cd0ab"],
+        "whois.na-nic.com.na": ["na"],
+        "whois.nc": ["nc"],
+        "whois.nic.net.ng": ["ng"],
+        "whois.domain-registry.nl": ["nl"],
+        "whois.norid.no": ["no"],
+        "whois.iis.nu": ["nu"],
+        "whois.irs.net.nz": ["nz"],
+        "whois.registry.om": ["om", "xn--mgb9awbf"],
+        "whois.publicinterestregistry.org": ["org"],
+        "kero.yachay.pe": ["pe"],
+        "whois.registry.pf": ["pf"],
+        "whois.pknic.net.pk": ["pk"],
+        "whois.dns.pl": ["pl"],
+        "whois.dotpostregistry.net": ["post"],
+        "whois.afilias-srs.net": ["pr", "schaeffler", "shaw"],
+        "whois.dns.pt": ["pt"],
+        "whois.registry.qa": ["qa", "xn--wgbl6a"],
+        "whois.rotld.ro": ["ro"],
+        "whois.rnids.rs": ["rs", "xn--90a3ac"],
+        "whois.tcinet.ru": ["ru", "su", "xn--p1ai"],
+        "whois.ricta.org.rw": ["rw"],
+        "whois.nic.net.sa": ["sa", "xn--mgberp4a5d4ar"],
+        "whois.nic.net.sb": ["sb"],
+        "whois.iis.se": ["se"],
+        "whois.sgnic.sg": ["sg", "xn--clchc0ea0b2g2a9gcd", "xn--yfro4i67o"],
+        "whois.register.si": ["si"],
+        "whois.sk-nic.sk": ["sk"],
+        "whois.sx": ["sx"],
+        "whois.tld.sy": ["sy", "xn--ogbpf8fl"],
+        "whois.thnic.co.th": ["th", "xn--o3cw4h"],
+        "whois.dot.tk": ["tk"],
+        "whois.ati.tn": ["tn", "xn--pgbs0dh"],
+        "whois.tonic.to": ["to"],
+        "whois.trabis.gov.tr": ["tr"],
+        "whois.twnic.net.tw": ["tw", "xn--kprw13d", "xn--kpry57d"],
+        "whois.tznic.or.tz": ["tz"],
+        "whois.ua": ["ua"],
+        "whois.co.ug": ["ug"],
+        "whois.nic.org.uy": ["uy"],
+        "whois.cctld.uz": ["uz"],
+        "whois.dnrs.vu": ["vu"],
+        "whois.website.ws": ["ws"],
+        "whois.ngtld.cn": ["xn--1qqw23a", "xn--55qx5d", "xn--io0a7i", "xn--xhq521b"],
+        "whois.conac.cn": ["xn--55qw42g", "xn--zfr164b"],
+        "whois.nic.kz": ["xn--80ao21a"],
+        "whois.imena.bg": ["xn--90ae"],
+        "cwhois.cnnic.cn": ["xn--fiqs8s", "xn--fiqz9s"],
+        "whois.dotukr.com": ["xn--j1amh"],
+        "whois.nic.dz": ["xn--lgbbat1ad8j"],
+        "whois.nic.ir": ["xn--mgba3a4f16a"],
+        "whois.nic.mr": ["xn--mgbah1a3hjkrd"],
+        "whois.itdc.ge": ["xn--node"],
+        "whois.nic.la": ["xn--q7ce6a"],
+        "whois.pnina.ps": ["xn--ygbi2ammx"],
+        "whois.y.net.ye": ["ye"],
+        "whois.zicta.zm": ["zm"],
     }
 
     ABUSEHOST = "whois.abuse.net"
-    AI_HOST = "whois.nic.ai"
     ANICHOST = "whois.arin.net"
-    AR_HOST = "whois.nic.ar"
     BNICHOST = "whois.registro.br"
-    BY_HOST = "whois.cctld.by"
-    CA_HOST = "whois.ca.fury.ca"
-    CL_HOST = "whois.nic.cl"
-    CR_HOST = "whois.nic.cr"
     DEFAULT_PORT = "nicname"
-    DENICHOST = "whois.denic.de"
-    DE_HOST = "whois.denic.de"
-    DK_HOST = "whois.dk-hostmaster.dk"
     DNICHOST = "whois.nic.mil"
-    DO_HOST = "whois.nic.do"
     GNICHOST = "whois.nic.gov"
-    HK_HOST = "whois.hkirc.hk"
-    HN_HOST = "whois.nic.hn"
-    HR_HOST = "whois.dns.hr"
     IANAHOST = "whois.iana.org"
     INICHOST = "whois.networksolutions.com"
-    IST_HOST = "whois.afilias-srs.net"
-    JOBS_HOST = "whois.nic.jobs"
-    JP_HOST = 'whois.jprs.jp'
-    KZ_HOST = "whois.nic.kz"
-    LAT_HOST = "whois.nic.lat"
-    MA_HOST = "whois.registre.ma"
-    LI_HOST = "whois.nic.li"
     LNICHOST = "whois.lacnic.net"
-    LT_HOST = 'whois.domreg.lt'
     MNICHOST = "whois.ra.net"
-    MX_HOST = "whois.mx"
     NICHOST = "whois.crsnic.net"
-    NL_HOST = 'whois.domain-registry.nl'
     NORIDHOST = "whois.norid.no"
-    OOO_HOST = "whois.nic.ooo"
     PANDIHOST = "whois.pandi.or.id"
-    PE_HOST = "kero.yachay.pe"
     PNICHOST = "whois.apnic.net"
-    QNICHOST_TAIL = ".whois-servers.net"
     QNICHOST_HEAD = "whois.nic."
+    QNICHOST_TAIL = ".whois-servers.net"
     RNICHOST = "whois.ripe.net"
     SNICHOST = "whois.6bone.net"
-    ZA_HOST = "whois.registry.net.za"
-    RU_HOST = "whois.tcinet.ru"
-    DESIGN_HOST = "whois.nic.design"
-    NAME_HOST = "whois.name.com"
-    GDD_HOST = "whois.dnrs.godaddy"
-    SHOP_HOST = "whois.nic.shop"
-    DETI_HOST = "whois.nic.xn--d1acj3b"
-    MOSKVA_HOST = "whois.registry.nic.xn--80adxhks"
-    RF_HOST = "whois.registry.tcinet.ru"
-    PIR_HOST = "whois.publicinterestregistry.org"
-    NG_HOST = "whois.nic.net.ng"
+
+    DE_HOST = "whois.denic.de"
+    DK_HOST = "whois.dk-hostmaster.dk"
+    HR_HOST = "whois.dns.hr"
     PPUA_HOST = "whois.pp.ua"
-    UKR_HOST = "whois.dotukr.com"
-    EDU_HOST = 'whois.educause.edu'
-    ES_HOST = IANAHOST
-    TRAINING_HOST = "whois.nic.training"
-    WS_HOST = "whois.website.ws"
 
     WHOIS_RECURSE = 0x01
     WHOIS_QUICK = 0x02
 
     ip_whois = [LNICHOST, RNICHOST, PNICHOST, BNICHOST, PANDIHOST]
+
+    WHOIS_RECURSE_TLDS = ["com", "net"]
 
     def __init__(self):
         self.use_qnichost = False
@@ -185,7 +362,7 @@ class NICClient(object):
             except AttributeError:
                 pass  # Already Unicode (python3's error)
 
-            if hostname == NICClient.DENICHOST:
+            if hostname == NICClient.DE_HOST:
                 query_bytes = "-T dn,ace -C UTF-8 " + query
             elif hostname == NICClient.DK_HOST:
                 query_bytes = " --show-handles " + query
@@ -242,139 +419,16 @@ class NICClient(object):
         if tld[0].isdigit():
             return NICClient.ANICHOST
 
-        for host, tlds in NICClient.WHOIS_BY_TLD.items():
+        for whois_server, tlds in NICClient.WHOIS_SERVERS.items():
             if tld in tlds:
-                return host
+                return whois_server
 
-        if tld == 'ai':
-            return NICClient.AI_HOST
-        elif tld == 'ar':
-            return NICClient.AR_HOST
-        elif tld == 'by':
-            return NICClient.BY_HOST
-        elif tld == 'bn':
-            return 'whois.bnnic.bn'
-        elif tld == 'ca':
-            return NICClient.CA_HOST
-        elif tld == 'qa':
-            return 'whois.registry.qa'
-        elif tld == 'ma':
-            return NICClient.MA_HOST
-        elif tld == 'cl':
-            return NICClient.CL_HOST
-        elif tld == 'cr':
-            return NICClient.CR_HOST
-        elif tld == 'de':
-            return NICClient.DE_HOST
-        elif tld == 'do':
-            return NICClient.DO_HOST
-        elif tld == 'edu':
-            return NICClient.EDU_HOST
-        elif tld == 'es':
-            return NICClient.ES_HOST
-        elif tld == 'nc':
-            return 'whois.nc'
-        elif tld == 'hk':
-            return NICClient.HK_HOST
-        elif tld == 'hn':
-            return NICClient.HN_HOST
-        elif tld == 'ist':
-            return NICClient.IST_HOST
-        elif tld == 'jobs':
-            return NICClient.JOBS_HOST
-        elif tld == 'cc':
-            return 'ccwhois.verisign-grs.com'
-        elif tld == 'sn':
-            return 'whois.nic.sn'
-        elif tld == 'jp':
-            return NICClient.JP_HOST
-        elif tld == 'kz':
-            return NICClient.KZ_HOST
-        elif tld == 'lb':
-            return 'whois.lbdr.org.lb'
-        elif tld == 'ge':
-            return 'whois.nic.ge'
-        elif tld == 'lat':
-            return NICClient.LAT_HOST
-        elif tld == 'li':
-            return NICClient.LI_HOST
-        elif tld == 'lt':
-            return NICClient.LT_HOST
-        elif tld == 'mx':
-            return NICClient.MX_HOST
-        elif tld == 'nl':
-            return NICClient.NL_HOST
-        elif tld == 'ooo':
-            return NICClient.OOO_HOST
-        elif tld == 'pe':
-            return NICClient.PE_HOST
-        elif tld == 'pf':
-            return 'whois.registry.pf'
-        elif tld == 'za':
-            return NICClient.ZA_HOST
-        elif tld == 'fj':
-            return 'www.whois.fj'
-        elif tld == 'ru':
-            return NICClient.RU_HOST
-        elif tld == 'sg':
-            return 'whois.sgnic.sg'
-        elif tld == 'tz':
-            return 'whois.tznic.or.tz'
-        elif tld == 'mo':
-            return 'whois.monic.mo'
-        elif tld == 'my':
-            return 'whois.mynic.my'
-        elif tld == 'tn':
-            return 'whois.ati.tn'
-        elif tld == 'tv':
-            return 'whois.nic.tv'
-        elif tld == 'bz':
-            return 'whois.rrpproxy.net'
-        elif tld == 'ky':
-            return 'whois.uniregistrar.com'
-        elif tld == 'mw':
-            return 'whois.nic.mw'
-        elif tld == 'design':
-            return NICClient.DESIGN_HOST
-        elif tld == 'mk':
-            return 'whois.marnet.mk'
-        elif tld == 'su':
-            return NICClient.RU_HOST
-        elif tld == 'pk':
-            return 'whois.pknic.net.pk'
-        elif tld == 'рус' or tld == 'xn--p1acf':
-            return NICClient.RU_HOST
-        elif tld == 'direct':
-            return NICClient.GDD_HOST
-        elif tld == 'vip':
-            return NICClient.GDD_HOST
-        elif tld == 'shop':
-            return NICClient.SHOP_HOST
-        elif tld == 'дети' or tld == 'xn--d1acj3b':
-            return NICClient.DETI_HOST
-        elif tld == 'москва' or tld == 'xn--80adxhks':
-            return NICClient.MOSKVA_HOST
-        elif tld == 'рф' or tld == 'xn--p1ai':
-            return NICClient.RF_HOST
-        elif tld == 'орг' or tld == 'xn--c1avg':
-            return NICClient.PIR_HOST
-        elif tld == 'ng':
-            return NICClient.NG_HOST
-        elif tld == 'om':
-            return 'whois.registry.om'
-        elif tld == 'укр' or tld == 'xn--j1amh':
-            return NICClient.UKR_HOST
-        elif tld == 'training':
-            return NICClient.TRAINING_HOST
-        elif tld == "ws":
-            return NICClient.WS_HOST
-        else:
+        server = NICClient.QNICHOST_HEAD + tld
+        try:
+            socket.gethostbyname(server)
+        except socket.gaierror:
             server = tld + NICClient.QNICHOST_TAIL
-            try:
-                socket.gethostbyname(server)
-            except socket.gaierror:
-                server = NICClient.QNICHOST_HEAD + tld
-            return server
+        return server
 
     def whois_lookup(self, options, query_arg, flags, quiet=False):
         """Main entry point: Perform initial lookup on TLD whois server,
@@ -391,11 +445,10 @@ class NICClient(object):
                 and ('country' not in options or options['country'] is None):
             self.use_qnichost = True
             options['whoishost'] = NICClient.NICHOST
-            if not (flags & NICClient.WHOIS_QUICK):
+            if not (flags & NICClient.WHOIS_QUICK) and query_arg.split('.')[-1] in NICClient.WHOIS_RECURSE_TLDS:
                 flags |= NICClient.WHOIS_RECURSE
 
         if 'country' in options and options['country'] is not None:
-
             result = self.whois(
                 query_arg,
                 options['country'] + NICClient.QNICHOST_TAIL,
@@ -417,8 +470,6 @@ def parse_command_line(argv):
     """Options handling mostly follows the UNIX whois(1) man page, except
     long-form options can also be used.
     """
-    flags = 0
-
     usage = "usage: %prog [options] name"
 
     parser = optparse.OptionParser(add_help_option=False, usage=usage)
