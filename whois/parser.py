@@ -17,6 +17,7 @@ import re
 from builtins import *
 from datetime import datetime
 from inspect import isfunction
+import sys
 
 from future import standard_library
 from past.builtins import basestring
@@ -80,6 +81,10 @@ KNOWN_FORMATS = [
     '%Y-%m-%d %H:%M:%S (%Z+0:00)', # 2018-06-21 17:17:59 (GMT+0:00)
 ]
 
+WHOIS_BY_TLD = {
+    "WhoisGoogle": ['xn--q9jyb4c', 'meet', 'foo', 'soy', 'prod', 'how', 'mov', 'youtube', 'channel', 'boo', 'dad', 'new', 'eat', 'ing', 'meme', 'here', 'zip', 'day', 'gmail', 'fly', 'gbiz', 'rsvp', 'esq', 'xn--flw351e',
+                    'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd']
+}
 
 class PywhoisError(Exception):
     pass
@@ -233,6 +238,12 @@ class WhoisEntry(dict):
         """
         if text.strip() == 'No whois server is known for this kind of object.':
             raise PywhoisError(text)
+
+        tld = domain.split('.')[-1] if '.' in domain else None
+
+        for fnc, tld_list in WHOIS_BY_TLD.items():
+            if tld in tld_list:
+                return getattr(sys.modules[__name__], fnc)(domain, text)
 
         if domain.endswith('.com'):
             return WhoisCom(domain, text)
@@ -388,8 +399,6 @@ class WhoisEntry(dict):
             return WhoisCn(domain, text)
         elif domain.endswith('.tn'):
             return WhoisTn(domain, text)
-        elif domain.endswith('.app'):
-            return WhoisApp(domain, text)
         elif domain.endswith('.money'):
             return WhoisMoney(domain, text)
         elif domain.endswith('.cl'):
@@ -466,8 +475,6 @@ class WhoisEntry(dict):
             return WhoisAero(domain, text)
         elif domain.endswith('.network'):
             return WhoisNetwork(domain, text)
-        elif domain.endswith('.goog'):
-            return WhoisGoog(domain, text)
         elif domain.endswith('.asia'):
             return WhoisAsia(domain, text)
         elif domain.endswith('.top'):
@@ -562,8 +569,6 @@ class WhoisEntry(dict):
             return WhoisIcu(domain, text)
         elif domain.endswith('.xyz'):
             return WhoisXyz(domain, text)
-        elif domain.endswith('.page'):
-            return WhoisPage(domain, text)
         elif domain.endswith('.paris'):
             return WhoisParis(domain, text)
         elif domain.endswith('.ps'):
@@ -3445,36 +3450,6 @@ class WhoisTn(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
-class WhoisApp(WhoisEntry):
-    """Whois parser for .app domains"""
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'registrar': r'Registrar: *(.+)',
-        'whois_server': r'Whois Server: *(.+)',
-        'updated_date': r'Updated Date: *(.+)',
-        'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Expir\w+ Date: *(.+)',
-        'name_servers': r'Name Server: *(.+)',  # list of name servers
-        'status': r'Status: *(.+)',  # list of statuses
-        'emails': EMAIL_REGEX,  # list of email s
-        'registrant_email': r'Registrant Email: *(.+)',  # registrant email
-        'registrant_phone': r'Registrant Phone: *(.+)',  # registrant phone
-        'dnssec': r'dnssec: *([\S]+)',
-        'name': r'Registrant Name: *(.+)',
-        'org': r'Registrant\s*Organization: *(.+)',
-        'address': r'Registrant Street: *(.+)',
-        'city': r'Registrant City: *(.+)',
-        'state': r'Registrant State/Province: *(.+)',
-        'registrant_postal_code': r'Registrant Postal Code: *(.+)',
-        'country': r'Registrant Country: *(.+)',
-    }
-
-    def __init__(self, domain, text):
-        if text.strip() == 'Domain not found.':
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
 
 class WhoisMoney(WhoisEntry):
     """Whois parser for .money domains"""
@@ -3983,10 +3958,10 @@ class WhoisNetwork(WhoisCom):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisGoog(WhoisEntry):
+class WhoisGoogle(WhoisEntry):
+    """Whois parser for .goog domains
+    """
     regex = {
-        """Whois parser for .goog domains
-        """
         'domain_name': r'Domain Name: *(.+)',
         'registry_domain__id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
@@ -6044,18 +6019,6 @@ class WhoisXyz(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisPage(WhoisCom):
-    """Whois parser for .page domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
 
 class WhoisParis(WhoisEntry):
     """Whois parser for .paris domains
