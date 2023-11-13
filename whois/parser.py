@@ -84,7 +84,8 @@ KNOWN_FORMATS = [
 WHOIS_BY_TLD = {
     "WhoisGoogle": ['xn--q9jyb4c', 'meet', 'foo', 'soy', 'prod', 'how', 'mov', 'youtube', 'channel', 'boo', 'dad', 'new', 'eat', 'ing', 'meme', 'here', 'zip', 'day', 'gmail', 'fly', 'gbiz', 'rsvp', 'esq', 'xn--flw351e',
                     'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd'],
-    "WhoisTucows": ['sexy', 'tattoo', 'gift', 'link', 'country', 'hiphop', 'juegos', 'hiv', 'property', 'click', 'yandex', 'trust', 'love', 'creditunion', 'cloud']
+    "WhoisTucows": ['sexy', 'tattoo', 'gift', 'link', 'country', 'hiphop', 'juegos', 'hiv', 'property', 'click', 'yandex', 'trust', 'love', 'creditunion', 'cloud'],
+    "WhoisIdentityDigitalInc": ['xn--unup4y', 'ventures', 'equipment', 'singles', 'lighting', 'holdings', 'voyage', 'clothing', 'guru', 'bike', 'camera', 'construction', 'contractors', 'estate', 'gallery', 'graphics', 'land', 'plumbing', 'technology', 'diamonds', 'directory', 'enterprises', 'kitchen', 'photography', 'tips', 'today', 'immobilien', 'email', 'solutions', 'holiday', 'florist', 'coffee', 'builders', 'repair', 'ninja', 'kaufen', 'house', 'training', 'codes', 'international', 'onl', 'glass', 'education', 'farm', 'solar', 'institute', 'recipes', 'computer', 'academy', 'careers', 'cab', 'systems', 'domains', 'viajes', 'company', 'camp', 'limo', 'management', 'photos', 'shoes', 'center', 'support', 'agency', 'marketing', 'cheap', 'zone', 'pink', 'rich', 'red', 'shiksha', 'tools', 'cool', 'kim', 'watch', 'expert', 'works', 'tienda', 'bargains', 'boutique', 'community', 'dating', 'catering', 'cleaning', 'cruises', 'events', 'exposed', 'flights', 'partners', 'properties', 'rentals', 'report', 'blue', 'xn--6frz82g', 'vision', 'cards', 'foundation', 'condos', 'villas', 'parts', 'productions', 'maison', 'dance', 'moda', 'social', 'democrat', 'supplies', 'fish', 'vacations', 'industries', 'supply', 'voto', 'vote', 'xn--c1avg', 'xn--i1b6b1a6a2e', 'xn--nqv7fs00ema', 'xn--nqv7f', 'actor', 'pub', 'black', 'consulting', 'haus', 'vegas', 'archi', 'jetzt', 'reviews', 'futbol', 'rocks', 'pictures', 'university', 'associates', 'reisen', 'media', 'town', 'toys', 'lease', 'services', 'engineering', 'gripe', 'capital', 'frogans', 'limited', 'fail', 'exchange', 'tax', 'wtf', 'fund', 'surgery', 'investments', 'financial', 'gratis', 'furniture', 'dental', 'care', 'cash', 'discount', 'clinic', 'fitness', 'schule', 'creditcard', 'insure', 'finance', 'airforce', 'guide', 'loans', 'church', 'life', 'credit', 'accountants', 'digital', 'claims', 'reise', 'degree', 'bio', 'lawyer', 'vet', 'mortgage', 'software', 'market', 'dentist', 'attorney', 'engineer', 'rehab', 'republican', 'gives', 'navy', 'army', 'global', 'organic', 'lotto', 'green', 'city', 'deals', 'direct', 'place', 'active', 'healthcare', 'restaurant', 'gifts', 'sarl', 'auction', 'ngo', 'nra', 'lgbt', 'ong', 'pizza', 'immo', 'bnpparibas', 'xn--b4w605ferd', 'xn--czrs0t', 'xn--fjq720a', 'xn--vhquv', 'emerck', 'business', 'band', 'crs', 'cern', 'forsale', 'rip', 'network', 'dabur', 'ltda', 'scholarships', 'world', 'shriram', 'mormon', 'temasek', 'hermes', 'bnl', 'java', 'fan', 'lds', 'group', 'sew', 'abbott', 'oracle', 'irish', 'poker', 'ist', 'istanbul', 'ski', 'energy', 'delivery', 'ltd', 'obi', 'coach', 'sanofi', 'marriott', 'memorial', 'money', 'legal', 'video', 'sale', 'abb', 'redstone', 'ice', 'bms', 'zara', 'tires', 'giving', 'jaguar', 'landrover', 'stada', 'barclays', 'barclaycard', 'chat', 'bingo', 'style', 'tennis', 'live', 'dog', 'salon', 'xin', 'forex', 'apartments', 'trading', 'ubs', 'markets', 'broker', 'school', 'news', 'bradesco', 'promo', 'football', 'casino', 'golf', 'edeka', 'stockholm', 'fage', 'xn--5tzm5g', 'watches', 'xn--jlq61u9w7b', 'contact', 'avianca', 'nokia', 'star', 'alipay', 'alibaba', 'taobao', 'tmall', 'gold', 'tours', 'weir', 'helsinki', 'plus', 'movie', 'orientexpress', 'cafe', 'studio', 'hdfcbank', 'express', 'xn--estv75g', 'tvs', 'delta', 'gallup', 'cipriani', 'team', 'show', 'jewelry', 'weibo', 'xn--9krt00a', 'statebank', 'sbi', 'tatamotors', 'sina', 'theater', 'realty', 'run', 'taxi', 'hockey', 'redumbrella', 'travelers', 'travelersinsurance', 'soccer', 'trv', 'coupons', 'lasalle', 'jll', 'homedepot', 'viking', 'fyi', 'jio', 'bcg', 'ril', 'mba', 'family', 'reliance', 'thd', 'kerryproperties', 'chanel', 'ceb', 'kuokgroup', 'kerrylogistics', 'agakhan', 'akdn', 'shaw', 'jcp', 'kerryhotels', 'observer', 'bet', 'metlife', 'pet', 'srl', 'nowtv', 'extraspace', 'beats', 'apple', 'volkswagen', 'vig', 'xn--fzys8d69uvgm', 'hkt', 'pccw', 'richardli', 'dot', 'nikon', 'audi', 'games', 'ott', 'ollo', 'dtv', 'locker', 'lamborghini', 'barefoot', 'gallo', 'vin', 'next', 'wine', 'bosch', 'nextdirect', 'rexroth', 'lipsy', 'ups', 'xn--3oq18vl8pn36a', 'mit', 'dunlop', 'goodyear', 'pnc', 'boehringer', 'itv', 'ericsson', 'lefrak', 'esurance', 'bugatti', 'bbt', 'citadel', 'progressive', 'samsclub', 'mckinsey', 'fiat', 'hughes', 'lancia', 'george', 'latino', 'alfaromeo', 'allstate', 'ferrari', 'blockbuster', 'goodhands', 'sling', 'hdfc', 'asda', 'bestbuy', 'chrysler', 'dodge', 'maserati', 'uconnect', 'juniper', 'walmart', 'abarth', 'mopar', 'jeep', 'srt', 'dish', 'fidelity', 'imamat', 'showtime', 'wolterskluwer', 'fedex', 'ismaili', 'cbs', 'lundbeck', 'aigo', 'rogers', 'fido', 'ubank', 'nab', 'kosher', 'vanguard', 'shangrila', 'caseih', 'iveco', 'newholland', 'aol', 'lamer', 'origins', 'clinique', 'pwc', 'volvo', 'cruise', 'gmbh', 'shopping', 'doctor', 'mobile', 'data', 'phone', 'grocery', 'dvr', 'hospital', 'llc', 'charity', 'spa', 'kids']
 }
 
 
@@ -401,8 +402,6 @@ class WhoisEntry(dict):
             return WhoisCn(domain, text)
         elif domain.endswith('.tn'):
             return WhoisTn(domain, text)
-        elif domain.endswith('.money'):
-            return WhoisMoney(domain, text)
         elif domain.endswith('.cl'):
             return WhoisCl(domain, text)
         elif domain.endswith('.ar'):
@@ -449,8 +448,6 @@ class WhoisEntry(dict):
             return WhoisML(domain, text)
         elif domain.endswith('.ooo'):
             return WhoisOoo(domain, text)
-        elif domain.endswith('.group'):
-            return WhoisGroup(domain, text)
         elif domain.endswith('.market'):
             return WhoisMarket(domain, text)
         elif domain.endswith('.za'):
@@ -459,36 +456,18 @@ class WhoisEntry(dict):
             return WhoisBz(domain, text)
         elif domain.endswith('.design'):
             return WhoisDesign(domain, text)
-        elif domain.endswith('.studio'):
-            return WhoisStudio(domain, text)
         elif domain.endswith('.style'):
             return WhoisStyle(domain, text)
         elif domain.endswith('.рус') or domain.endswith('.xn--p1acf'):
             return WhoisPyc(domain, text)
-        elif domain.endswith('.city'):
-            return WhoisCity(domain, text)
-        elif domain.endswith('.credit'):
-            return WhoisCredit(domain, text)
-        elif domain.endswith('.agency'):
-            return WhoisAgency(domain, text)
-        elif domain.endswith('.community'):
-            return WhoisCommunity(domain, text)
         elif domain.endswith('.ad'):
             return WhoisAero(domain, text)
-        elif domain.endswith('.network'):
-            return WhoisNetwork(domain, text)
         elif domain.endswith('.asia'):
             return WhoisAsia(domain, text)
         elif domain.endswith('.top'):
             return WhoisTop(domain, text)
         elif domain.endswith('.berlin'):
             return WhoisBerlin(domain, text)
-        elif domain.endswith('.bike'):
-            return WhoisBike(domain, text)
-        elif domain.endswith('.deals'):
-            return WhoisDeals(domain, text)
-        elif domain.endswith('.domains'):
-            return WhoisDomains(domain, text)
         elif domain.endswith('.gl'):
             return WhoisGl(domain, text)
         elif domain.endswith('.lease'):
@@ -497,12 +476,8 @@ class WhoisEntry(dict):
             return WhoisOne(domain, text)
         elif domain.endswith('.photo'):
             return WhoisPhoto(domain, text)
-        elif domain.endswith('.academy'):
-            return WhoisAcademy(domain, text)
         elif domain.endswith('amsterdam'):
             return WhoisAmsterdam(domain, text)
-        elif domain.endswith('.bio'):
-            return WhoisBio(domain, text)
         elif domain.endswith('.ac'):
             return WhoisAc(domain, text)
         elif domain.endswith('.mk'):
@@ -579,28 +554,16 @@ class WhoisEntry(dict):
             return WhoisPk(domain, text)
         elif domain.endswith('.fashion'):
             return WhoisFashion(domain, text)
-        elif domain.endswith('.finance'):
-            return WhoisFinance(domain, text)
         elif domain.endswith('.london'):
             return WhoisLondon(domain, text)
         elif domain.endswith('.estate'):
             return WhoisEstate(domain, text)
         elif domain.endswith('.rocks'):
             return WhoisRocks(domain, text)
-        elif domain.endswith('.cards'):
-            return WhoisCards(domain, text)
-        elif domain.endswith('.glass'):
-            return WhoisGlass(domain, text)
         elif domain.endswith('.melbourne'):
             return WhoisMelbourne(domain, text)
         elif domain.endswith('.wales'):
             return WhoisWales(domain, text)
-        elif domain.endswith('.digital'):
-            return WhoisDigital(domain, text)
-        elif domain.endswith('.vegas'):
-            return WhoisVegas(domain, text)
-        elif domain.endswith('.training'):
-            return WhoisTraining(domain, text)
         elif domain.endswith('.site'):
             return WhoisSite(domain, text)
         elif domain.endswith('.re'):
@@ -1915,13 +1878,6 @@ class WhoisInfo(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisTraining(WhoisCom):
-    """Whois parser for .training domains"""
-
-    def __init__(self, domain, text):
-        WhoisCom.__init__(self, domain, text)
-
-
 class WhoisSite(WhoisCom):
     """Whois parser for .site domains"""
 
@@ -2006,13 +1962,6 @@ class WhoisBz(WhoisRu):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisCity(WhoisCom):
-    """Whois parser for .city domains"""
-
-    def __init__(self, domain, text):
-        WhoisCom.__init__(self, domain, text)
-
-
 class WhoisDesign(WhoisEntry):
     """Whois parser for .design domains
     """
@@ -2075,29 +2024,6 @@ class WhoisDesign(WhoisEntry):
 
     def __init__(self, domain, text):
         if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisStudio(WhoisEntry):
-    """Whois parser for .studio domains"""
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Registry Domain ID:(.+)',
-        'whois_server': r'Registrar WHOIS Server: *(.+)',
-        'registrar_url': r'Registrar URL: *(.+)',
-        'updated_date': r'Updated Date: (.+)',
-        'creation_date': r'Creation Date: (.+)',
-        'expiration_date': r'Expir\w+ Date:\s?(.+)',
-        'registrar': r'Registrar:(.+)',
-        'status': r'Domain status: *(.+)',
-        'registrant_name': r'Registrant Name:(.+)',
-        'name_servers': r'Name Server: *(.+)',
-    }
-
-    def __init__(self, domain, text):
-        if 'Domain not found' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
@@ -3458,37 +3384,6 @@ class WhoisTn(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisMoney(WhoisEntry):
-    """Whois parser for .money domains"""
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'registrar': r'Registrar: *(.+)',
-        'whois_server': r'Registrar WHOIS Server: *(.+)',
-        'updated_date': r'Updated Date: *(.+)',
-        'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Registry Expiry Date: *(.+)',
-        'name_servers': r'Name Server: *(.+)',  # list of name servers
-        'status': r'Domain Status: *(.+)',
-        'emails': EMAIL_REGEX,  # list of emails
-        'registrant_email': r'Registrant Email: *(.+)',
-        'registrant_phone': r'Registrant Phone: *(.+)',
-        'dnssec': r'DNSSEC: *(.+)',
-        'name': r'Registrant Name: *(.+)',
-        'org': r'Registrant Organization: *(.+)',
-        'address': r'Registrant Street: *(.+)',
-        'city': r'Registrant City: *(.+)',
-        'state': r'Registrant State/Province: *(.+)',
-        'registrant_postal_code': r'Registrant Postal Code: *(.+)',
-        'country': r'Registrant Country: *(.+)',
-    }
-
-    def __init__(self, domain, text):
-        if text.strip() == 'Domain not found.':
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
 class WhoisAr(WhoisEntry):
     """Whois parser for .ar domains"""
     regex = {
@@ -3891,38 +3786,6 @@ class WhoisZa(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisCredit(WhoisCom):
-    """""Whois parser for .credit domains"""
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisAgency(WhoisCom):
-    """""Whois parser for .agency domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisCommunity(WhoisCom):
-    """Whois parser for .community domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
 class WhoisAero(WhoisEntry):
     regex = {
         """Whois parser for .aero domains
@@ -3948,17 +3811,6 @@ class WhoisAero(WhoisEntry):
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisNetwork(WhoisCom):
-    """Whois parser for .network domains
-    """
 
     def __init__(self, domain, text):
         if 'Not found:' in text:
@@ -4108,50 +3960,6 @@ class WhoisBerlin(WhoisEntry):
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisBike(WhoisCom):
-    """Whois parser for .bike domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisBingo(WhoisCom):
-    """Whois parser for .bingo domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisDeals(WhoisCom):
-    """Whois parser for .deals domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisDomains(WhoisCom):
-    """Whois parser for .domains domains
-    """
 
     def __init__(self, domain, text):
         if 'Not found:' in text:
@@ -4413,17 +4221,6 @@ class WhoisPhoto(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisAcademy(WhoisCom):
-    """Whois parser for .academy domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
 class WhoisReview(WhoisCom):
     """Whois parser for .review domains
     """
@@ -4437,17 +4234,6 @@ class WhoisReview(WhoisCom):
 
 class WhoisAmsterdam(WhoisCom):
     """Whois parser for .amsterdam domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisBio(WhoisCom):
-    """Whois parser for .bio domains
     """
 
     def __init__(self, domain, text):
@@ -6230,17 +6016,6 @@ class WhoisFashion(WhoisCom):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisFinance(WhoisCom):
-    """Whois parser for .finance domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
 class WhoisLondon(WhoisEntry):
     """Whois parser for .london domains
     """
@@ -6288,28 +6063,6 @@ class WhoisEstate(WhoisCom):
 
 class WhoisRocks(WhoisCom):
     """Whois parser for .rocks domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisCards(WhoisCom):
-    """Whois parser for .cards domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisGlass(WhoisCom):
-    """Whois parser for .glass domains
     """
 
     def __init__(self, domain, text):
@@ -6408,23 +6161,12 @@ class WhoisWales(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisDigital(WhoisCom):
-    """Whois parser for .digital domains
-    """
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisVegas(WhoisEntry):
-    """Whois parser for .vegas domains
+class WhoisIdentityDigitalInc(WhoisEntry):
+    """Whois parser for Identity Digital Inc domains
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
+        'registry_domain_id': r'Registry Domain ID: *(.+)',
         'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
         'registrar_url': r'Registrar URL: *(.+)',
         'updated_date': r'Updated Date: *(.+)',
@@ -6435,11 +6177,44 @@ class WhoisVegas(WhoisEntry):
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
         'status': r'Domain Status: *(.+)',
+        'registry_registrant_id': r'Registry Registrant ID: *(.+)',
+        'registrant_name': r'Registrant Name: *(.+)',
         'registrant_org': r'Registrant Organization: *(.+)',
+        'registrant_street': r'Registrant Street: *(.+)',
+        'registrant_city': r'Registrant City: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
+        'registrant_postal_code': r'Registrant Postal Code: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
+        'registrant_phone': r'Registrant Phone: *(.+)',
+        'registrant_phone_ext': r'Registrant Phone Ext: *(.+)',
+        'registrant_fax': r'Registrant Fax: *(.+)',
+        'registrant_fax_ext': r'Registrant Fax Ext: *(.+)',
         'registrant_email': r'Registrant Email: *(.+)',
+        'registry_admin_id': r'Registry Admin ID: *(.+)',
+        'admin_name': r'Admin Name: *(.+)',
+        'admin_org': r'Admin Organization: *(.+)',
+        'admin_street': r'Admin Street: *(.+)',
+        'admin_city': r'Admin City: *(.+)',
+        'admin_state/province': r'Admin State/Province: *(.+)',
+        'admin_postal_code': r'Admin Postal Code: *(.+)',
+        'admin_country': r'Admin Country: *(.+)',
+        'admin_phone': r'Admin Phone: *(.+)',
+        'admin_phone_ext': r'Admin Phone Ext: *(.+)',
+        'admin_fax': r'Admin Fax: *(.+)',
+        'admin_fax_ext': r'Admin Fax Ext: *(.+)',
         'admin_email': r'Admin Email: *(.+)',
+        'registry_tech_id': r'Registry Tech ID: *(.+)',
+        'tech_name': r'Tech Name: *(.+)',
+        'tech_org': r'Tech Organization: *(.+)',
+        'tech_street': r'Tech Street: *(.+)',
+        'tech_city': r'Tech City: *(.+)',
+        'tech_state/province': r'Tech State/Province: *(.+)',
+        'tech_postal_code': r'Tech Postal Code: *(.+)',
+        'tech_country': r'Tech Country: *(.+)',
+        'tech_phone': r'Tech Phone: *(.+)',
+        'tech_phone_ext': r'Tech Phone Ext: *(.+)',
+        'tech_fax': r'Tech Fax: *(.+)',
+        'tech_fax_ext': r'Tech Fax Ext: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
         'name_server': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
