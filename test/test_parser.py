@@ -85,7 +85,7 @@ class TestParser(unittest.TestCase):
                 continue
 
             # Load expected result
-            with open(os.path.join(expect_path, domain)) as infil:    
+            with open(os.path.join(expect_path, domain)) as infil:
                 expected_results = json.load(infil)
 
             # Compare each key
@@ -774,7 +774,7 @@ Hostname:             p.nic.dk
     def test_sk_parse(self):
         data = """
         # whois.sk-nic.sk
-        
+
         Domain:                       pipoline.sk
         Registrant:                   H410977
         Admin Contact:                H410977
@@ -786,7 +786,7 @@ Hostname:             p.nic.dk
         Nameserver:                   ns1.cloudlikeaboss.com
         Nameserver:                   ns2.cloudlikeaboss.com
         EPP Status:                   ok
-        
+
         Registrar:                    PIPO-0002
         Name:                         Pipoline s.r.o.
         Organization:                 Pipoline s.r.o.
@@ -799,7 +799,7 @@ Hostname:             p.nic.dk
         Country Code:                 SK
         Created:                      2017-09-01
         Updated:                      2020-07-02
-        
+
         Contact:                      H410977
         Name:                         Ing. Peter Gonda
         Organization:                 Pipoline s.r.o
