@@ -85,7 +85,8 @@ WHOIS_BY_TLD = {
     "WhoisGoogle": ['xn--q9jyb4c', 'meet', 'foo', 'soy', 'prod', 'how', 'mov', 'youtube', 'channel', 'boo', 'dad', 'new', 'eat', 'ing', 'meme', 'here', 'zip', 'day', 'gmail', 'fly', 'gbiz', 'rsvp', 'esq', 'xn--flw351e',
                     'xn--qcka1pmc', 'gle', 'cal', 'chrome', 'nexus', 'android', 'google', 'prof', 'guge', 'docs', 'dev', 'hangout', 'goog', 'dclk', 'ads', 'page', 'drive', 'play', 'app', 'map', 'search', 'phd'],
     "WhoisTucows": ['sexy', 'tattoo', 'gift', 'link', 'country', 'hiphop', 'juegos', 'hiv', 'property', 'click', 'yandex', 'trust', 'love', 'creditunion', 'cloud'],
-    "WhoisIdentityDigitalInc": ['xn--unup4y', 'ventures', 'equipment', 'singles', 'lighting', 'holdings', 'voyage', 'clothing', 'guru', 'bike', 'camera', 'construction', 'contractors', 'estate', 'gallery', 'graphics', 'land', 'plumbing', 'technology', 'diamonds', 'directory', 'enterprises', 'kitchen', 'photography', 'tips', 'today', 'immobilien', 'email', 'solutions', 'holiday', 'florist', 'coffee', 'builders', 'repair', 'ninja', 'kaufen', 'house', 'training', 'codes', 'international', 'onl', 'glass', 'education', 'farm', 'solar', 'institute', 'recipes', 'computer', 'academy', 'careers', 'cab', 'systems', 'domains', 'viajes', 'company', 'camp', 'limo', 'management', 'photos', 'shoes', 'center', 'support', 'agency', 'marketing', 'cheap', 'zone', 'pink', 'rich', 'red', 'shiksha', 'tools', 'cool', 'kim', 'watch', 'expert', 'works', 'tienda', 'bargains', 'boutique', 'community', 'dating', 'catering', 'cleaning', 'cruises', 'events', 'exposed', 'flights', 'partners', 'properties', 'rentals', 'report', 'blue', 'xn--6frz82g', 'vision', 'cards', 'foundation', 'condos', 'villas', 'parts', 'productions', 'maison', 'dance', 'moda', 'social', 'democrat', 'supplies', 'fish', 'vacations', 'industries', 'supply', 'voto', 'vote', 'xn--c1avg', 'xn--i1b6b1a6a2e', 'xn--nqv7fs00ema', 'xn--nqv7f', 'actor', 'pub', 'black', 'consulting', 'haus', 'vegas', 'archi', 'jetzt', 'reviews', 'futbol', 'rocks', 'pictures', 'university', 'associates', 'reisen', 'media', 'town', 'toys', 'lease', 'services', 'engineering', 'gripe', 'capital', 'frogans', 'limited', 'fail', 'exchange', 'tax', 'wtf', 'fund', 'surgery', 'investments', 'financial', 'gratis', 'furniture', 'dental', 'care', 'cash', 'discount', 'clinic', 'fitness', 'schule', 'creditcard', 'insure', 'finance', 'airforce', 'guide', 'loans', 'church', 'life', 'credit', 'accountants', 'digital', 'claims', 'reise', 'degree', 'bio', 'lawyer', 'vet', 'mortgage', 'software', 'market', 'dentist', 'attorney', 'engineer', 'rehab', 'republican', 'gives', 'navy', 'army', 'global', 'organic', 'lotto', 'green', 'city', 'deals', 'direct', 'place', 'active', 'healthcare', 'restaurant', 'gifts', 'sarl', 'auction', 'ngo', 'nra', 'lgbt', 'ong', 'pizza', 'immo', 'bnpparibas', 'xn--b4w605ferd', 'xn--czrs0t', 'xn--fjq720a', 'xn--vhquv', 'emerck', 'business', 'band', 'crs', 'cern', 'forsale', 'rip', 'network', 'dabur', 'ltda', 'scholarships', 'world', 'shriram', 'mormon', 'temasek', 'hermes', 'bnl', 'java', 'fan', 'lds', 'group', 'sew', 'abbott', 'oracle', 'irish', 'poker', 'ist', 'istanbul', 'ski', 'energy', 'delivery', 'ltd', 'obi', 'coach', 'sanofi', 'marriott', 'memorial', 'money', 'legal', 'video', 'sale', 'abb', 'redstone', 'ice', 'bms', 'zara', 'tires', 'giving', 'jaguar', 'landrover', 'stada', 'barclays', 'barclaycard', 'chat', 'bingo', 'style', 'tennis', 'live', 'dog', 'salon', 'xin', 'forex', 'apartments', 'trading', 'ubs', 'markets', 'broker', 'school', 'news', 'bradesco', 'promo', 'football', 'casino', 'golf', 'edeka', 'stockholm', 'fage', 'xn--5tzm5g', 'watches', 'xn--jlq61u9w7b', 'contact', 'avianca', 'nokia', 'star', 'alipay', 'alibaba', 'taobao', 'tmall', 'gold', 'tours', 'weir', 'helsinki', 'plus', 'movie', 'orientexpress', 'cafe', 'studio', 'hdfcbank', 'express', 'xn--estv75g', 'tvs', 'delta', 'gallup', 'cipriani', 'team', 'show', 'jewelry', 'weibo', 'xn--9krt00a', 'statebank', 'sbi', 'tatamotors', 'sina', 'theater', 'realty', 'run', 'taxi', 'hockey', 'redumbrella', 'travelers', 'travelersinsurance', 'soccer', 'trv', 'coupons', 'lasalle', 'jll', 'homedepot', 'viking', 'fyi', 'jio', 'bcg', 'ril', 'mba', 'family', 'reliance', 'thd', 'kerryproperties', 'chanel', 'ceb', 'kuokgroup', 'kerrylogistics', 'agakhan', 'akdn', 'shaw', 'jcp', 'kerryhotels', 'observer', 'bet', 'metlife', 'pet', 'srl', 'nowtv', 'extraspace', 'beats', 'apple', 'volkswagen', 'vig', 'xn--fzys8d69uvgm', 'hkt', 'pccw', 'richardli', 'dot', 'nikon', 'audi', 'games', 'ott', 'ollo', 'dtv', 'locker', 'lamborghini', 'barefoot', 'gallo', 'vin', 'next', 'wine', 'bosch', 'nextdirect', 'rexroth', 'lipsy', 'ups', 'xn--3oq18vl8pn36a', 'mit', 'dunlop', 'goodyear', 'pnc', 'boehringer', 'itv', 'ericsson', 'lefrak', 'esurance', 'bugatti', 'bbt', 'citadel', 'progressive', 'samsclub', 'mckinsey', 'fiat', 'hughes', 'lancia', 'george', 'latino', 'alfaromeo', 'allstate', 'ferrari', 'blockbuster', 'goodhands', 'sling', 'hdfc', 'asda', 'bestbuy', 'chrysler', 'dodge', 'maserati', 'uconnect', 'juniper', 'walmart', 'abarth', 'mopar', 'jeep', 'srt', 'dish', 'fidelity', 'imamat', 'showtime', 'wolterskluwer', 'fedex', 'ismaili', 'cbs', 'lundbeck', 'aigo', 'rogers', 'fido', 'ubank', 'nab', 'kosher', 'vanguard', 'shangrila', 'caseih', 'iveco', 'newholland', 'aol', 'lamer', 'origins', 'clinique', 'pwc', 'volvo', 'cruise', 'gmbh', 'shopping', 'doctor', 'mobile', 'data', 'phone', 'grocery', 'dvr', 'hospital', 'llc', 'charity', 'spa', 'kids']
+    "WhoisIdentityDigitalInc": ['xn--unup4y', 'ventures', 'equipment', 'singles', 'lighting', 'holdings', 'voyage', 'clothing', 'guru', 'bike', 'camera', 'construction', 'contractors', 'estate', 'gallery', 'graphics', 'land', 'plumbing', 'technology', 'diamonds', 'directory', 'enterprises', 'kitchen', 'photography', 'tips', 'today', 'immobilien', 'email', 'solutions', 'holiday', 'florist', 'coffee', 'builders', 'repair', 'ninja', 'kaufen', 'house', 'training', 'codes', 'international', 'onl', 'glass', 'education', 'farm', 'solar', 'institute', 'recipes', 'computer', 'academy', 'careers', 'cab', 'systems', 'domains', 'viajes', 'company', 'camp', 'limo', 'management', 'photos', 'shoes', 'center', 'support', 'agency', 'marketing', 'cheap', 'zone', 'pink', 'rich', 'red', 'shiksha', 'tools', 'cool', 'kim', 'watch', 'expert', 'works', 'tienda', 'bargains', 'boutique', 'community', 'dating', 'catering', 'cleaning', 'cruises', 'events', 'exposed', 'flights', 'partners', 'properties', 'rentals', 'report', 'blue', 'xn--6frz82g', 'vision', 'cards', 'foundation', 'condos', 'villas', 'parts', 'productions', 'maison', 'dance', 'moda', 'social', 'democrat', 'supplies', 'fish', 'vacations', 'industries', 'supply', 'voto', 'vote', 'xn--c1avg', 'xn--i1b6b1a6a2e', 'xn--nqv7fs00ema', 'xn--nqv7f', 'actor', 'pub', 'black', 'consulting', 'haus', 'vegas', 'archi', 'jetzt', 'reviews', 'futbol', 'rocks', 'pictures', 'university', 'associates', 'reisen', 'media', 'town', 'toys', 'lease', 'services', 'engineering', 'gripe', 'capital', 'frogans', 'limited', 'fail', 'exchange', 'tax', 'wtf', 'fund', 'surgery', 'investments', 'financial', 'gratis', 'furniture', 'dental', 'care', 'cash', 'discount', 'clinic', 'fitness', 'schule', 'creditcard', 'insure', 'finance', 'airforce', 'guide', 'loans', 'church', 'life', 'credit', 'accountants', 'digital', 'claims', 'reise', 'degree', 'bio', 'lawyer', 'vet', 'mortgage', 'software', 'market', 'dentist', 'attorney', 'engineer', 'rehab', 'republican', 'gives', 'navy', 'army', 'global', 'organic', 'lotto', 'green', 'city', 'deals', 'direct', 'place', 'active', 'healthcare', 'restaurant', 'gifts', 'sarl', 'auction', 'ngo', 'nra', 'lgbt', 'ong', 'pizza', 'immo', 'bnpparibas', 'xn--b4w605ferd', 'xn--czrs0t', 'xn--fjq720a', 'xn--vhquv', 'emerck', 'business', 'band', 'crs', 'cern', 'forsale', 'rip', 'network', 'dabur', 'ltda', 'scholarships', 'world', 'shriram', 'mormon', 'temasek', 'hermes', 'bnl', 'java', 'fan', 'lds', 'group', 'sew', 'abbott', 'oracle', 'irish', 'poker', 'ist', 'istanbul', 'ski', 'energy', 'delivery', 'ltd', 'obi', 'coach', 'sanofi', 'marriott', 'memorial', 'money', 'legal', 'video', 'sale', 'abb', 'redstone', 'ice', 'bms', 'zara', 'tires', 'giving', 'jaguar', 'landrover', 'stada', 'barclays', 'barclaycard', 'chat', 'bingo', 'style', 'tennis', 'live', 'dog', 'salon', 'xin', 'forex', 'apartments', 'trading', 'ubs', 'markets', 'broker', 'school', 'news', 'bradesco', 'promo', 'football', 'casino', 'golf', 'edeka', 'stockholm', 'fage', 'xn--5tzm5g', 'watches', 'xn--jlq61u9w7b', 'contact', 'avianca', 'nokia', 'star', 'alipay', 'alibaba', 'taobao', 'tmall', 'gold', 'tours', 'weir', 'helsinki', 'plus', 'movie', 'orientexpress', 'cafe', 'studio', 'hdfcbank', 'express', 'xn--estv75g', 'tvs', 'delta', 'gallup', 'cipriani', 'team', 'show', 'jewelry', 'weibo', 'xn--9krt00a', 'statebank', 'sbi', 'tatamotors', 'sina', 'theater', 'realty', 'run', 'taxi', 'hockey', 'redumbrella', 'travelers', 'travelersinsurance', 'soccer', 'trv', 'coupons', 'lasalle', 'jll', 'homedepot', 'viking', 'fyi', 'jio', 'bcg', 'ril', 'mba', 'family', 'reliance', 'thd', 'kerryproperties', 'chanel', 'ceb', 'kuokgroup', 'kerrylogistics', 'agakhan', 'akdn', 'shaw', 'jcp', 'kerryhotels', 'observer', 'bet', 'metlife', 'pet', 'srl', 'nowtv', 'extraspace', 'beats', 'apple', 'volkswagen', 'vig', 'xn--fzys8d69uvgm', 'hkt', 'pccw', 'richardli', 'dot', 'nikon', 'audi', 'games', 'ott', 'ollo', 'dtv', 'locker', 'lamborghini', 'barefoot', 'gallo', 'vin', 'next', 'wine', 'bosch', 'nextdirect', 'rexroth', 'lipsy', 'ups', 'xn--3oq18vl8pn36a', 'mit', 'dunlop', 'goodyear', 'pnc', 'boehringer', 'itv', 'ericsson', 'lefrak', 'esurance', 'bugatti', 'bbt', 'citadel', 'progressive', 'samsclub', 'mckinsey', 'fiat', 'hughes', 'lancia', 'george', 'latino', 'alfaromeo', 'allstate', 'ferrari', 'blockbuster', 'goodhands', 'sling', 'hdfc', 'asda', 'bestbuy', 'chrysler', 'dodge', 'maserati', 'uconnect', 'juniper', 'walmart', 'abarth', 'mopar', 'jeep', 'srt', 'dish', 'fidelity', 'imamat', 'showtime', 'wolterskluwer', 'fedex', 'ismaili', 'cbs', 'lundbeck', 'aigo', 'rogers', 'fido', 'ubank', 'nab', 'kosher', 'vanguard', 'shangrila', 'caseih', 'iveco', 'newholland', 'aol', 'lamer', 'origins', 'clinique', 'pwc', 'volvo', 'cruise', 'gmbh', 'shopping', 'doctor', 'mobile', 'data', 'phone', 'grocery', 'dvr', 'hospital', 'llc', 'charity', 'spa', 'kids'],
+    "WhoisCentralNic": ['uno', 'ceo', 'ruhr', 'build', 'pics', 'luxury', 'guitars', 'christmas', 'bar', 'xyz', 'best', 'saarland', 'rest', 'london', 'kred', 'qpon', 'feedback', 'college', 'audio', 'yachts', 'homes', 'autos', 'motorcycles', 'xn--4gbrim', 'space', 'website', 'host', 'press', 'bmw', 'mini', 'hosting', 'diet', 'help', 'gent', 'spiegel', 'xn--vermgensberater-ctb', 'xn--vermgensberatung-pwb', 'wme', 'ooo', 'tui', 'frl', 'pohl', 'dvag', 'bond', 'allfinanz', 'flsmidth', 'reit', 'schwarz', 'lidl', 'stc', 'flowers', 'stcgroup', 'lat', 'viva', 'meo', 'fans', 'sbs', 'sapo', 'zuerich', 'cars', 'auto', 'xn--ngbe9e0a', 'boats', 'rent', 'kfh', 'cfd', 'spreadbetting', 'dealer', 'storage', 'icu', 'pid', 'kpn', 'online', 'makeup', 'site', 'skin', 'cyou', 'car', 'tech', 'lol', 'tickets', 'quest', 'forum', 'baby', 'store', 'mom', 'protection', 'theatre', 'security', 'blog', 'game', 'smart', 'adac', 'epost', 'dhl', 'lpl', 'deloitte', 'lplfinancial', 'fresenius', 'sfr', 'xn--mgbaakc7dvf', 'case', 'etisalat', 'monster', 'box', 'hair', 'beauty', 'fun', 'art', 'cam', 'inc', 'llp', 'music']
 }
 
 
@@ -928,15 +929,6 @@ class WhoisTz(WhoisEntry):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
-
-class WhoisSpace(WhoisEntry):
-    """Whois parser for .space domains"""
-
-    def __init__(self, domain, text):
-        if 'No match for "' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text)
 
 
 class WhoisCom(WhoisEntry):
@@ -1878,11 +1870,6 @@ class WhoisInfo(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisSite(WhoisCom):
-    """Whois parser for .site domains"""
-
-    def __init__(self, domain, text):
-        WhoisCom.__init__(self, domain, text)
 
 
 class WhoisRf(WhoisRu):
@@ -2948,33 +2935,6 @@ class WhoisCz(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisOnline(WhoisEntry):
-    """Whois parser for .online domains"""
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'domain__id': r'Domain ID: *(.+)',
-        'whois_server': r'Registrar WHOIS Server: *(.+)',
-        'registrar': r'Registrar: *(.+)',
-        'registrar_id': r'Registrar IANA ID: *(.+)',
-        'registrar_url': r'Registrar URL: *(.+)',
-        'status': r'Domain Status: *(.+)',
-        'registrant_email': r'Registrant Email: *(.+)',
-        'admin_email': r'Admin Email: *(.+)',
-        'billing_email': r'Billing Email: *(.+)',
-        'tech_email': r'Tech Email: *(.+)',
-        'name_servers': r'Name Server: *(.+)',
-        'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Registry Expiry Date: *(.+)',
-        'updated_date': r'Updated Date: *(.+)',
-        'dnssec': r'DNSSEC: *([\S]+)',
-        'emails': EMAIL_REGEX,
-    }
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisHr(WhoisEntry):
@@ -3281,67 +3241,6 @@ class WhoisHn(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisLat(WhoisEntry):
-    """Whois parser for .lat domains"""
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'domain_id': r'Registry Domain ID: *(.+)',
-        'status': r'Domain Status: *(.+)',
-        'whois_server': r'Registrar WHOIS Server: *(.+)',
-
-        'registrar_url': r'Registrar URL: *(.+)',
-        'registrar': r'Registrar: *(.+)',
-        'registrar_email': r'Registrar Abuse Contact Email: *(.+)',
-        'registrar_phone': r'Registrar Abuse Contact Phone: *(.+)',
-
-        'registrant_name': r'Registrant Name: (.+)',
-        'registrant_id': r'Registry Registrant ID: (.+)',
-        'registrant_organization': r'Registrant Organization: (.+)',
-        'registrant_city': r'Registrant City: (.*)',
-        'registrant_street': r'Registrant Street: (.*)',
-        'registrant_state_province': r'Registrant State/Province: (.*)',
-        'registrant_postal_code': r'Registrant Postal Code: (.*)',
-        'registrant_country': r'Registrant Country: (.+)',
-        'registrant_phone': r'Registrant Phone: (.+)',
-        'registrant_fax': r'Registrant Fax: (.+)',
-        'registrant_email': r'Registrant Email: (.+)',
-
-        'admin_name': r'Admin Name: (.+)',
-        'admin_id': r'Registry Admin ID: (.+)',
-        'admin_organization': r'Admin Organization: (.+)',
-        'admin_city': r'Admin City: (.*)',
-        'admin_street': r'Admin Street: (.*)',
-        'admin_state_province': r'Admin State/Province: (.*)',
-        'admin_postal_code': r'Admin Postal Code: (.*)',
-        'admin_country': r'Admin Country: (.+)',
-        'admin_phone': r'Admin Phone: (.+)',
-        'admin_fax': r'Admin Fax: (.+)',
-        'admin_email': r'Admin Email: (.+)',
-
-        'tech_name': r'Tech Name: (.+)',
-        'tech_id': r'Registry Tech ID: (.+)',
-        'tech_organization': r'Tech Organization: (.+)',
-        'tech_city': r'Tech City: (.*)',
-        'tech_street': r'Tech Street: (.*)',
-        'tech_state_province': r'Tech State/Province: (.*)',
-        'tech_postal_code': r'Tech Postal Code: (.*)',
-        'tech_country': r'Tech Country: (.+)',
-        'tech_phone': r'Tech Phone: (.+)',
-        'tech_fax': r'Tech Fax: (.+)',
-        'tech_email': r'Tech Email: (.+)',
-
-        'updated_date': r'Updated Date: *(.+)',
-        'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Registry Expiry Date: *(.+)',
-        'name_servers': r'Name Server: *(.+)',
-        'emails': EMAIL_REGEX,
-    }
-
-    def __init__(self, domain, text):
-        if text.strip() == 'No matching record.':
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisCn(WhoisEntry):
@@ -3654,16 +3553,6 @@ class WhoisZhongGuo(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisWebsite(WhoisEntry):
-    """Whois parser for .website domains"""
-
-    def __init__(self, domain, text):
-        if 'No match for "' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text)
-
-
 class WhoisML(WhoisEntry):
     """Whois parser for .ml domains"""
 
@@ -3691,15 +3580,6 @@ class WhoisML(WhoisEntry):
             ]
         return super(WhoisML, self)._preprocess(attr, value)
 
-
-class WhoisOoo(WhoisEntry):
-    """Whois parser for .ooo domains"""
-
-    def __init__(self, domain, text):
-        if 'No entries found for the selected source(s).' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisMarket(WhoisEntry):
@@ -5714,76 +5594,10 @@ class WhoisCloud(WhoisCom):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisTech(WhoisEntry):
-    """Whois parser for .tech domains
-    """
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
-        'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
-        'registrar_url': r'Registrar URL: *(.+)',
-        'updated_date': r'Updated Date: *(.+)',
-        'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Registry Expiry Date: *(.+)',
-        'registrar': r'Registrar: *(.+)',
-        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
-        'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
-        'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
-        'status': r'Domain Status: *(.+)',
-        'registrant_org': r'Registrant Organization: *(.+)',
-        'registrant_state/province': r'Registrant State/Province: *(.+)',
-        'registrant_country': r'Registrant Country: *(.+)',
-        'registrant_email': r'Registrant Email: *(.+)',
-        'admin_email': r'Admin Email: *(.+)',
-        'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
-        'dnssec': r'DNSSEC: *(.+)',
-        'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
-    }
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisIcu(WhoisEntry):
-    """Whois parser for .icu domains
-    """
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
-        'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
-        'registrar_url': r'Registrar URL: *(.+)',
-        'updated_date': r'Updated Date: *(.+)',
-        'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Registry Expiry Date: *(.+)',
-        'registrar': r'Registrar: *(.+)',
-        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
-        'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
-        'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
-        'status': r'Domain Status: *(.+)',
-        'registrant_org': r'Registrant Organization: *(.+)',
-        'registrant_state/province': r'Registrant State/Province: *(.+)',
-        'registrant_country': r'Registrant Country: *(.+)',
-        'registrant_email': r'Registrant Email: *(.+)',
-        'admin_email': r'Admin Email: *(.+)',
-        'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
-        'dnssec': r'DNSSEC: *(.+)',
-        'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
-    }
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
-
-
-class WhoisXyz(WhoisEntry):
-    """Whois parser for .xyz domains
+class WhoisCentralNic(WhoisEntry):
+    """Whois parser for CentralNic domains
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
@@ -6015,39 +5829,6 @@ class WhoisFashion(WhoisCom):
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
 
-
-class WhoisLondon(WhoisEntry):
-    """Whois parser for .london domains
-    """
-    regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'registry_domain__id': r'Registry Domain ID: *(.+)',
-        'registrar_whois_server': r'Registrar WHOIS Server: *(.+)',
-        'registrar_url': r'Registrar URL: *(.+)',
-        'updated_date': r'Updated Date: *(.+)',
-        'creation_date': r'Creation Date: *(.+)',
-        'expiration_date': r'Registry Expiry Date: *(.+)',
-        'registrar': r'Registrar: *(.+)',
-        'registrar_iana_id': r'Registrar IANA ID: *(.+)',
-        'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
-        'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
-        'status': r'Domain Status: *(.+)',
-        'registrant_org': r'Registrant Organization: *(.+)',
-        'registrant_state/province': r'Registrant State/Province: *(.+)',
-        'registrant_country': r'Registrant Country: *(.+)',
-        'registrant_email': r'Registrant Email: *(.+)',
-        'admin_email': r'Admin Email: *(.+)',
-        'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
-        'dnssec': r'DNSSEC: *(.+)',
-        'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
-    }
-
-    def __init__(self, domain, text):
-        if 'Not found:' in text:
-            raise PywhoisError(text)
-        else:
-            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisEstate(WhoisCom):
