@@ -1614,7 +1614,7 @@ class WhoisCom(WhoisEntry):
         'tech_fax': r'Tech Fax: *(.+)',
         'tech_fax_ext': r'Tech Fax Ext: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -2301,7 +2301,7 @@ class WhoisBr(WhoisEntry):
         'admin_c': r'admin-c: *(.+)',
         'tech_c': r'tech-c: *(.+)',
         'billing_c': r'billing-c: *(.+)',
-        'name_server': r'nserver: *(.+)',
+        'name_servers': r'nserver: *(.+)',
         'nsstat': r'nsstat: *(.+)',
         'nslastaa': r'nslastaa: *(.+)',
         'saci': r'saci: *(.+)',
@@ -2631,7 +2631,7 @@ class WhoisDesign(WhoisEntry):
         'tech_fax': r'Tech Fax: *(.+)',
         'tech_fax_ext': r'Tech Fax Ext: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4299,7 +4299,7 @@ class WhoisAero(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4377,7 +4377,7 @@ class WhoisGoogle(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4410,7 +4410,7 @@ class WhoisAsia(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4448,7 +4448,7 @@ class WhoisBerlin(WhoisEntry):
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'status': r'Domain Status: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4515,7 +4515,7 @@ class WhoisDownload(WhoisEntry):
         'tech_fax': r'Tech Fax: *(.+)',
         'tech_fax_ext': r'Tech Fax Ext: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4543,7 +4543,7 @@ class WhoisFm(WhoisEntry):
         'admin_email': r'Admin Email: *(.+)',
         'registrant_email': r'Registrant Email: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
@@ -4602,7 +4602,7 @@ class WhoisGl(WhoisEntry):
         'tech_country': r'TechCountry: *(.+)',
         'tech_phone': r'TechPhone: *(.+)',
         'tech_email': r'TechEmail: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
     }
 
@@ -4701,7 +4701,7 @@ class WhoisPhoto(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4766,7 +4766,7 @@ class WhoisAg(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -4806,7 +4806,7 @@ class WhoisCd(WhoisEntry):
         'registrant_country': r'Registrant Country: *(.+)',
         'registrant_email': r'Registrant Email: *(.+)',
         'registrant_phone': r'Registrant Phone: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -4886,7 +4886,7 @@ class WhoisCi(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -4983,7 +4983,7 @@ class WhoisCx(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5061,7 +5061,7 @@ class WhoisDm(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5094,7 +5094,7 @@ class WhoisFo(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -5130,7 +5130,7 @@ class WhoisGd(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -5158,7 +5158,7 @@ class WhoisGe(WhoisEntry):
         'admin_email': r'Admin Email: *(.+)',
         'tech_name': r'Tech Name: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
     }
 
     def __init__(self, domain, text):
@@ -5250,7 +5250,7 @@ class WhoisGs(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5328,7 +5328,7 @@ class WhoisGy(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5406,7 +5406,7 @@ class WhoisHt(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5447,7 +5447,7 @@ class WhoisKe(WhoisEntry):
         'registrant_fax': r'Registrant Fax: *(.+)',
         'registrant_fax_ext': r'Registrant Fax Ext: *(.+)',
         'registrant_email': r'Registrant Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5525,7 +5525,7 @@ class WhoisKn(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5603,7 +5603,7 @@ class WhoisKy(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5631,10 +5631,10 @@ class WhoisKz(WhoisEntry):
         'admin_phone': r'Phone Number...........: *(.+)',
         'admin_fax': r'Fax Number.............: *(.+)',
         'admin_email': r'Email Address..........: *(.+)',
-        'name_server': r'Primary server.........: *(.+)',
-        'name_server': r'Primary ip address.....: *(.+)',
-        'name_server': r'Secondary server.......: *(.+)',
-        'name_server': r'Secondary ip address...: *(.+)',
+        'name_servers': r'Primary server.........: *(.+)',
+        'name_servers': r'Primary ip address.....: *(.+)',
+        'name_servers': r'Secondary server.......: *(.+)',
+        'name_servers': r'Secondary ip address...: *(.+)',
         'creation_date': r'Domain created: *(.+)',
         'updated_date': r'Last modified : *(.+)',
         'status': r'Domain status : *(.+)',
@@ -5669,7 +5669,7 @@ class WhoisLa(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -5705,7 +5705,7 @@ class WhoisLc(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -5741,7 +5741,7 @@ class WhoisLy(WhoisEntry):
         'registrant_org': r'Registrant Organization: *(.+)',
         'registrant_state/province': r'Registrant State/Province: *(.+)',
         'registrant_country': r'Registrant Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -5774,7 +5774,7 @@ class WhoisMa(WhoisEntry):
         'tech_name': r'Tech Name: *(.+)',
         'tech_phone': r'Tech Phone: *(.+)',
         'tech_phone_ext': r'Tech Phone Ext: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'registrar_abuse_contact_email': r'Registrar Abuse Contact Email: *(.+)',
         'registrar_abuse_contact_phone': r'Registrar Abuse Contact Phone: *(.+)',
@@ -5796,7 +5796,7 @@ class WhoisMd(WhoisEntry):
         'domain_status': r'Domain  state: *(.+)',
         'creation_date': r'Registered on: *(.+)',
         'expiration_date': r'Expires    on: *(.+)',
-        'name_server': r'Nameserver: *(.+)',
+        'name_servers': r'Nameserver: *(.+)',
     }
 
     def __init__(self, domain, text):
@@ -5872,7 +5872,7 @@ class WhoisMg(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5961,7 +5961,7 @@ class WhoisMs(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -5985,7 +5985,7 @@ class WhoisMu(WhoisEntry):
         'expiration_date': r'Registry Expiry Date: *(.+)',
         'status': r'Domain Status: *(.+)',
         'registrar': r'Registrar: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
     }
 
@@ -6005,9 +6005,9 @@ class WhoisNc(WhoisEntry):
         'creation_date': r'Created on               : *(.+)',
         'expiration_date': r'Expires on               : *(.+)',
         'registrar': r'Registrar: *(.+)',
-        'name_server': r'Domain server 1          : *(.+)',
-        'name_server': r'Domain server 2          : *(.+)',
-        'name_server': r'Domain server 3          : *(.+)',
+        'name_servers': r'Domain server 1          : *(.+)',
+        'name_servers': r'Domain server 2          : *(.+)',
+        'name_servers': r'Domain server 3          : *(.+)',
     }
 
     def __init__(self, domain, text):
@@ -6083,7 +6083,7 @@ class WhoisNg(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -6161,7 +6161,7 @@ class WhoisNf(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -6191,7 +6191,7 @@ class WhoisOm(WhoisEntry):
         'tech_org': r'Tech Contact Organization: *(.+)',
         'tech_city': r'Tech Contact City: *(.+)',
         'tech_country': r'Tech Contact Country: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
     }
 
 
@@ -6217,7 +6217,7 @@ class WhoisCentralNic(WhoisEntry):
         'registrant_email': r'Registrant Email: *(.+)',
         'admin_email': r'Admin Email: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -6295,7 +6295,7 @@ class WhoisParis(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -6384,7 +6384,7 @@ class WhoisTucows(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -6506,7 +6506,7 @@ class WhoisWales(WhoisEntry):
         'billing_phone': r'Billing Phone: *(.+)',
         'billing_fax': r'Billing Fax: *(.+)',
         'billing_email': r'Billing Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
@@ -6573,7 +6573,7 @@ class WhoisIdentityDigitalInc(WhoisEntry):
         'tech_fax': r'Tech Fax: *(.+)',
         'tech_fax_ext': r'Tech Fax Ext: *(.+)',
         'tech_email': r'Tech Email: *(.+)',
-        'name_server': r'Name Server: *(.+)',
+        'name_servers': r'Name Server: *(.+)',
         'dnssec': r'DNSSEC: *(.+)',
         'url_of_icann_form': r'URL of the ICANN Whois Inaccuracy Complaint Form: *(.+)',
     }
