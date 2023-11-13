@@ -3967,7 +3967,7 @@ class WhoisNetwork(WhoisCom):
 
 
 class WhoisGoogle(WhoisEntry):
-    """Whois parser for .goog domains
+    """Whois parser for Google domains
     """
     regex = {
         'domain_name': r'Domain Name: *(.+)',
