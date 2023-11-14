@@ -413,10 +413,10 @@ class NICClient(object):
         if domain.endswith('.pp.ua'):
             return NICClient.PPUA_HOST
 
-        domain = domain.split('.')
-        if len(domain) < 2:
+        domain_parts = domain.split('.')
+        if len(domain_parts) < 2:
             return None
-        tld = domain[-1]
+        tld = domain_parts[-1]
         if tld[0].isdigit():
             return NICClient.ANICHOST
 
