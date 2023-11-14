@@ -6268,22 +6268,28 @@ class WhoisOm(WhoisEntry):
     """Whois parser for .om domains
     """
     regex = {
-        'domain_name': r'Domain Name: *(.+)',
-        'updated_date': r'Last Modified: *(.+)',
-        'registrar': r'Registrar Name: *(.+)',
-        'status': r'Status: *(.+)',
-        'registrant_name': r'Registrant Contact Name: *(.+)',
-        'registrant_email': r'Registrant Contact Email: *(.+)',
-        'registrant_org': r'Registrant Contact Organization: *(.+)',
-        'registrant_city': r'Registrant Contact City: *(.+)',
-        'registrant_country': r'Registrant Contact Country: *(.+)',
-        'tech_name': r'Tech Contact Name: *(.+)',
-        'tech_email': r'Tech Contact Email: *(.+)',
-        'tech_org': r'Tech Contact Organization: *(.+)',
-        'tech_city': r'Tech Contact City: *(.+)',
-        'tech_country': r'Tech Contact Country: *(.+)',
-        'name_servers': r'Name Server: *(.+)',
+        'domain_name': r'Domain Name:\s*(.+)',
+        'updated_date': r'Last Modified:\s*(.+)',
+        'registrar': r'Registrar Name:\s*(.+)',
+        'status': r'Status:\s*(.+)',
+        'registrant_name': r'Registrant Contact Name:\s*(.+)',
+        'registrant_email': r'Registrant Contact Email:\s*(.+)',
+        'registrant_org': r'Registrant Contact Organization:\s*(.+)',
+        'registrant_city': r'Registrant Contact City:\s*(.+)',
+        'registrant_country': r'Registrant Contact Country:\s*(.+)',
+        'tech_name': r'Tech Contact Name:\s*(.+)',
+        'tech_email': r'Tech Contact Email:\s*(.+)',
+        'tech_org': r'Tech Contact Organization:\s*(.+)',
+        'tech_city': r'Tech Contact City:\s*(.+)',
+        'tech_country': r'Tech Contact Country:\s*(.+)',
+        'name_servers': r'Name Server:\s*(.+)',
     }
+
+    def __init__(self, domain, text):
+        if 'Not found:' in text:
+            raise PywhoisError(text)
+        else:
+            WhoisEntry.__init__(self, domain, text, self.regex)
 
 
 class WhoisCentralNic(WhoisEntry):
