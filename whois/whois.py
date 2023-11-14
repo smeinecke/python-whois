@@ -424,7 +424,7 @@ class NICClient(object):
         server = None
         for whois_server, tlds in NICClient.WHOIS_SERVERS.items():
             for tld in tlds:
-                if domain.endswith(tld) and (not matching_tld or len(matching_tld) < len(tld)):
+                if domain.endswith('.' + tld) and (not matching_tld or len(matching_tld) < len(tld)):
                     matching_tld = tld
                     server = whois_server
                     break
