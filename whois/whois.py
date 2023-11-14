@@ -227,7 +227,8 @@ class NICClient(object):
         "whois.registry.qa": ["qa", "xn--wgbl6a"],
         "whois.rotld.ro": ["ro"],
         "whois.rnids.rs": ["rs", "xn--90a3ac"],
-        "whois.nic.ru": ["su", "xn--p1ai"],
+        'whois.tcinet.ru': ['ru', 'su', 'xn--p1ai'],
+        "whois.nic.ru": ["net.ru", "org.ru", "pp.ru"],
         "whois.ricta.org.rw": ["rw"],
         "whois.nic.net.sa": ["sa", "xn--mgberp4a5d4ar"],
         "whois.nic.net.sb": ["sb"],
@@ -419,9 +420,16 @@ class NICClient(object):
         if tld[0].isdigit():
             return NICClient.ANICHOST
 
+        matching_tld = None
+        server = None
         for whois_server, tlds in NICClient.WHOIS_SERVERS.items():
-            if tld in tlds:
-                return whois_server
+            for tld in tlds:
+                if domain.endswith(tld) and (not matching_tld or len(matching_tld) < len(tld)):
+                    matching_tld = tld
+                    server = whois_server
+                    break
+        if server:
+            return server
 
         server = NICClient.QNICHOST_HEAD + tld
         try:
