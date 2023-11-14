@@ -1804,7 +1804,7 @@ class WhoisRu(WhoisEntry):
     }
 
     def __init__(self, domain, text):
-        if 'No entries found' in text:
+        if 'No entries found' in text or '% You have exceeded allowed connection rate' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
