@@ -752,7 +752,10 @@ WHOIS_BY_TLD = {
         "re",
         "tf",
         "wf",
-        "yt",
+        "yt"
+    ],
+    "WhoisAfnic2": [
+        "sn",
         "ga"
     ]
 }
@@ -1018,8 +1021,6 @@ class WhoisEntry(dict):
             return WhoisFj(domain, text)
         elif domain.endswith('.ch'):
             return WhoisChLi(domain, text)
-        elif domain.endswith('.sn'):
-            return WhoisSn(domain, text)
         elif domain.endswith('.pf'):
             return WhoisPf(domain, text)
         elif domain.endswith('.li'):
@@ -1260,19 +1261,23 @@ class WhoisCc(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisSn(WhoisEntry):
-    """Whois parser for .sn domains"""
+class WhoisAfnic2(WhoisEntry):
+    """Whois parser for ccTLD Afnic Template"""
 
     regex = {
+        'registry_domain_id': r'Domain ID: *(.+)',
         'domain_name': r'Nom de domaine: *(.+)',
         'creation_date': r'Date de création: *(.+)',
         'expiration_date': r'Date d\'expiration: *(.+)',
         'updated_date': r'Dernière modification: *(.+)',
         'registrar': r'Registrar: *(.+)',
+        'status': r'Statut: *(.+)',
+        'name_servers': r'Serveur de noms: *(.+)',  # list of name servers
+        'dnssec': r'DNSSEC: *(.+)',
     }
 
     def __init__(self, domain, text):
-        if 'NOT FOUND' in text:
+        if '%%%% NOT FOUND' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
