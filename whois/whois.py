@@ -294,6 +294,7 @@ class NICClient(object):
         "whois.y.net.ye": ["ye"],
         "whois.zicta.zm": ["zm"],
         "whois.nic.ru": ["net.ru", "org.ru", "pp.ru"],
+        "registry.ps": ["ps"],
     }
 
     ABUSEHOST = "whois.abuse.net"
@@ -317,7 +318,6 @@ class NICClient(object):
 
     DE_HOST = "whois.denic.de"
     DK_HOST = "whois.dk-hostmaster.dk"
-    HR_HOST = "whois.dns.hr"
     PPUA_HOST = "whois.pp.ua"
 
     WHOIS_RECURSE = 0x01
@@ -437,8 +437,6 @@ class NICClient(object):
             return NICClient.NORIDHOST
         if domain.endswith("id"):
             return NICClient.PANDIHOST
-        if domain.endswith("hr"):
-            return NICClient.HR_HOST
         if domain.endswith('.pp.ua'):
             return NICClient.PPUA_HOST
 
@@ -456,6 +454,7 @@ class NICClient(object):
                 if domain.endswith('.' + _tld) and (not matching_tld or len(matching_tld) < len(_tld)):
                     matching_tld = _tld
                     server = whois_server
+                    print(server)
                     break
         if server:
             return server

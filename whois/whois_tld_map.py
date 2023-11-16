@@ -13,7 +13,7 @@ MANUAL_OVERRIDE = {
     "net.ru": "whois.nic.ru",
     "org.ru": "whois.nic.ru",
     "pp.ru": "whois.nic.ru",
-    "bz": "whois2.afilias-grs.net",
+    "bz": "whois2.afilias-grs.net", # internal whois server
     # centralnic 3rd level domains
     "ae.org": "whois.centralnic.com",
     "br.com": "whois.centralnic.com",
@@ -41,6 +41,7 @@ MANUAL_OVERRIDE = {
     "us.org": "whois.centralnic.com",
     "za.com": "whois.centralnic.com",
     "za.bz": "whois.centralnic.com",
+    "ps": "registry.ps" # internal whois server
 }
 
 
