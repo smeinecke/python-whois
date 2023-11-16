@@ -746,6 +746,15 @@ WHOIS_BY_TLD = {
         "yachts",
         "zuerich",
     ],
+    "WhoisAfnic": [
+        "fr",
+        "pm",
+        "re",
+        "tf",
+        "wf",
+        "yt",
+        "ga"
+    ]
 }
 
 
@@ -943,8 +952,6 @@ class WhoisEntry(dict):
             return WhoisQa(domain, text)
         elif domain.endswith('.so'):
             return WhoisSo(domain, text)
-        elif domain.endswith('.fr') or domain.endswith('.pm'):
-            return WhoisFr(domain, text)
         elif domain.endswith('.nl'):
             return WhoisNl(domain, text)
         elif domain.endswith('.mo'):
@@ -2115,7 +2122,7 @@ class WhoisUk(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisFr(WhoisEntry):
+class WhoisAfnic(WhoisEntry):
     """Whois parser for .fr domains"""
     regex = {
         'domain_name': r'domain: *(.+)',
