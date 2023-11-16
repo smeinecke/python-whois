@@ -184,6 +184,7 @@ class NICClient(object):
             "us.org",
             "za.com",
             "za.bz",
+            "bh",
         ],
         "whois.eu": ["eu", "xn--e1a4c", "xn--qxa6a"],
         "whois.fi": ["fi"],

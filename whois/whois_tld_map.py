@@ -13,7 +13,9 @@ MANUAL_OVERRIDE = {
     "net.ru": "whois.nic.ru",
     "org.ru": "whois.nic.ru",
     "pp.ru": "whois.nic.ru",
-    "bz": "whois2.afilias-grs.net", # internal whois server
+    "bm": "whois2.afilias-grs.net",  # internal whois server
+    "bz": "whois2.afilias-grs.net",  # internal whois server
+    "lc": "whois2.afilias-grs.net",  # internal whois server
     # centralnic 3rd level domains
     "ae.org": "whois.centralnic.com",
     "br.com": "whois.centralnic.com",
@@ -41,7 +43,9 @@ MANUAL_OVERRIDE = {
     "us.org": "whois.centralnic.com",
     "za.com": "whois.centralnic.com",
     "za.bz": "whois.centralnic.com",
-    "ps": "registry.ps" # internal whois server
+    "ps": "registry.ps",  # internal whois server
+    "bh": "whois.centralnic.com",  # internal whois server
+    "ga": "whois.nic.ga",  # not listed in IANA
 }
 
 
@@ -91,6 +95,16 @@ backend_dns_servers = {
 
 
 def crawl_dns_soa():
+    missing_whois = []
+    with open("tld_whois_map.txt", "r") as f:
+        for line in f.readlines():
+            tld, whois_server = line.split("\t")
+            whois_server = whois_server.strip()
+            if tld in MANUAL_OVERRIDE:
+                continue
+            if not whois_server:
+                missing_whois.append(tld)
+
     resolver = dns.resolver.Resolver()
     group_tlds = {}
     for tld in get_iana_tld_list():
@@ -101,16 +115,19 @@ def crawl_dns_soa():
             for x, backend in backend_dns_servers.items():
                 if x in soa_txt:
                     found_backend = backend
+                    if tld in missing_whois and len(tld) < 3:
+                        print((tld, backend, soa_txt))
                     break
         except:
             pass
+
         if found_backend:
             if found_backend not in group_tlds:
                 group_tlds[found_backend] = []
             group_tlds[found_backend].append(tld)
             continue
         # print(tld, soa_txt, found_backend)
-    print(group_tlds)
+    print(group_tlds['afnic'])
 
 
 def crawl_iana_whois():
