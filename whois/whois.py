@@ -191,7 +191,7 @@ class NICClient(object):
         "www.whois.fj": ["fj"],
         "whois.mediaserv.net": ["gf", "mq"],
         "whois.gg": ["gg"],
-        "whois2.afilias-grs.net": ["gi", "sc", "vc", "bz"],
+        "whois2.afilias-grs.net": ["gi", "sc", "vc", "bz", "lc", "bm"],
         "whois.uniregistry.net": ["gift", "juegos", "link", "tattoo"],
         "whois.ande.gov.gn": ["gn"],
         "whois.dotgov.gov": ["gov"],
