@@ -940,7 +940,7 @@ class WhoisEntry(dict):
         elif domain.endswith('.au'):
             return WhoisAU(domain, text)
         elif domain.endswith('.am'):
-            return WhoisAM(domain, text)
+            return WhoisAm(domain, text)
         elif domain.endswith('.ru'):
             return WhoisRu(domain, text)
         elif domain.endswith('.tz'):
@@ -2196,9 +2196,16 @@ class WhoisJp(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisAM(WhoisEntry):
+class WhoisAm(WhoisEntry):
     """Whois parser for .am domains"""
     regex = {
+        'domain_name': r'Domain name:\s*(.+)',
+        'registrar': r'Registrar:\s*(.+)',
+        'status': r'Status:\s*(.+)',
+        'registrant': r'Registrant:\s*([\n\S\s]+?)\n\n',
+        'admin': r'Administrative contact:\s*([\n\S\s]+?)\n\n',
+        'tech': r'Technical contact:\s*([\n\S\s]+?)\n\n',
+        'name_servers': r'DNS servers:\s*([\n\S\s]+?)\n\n',
         'creation_date': r'Registered: *(.+)',
         'updated_date': r'Last modified: *(.+)',
         'expiration_date': r'Expires: *(.+)',
@@ -2209,6 +2216,20 @@ class WhoisAM(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
+    def _preprocess(self, attr, value):
+        value = super(WhoisAm, self)._preprocess(attr, value)
+        if attr in ('name_servers', 'registrant', 'admin', 'tech') and value:
+            res = []
+
+            for val in value.strip().split('\n'):
+                if ' - ' in val:
+                    hostname, ips = val.split(' - ', 1)
+                    res.append(hostname.strip())
+                else:
+                    res.append(val.strip())
+            return list(res)
+        return value
 
 
 class WhoisAU(WhoisEntry):
@@ -2466,6 +2487,7 @@ class WhoisAt(WhoisEntry):
                 self['registrar_nicat_id'] = f.group(2)
         return value
 
+
 class WhoisBe(WhoisEntry):
     """Whois parser for .be domains"""
     regex = {
@@ -2490,6 +2512,7 @@ class WhoisBe(WhoisEntry):
                 res.add(val.strip())
             return list(res)
         return value
+
 
 class WhoisInfo(WhoisEntry):
     """Whois parser for .info domains"""
