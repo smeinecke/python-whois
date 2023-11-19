@@ -455,7 +455,6 @@ class NICClient(object):
                 if domain.endswith('.' + _tld) and (not matching_tld or len(matching_tld) < len(_tld)):
                     matching_tld = _tld
                     server = whois_server
-                    print(server)
                     break
         if server:
             return server
