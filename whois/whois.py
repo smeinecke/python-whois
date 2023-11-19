@@ -46,6 +46,9 @@ logger = logging.getLogger(__name__)
 
 
 class NICClient(object):
+    NO_WHOIS_SERVER = ['ad', 'ao', 'aq', 'az', 'bb', 'bd', 'bs', 'bt', 'bv', 'cg', 'ck', 'cm', 'cu', 'cv', 'cw', 'cy', 'dj', 'eg', 'er', 'et', 'fk',
+                       'gb', 'gm', 'gr', 'gt', 'gu', 'gw', 'jm', 'jo', 'kh', 'km', 'kp', 'kw', 'lk', 'lr', 'mc', 'mh', 'mp', 'mt', 'mv', 'ne', 'ni',
+                       'np', 'nr', 'pa', 'pg', 'ph', 'pn', 'py', 'sd', 'sj', 'sr', 'sv', 'sz', 'tj', 'tt', 'va', 'vi', 'zw']
     WHOIS_SERVERS = {
         "whois.nic.google": [
             "ads",
@@ -448,6 +451,9 @@ class NICClient(object):
         if tld[0].isdigit():
             return NICClient.ANICHOST
 
+        if tld in NICClient.NO_WHOIS_SERVER:
+            return None
+
         matching_tld = None
         server = None
         for whois_server, tlds in NICClient.WHOIS_SERVERS.items():
@@ -456,6 +462,7 @@ class NICClient(object):
                     matching_tld = _tld
                     server = whois_server
                     break
+
         if server:
             return server
 

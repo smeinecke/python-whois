@@ -1,3 +1,4 @@
+import socket
 import sys
 from whois import NICClient
 import re
@@ -130,6 +131,21 @@ def crawl_dns_soa():
     print(group_tlds['afnic'])
 
 
+def check_whois_server(whois_server: str) -> bool:
+    print("checking %s" % whois_server)
+    try:
+        socket.gethostbyname(whois_server)
+    except socket.gaierror:
+        return False
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    result = sock.connect_ex((whois_server, 443))
+    if result != 0:
+        return False
+
+    return True
+
+
 def crawl_iana_whois():
     nc = NICClient()
     for tld in get_iana_tld_list():
@@ -146,13 +162,26 @@ def crawl_iana_whois():
             print("%s\t%s" % (tld, tld_whois))
 
 
-def get_whois_map():
+def get_whois_map(check_whois: bool = False):
     whois_servers = {}
+    no_whois_server = []
     with open("tld_whois_map.txt", "r") as f:
         for line in f.readlines():
             tld, whois_server = line.split("\t")
             whois_server = whois_server.strip()
-            if not whois_server or tld in MANUAL_OVERRIDE:
+            if tld in MANUAL_OVERRIDE:
+                continue
+
+            if not whois_server and len(tld) < 3:  # only disable for ccTLDs - gTLDs should have a whois server
+                if tld in NICClient.NO_WHOIS_SERVER:
+                    no_whois_server.append(tld)
+                    continue
+
+                whois_server = "whois.nic." + tld
+                if not check_whois or not check_whois_server(whois_server):
+                    no_whois_server.append(tld)
+                else:
+                    whois_servers[whois_server] = [tld]
                 continue
 
             # filter generic whois servers
@@ -175,6 +204,7 @@ def get_whois_map():
             whois_servers[whois_server].append(tld)
 
     print(whois_servers)
+    print(repr(no_whois_server))
 
 
 if __name__ == "__main__":
@@ -183,4 +213,7 @@ if __name__ == "__main__":
     elif "--soa" in sys.argv:
         crawl_dns_soa()
     else:
-        get_whois_map()
+        check_whois = False
+        if '--check' in sys.argv:
+            check_whois = True
+        get_whois_map(check_whois)
