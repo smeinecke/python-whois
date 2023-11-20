@@ -1008,8 +1008,6 @@ class WhoisEntry(dict):
             return WhoisCa(domain, text)
         elif domain.endswith('.be'):
             return WhoisBe(domain, text)
-        elif domain.endswith('.рф'):
-            return WhoisRf(domain, text)
         elif domain.endswith('.info'):
             return WhoisInfo(domain, text)
         elif domain.endswith('.si'):
@@ -1034,7 +1032,7 @@ class WhoisEntry(dict):
             return WhoisChLi(domain, text)
         elif domain.endswith('.id'):
             return WhoisID(domain, text)
-        elif domain.endswith('.as') or domain.endswith('.gg') or domain.endswith('.je'):
+        elif tld in ('as', 'gg', 'je'):
             return WhoisAsGgJe(domain, text)
         elif domain.endswith('.sk'):
             return WhoisSK(domain, text)
@@ -1102,13 +1100,13 @@ class WhoisEntry(dict):
             if domain.endswith('.pp.ua'):
                 return WhoisPpUa(domain, text)
             return WhoisUA(domain, text)
-        elif domain.endswith('.укр') or domain.endswith('.xn--j1amh'):
+        elif domain.endswith('.xn--j1amh'):
             return WhoisUkr(domain, text)
         elif domain.endswith('.kz'):
             return WhoisKZ(domain, text)
         elif domain.endswith('.ir'):
             return WhoisIR(domain, text)
-        elif domain.endswith('.中国'):
+        elif tld in ('xn--fiqs8s', 'xn—fiqz9s'):
             return WhoisZhongGuo(domain, text)
         elif domain.endswith('.sg'):
             return WhoisSg(domain, text)
@@ -1140,7 +1138,7 @@ class WhoisEntry(dict):
             return WhoisOne(domain, text)
         elif domain.endswith('.photo'):
             return WhoisPhoto(domain, text)
-        elif domain.endswith('amsterdam'):
+        elif domain.endswith('.amsterdam'):
             return WhoisAmsterdam(domain, text)
         elif domain.endswith('.ac'):
             return WhoisAc(domain, text)
