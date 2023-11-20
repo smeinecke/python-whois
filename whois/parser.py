@@ -848,6 +848,13 @@ class WhoisEntry(dict):
                             values.append(value)
                 if values and attr in ('registrar', 'whois_server', 'referral_url'):
                     values = values[-1]  # ignore junk
+
+                if values and attr == 'domain_name':
+                    values = values[0].strip().lower()
+
+                if values and attr == 'name_servers':
+                    values = list(set(v.strip(". \t\r\n").lower() for v in values))
+
                 if len(values) == 1:
                     values = values[0]
                 elif not values:
@@ -943,7 +950,7 @@ class WhoisEntry(dict):
             return WhoisAU(domain, text)
         elif domain.endswith('.am'):
             return WhoisAm(domain, text)
-        elif domain.endswith('.ru'):
+        elif tld in ('ru', 'su', 'xn--p1ai'):
             return WhoisRu(domain, text)
         elif domain.endswith('.tz'):
             return WhoisTz(domain, text)
@@ -1005,8 +1012,6 @@ class WhoisEntry(dict):
             return WhoisRf(domain, text)
         elif domain.endswith('.info'):
             return WhoisInfo(domain, text)
-        elif domain.endswith('.su'):
-            return WhoisSu(domain, text)
         elif domain.endswith('.si'):
             return WhoisSi(domain, text)
         elif domain.endswith('.kg'):
@@ -1117,7 +1122,7 @@ class WhoisEntry(dict):
             return WhoisDesign(domain, text)
         elif domain.endswith('.style'):
             return WhoisStyle(domain, text)
-        elif domain.endswith('.рус') or domain.endswith('.xn--p1acf'):
+        elif domain.endswith('.xn--p1acf'):
             return WhoisPyc(domain, text)
         elif domain.endswith('.ad'):
             return WhoisAero(domain, text)
@@ -1822,6 +1827,12 @@ class WhoisRu(WhoisEntry):
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
+    def _preprocess(self, attr, value):
+        value = super(WhoisRu, self)._preprocess(attr, value)
+        if attr == 'status':
+            value = [value.strip() for value in value.split(',')]
+        return value
 
 
 class WhoisNl(WhoisEntry):
@@ -2594,20 +2605,6 @@ class WhoisInfo(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisRf(WhoisRu):
-    """Whois parser for .rf domains"""
-
-    def __init__(self, domain, text):
-        WhoisRu.__init__(self, domain, text)
-
-
-class WhoisSu(WhoisRu):
-    """Whois parser for .su domains"""
-
-    def __init__(self, domain, text):
-        WhoisRu.__init__(self, domain, text)
-
-
 class WhoisBz(WhoisRu):
     """Whois parser for .bz domains"""
     regex = {
@@ -2738,18 +2735,18 @@ class WhoisDesign(WhoisEntry):
             WhoisEntry.__init__(self, domain, text, self.regex)
 
 
-class WhoisStyle(WhoisRu):
+class WhoisStyle(WhoisCom):
     """Whois parser for .style domains"""
 
     def __init__(self, domain, text):
-        WhoisRu.__init__(self, domain, text)
+        WhoisCom.__init__(self, domain, text)
 
 
-class WhoisPyc(WhoisRu):
+class WhoisPyc(WhoisCom):
     """Whois parser for .рус domains"""
 
     def __init__(self, domain, text):
-        WhoisRu.__init__(self, domain, text)
+        WhoisCom.__init__(self, domain, text)
 
 
 class WhoisClub(WhoisEntry):
