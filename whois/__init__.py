@@ -4,6 +4,7 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
 from __future__ import division
+from typing import Optional
 from future import standard_library
 standard_library.install_aliases()
 from builtins import *
@@ -28,19 +29,23 @@ logger.addHandler(handler)
 IPV4_OR_V6 = re.compile(r"((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))")
 
 
-def whois(url, command=False, flags=0, executable="whois", inc_raw=False, quiet=False):
+def whois(url: str, command: bool = False, flags: int = 0, executable: Optional[str] = None, inc_raw: bool = False, quiet: bool = False):
+    if not executable:
+        executable = "whois"
+
     # clean domain to expose netloc
     ip_match = IPV4_OR_V6.match(url)
     if ip_match:
         domain = url
         try:
             result = socket.gethostbyaddr(url)
-        except socket.herror as e:
+        except socket.herror:
             pass
         else:
             domain = extract_domain(result[0])
     else:
         domain = extract_domain(url)
+
     if command:
         # try native whois command
         r = subprocess.Popen([executable, domain], stdout=subprocess.PIPE)
@@ -48,7 +53,8 @@ def whois(url, command=False, flags=0, executable="whois", inc_raw=False, quiet=
     else:
         # try builtin client
         nic_client = NICClient()
-        text = nic_client.whois_lookup(None, domain.encode('idna'), flags, quiet=quiet)
+        text = nic_client.whois_lookup(None, domain, flags, quiet=quiet)
+
     entry = WhoisEntry.load(domain, text)
     if inc_raw:
         entry['raw'] = text
@@ -56,7 +62,9 @@ def whois(url, command=False, flags=0, executable="whois", inc_raw=False, quiet=
 
 
 suffixes = None
-def extract_domain(url):
+
+
+def extract_domain(url: str) -> str:
     """Extract the domain from the given URL
 
     >>> logger.info(extract_domain('http://www.google.com.au/tos.html'))
@@ -92,31 +100,32 @@ def extract_domain(url):
         # downloaded from https://publicsuffix.org/list/public_suffix_list.dat
         tlds_path = os.path.join(os.getcwd(), os.path.dirname(__file__), 'data', 'public_suffix_list.dat')
         with open(tlds_path, encoding='utf-8') as tlds_fp:
-            suffixes = set(line.encode('utf-8') for line in tlds_fp.read().splitlines() if line and not line.startswith('//'))
+            suffixes = set(line.encode('idna').decode() for line in tlds_fp.read().splitlines() if line and not line.startswith('//'))
 
     if not isinstance(url, str):
         url = url.decode('utf-8')
     url = re.sub('^.*://', '', url)
     url = url.split('/')[0].lower()
+    url = url.encode('idna').decode()
 
     # find the longest suffix match
-    domain = b''
+    domain = ''
     split_url = url.split('.')
     for section in reversed(split_url):
         if domain:
-            domain = b'.' + domain
-        domain = section.encode('utf-8') + domain
+            domain = '.' + domain
+        domain = section + domain
         if domain not in suffixes:
-            if not b'.' in domain and len(split_url) >= 2:
+            if '.' not in domain and len(split_url) >= 2:
                 # If this is the first section and there wasn't a match, try to
                 # match the first two sections - if that works, keep going
                 # See https://github.com/richardpenman/whois/issues/50
                 second_order_tld = '.'.join([split_url[-2], split_url[-1]])
-                if not second_order_tld.encode('utf-8') in suffixes:
+                if not second_order_tld in suffixes:
                     break
             else:
                 break
-    return domain.decode('utf-8')
+    return domain
 
 
 if __name__ == '__main__':

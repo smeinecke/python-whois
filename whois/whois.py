@@ -474,7 +474,7 @@ class NICClient(object):
             server = tld + NICClient.QNICHOST_TAIL
         return server
 
-    def whois_lookup(self, options, query_arg, flags, quiet=False):
+    def whois_lookup(self, options: dict, query_arg: str, flags: int, quiet: bool = False):
         """Main entry point: Perform initial lookup on TLD whois server,
         or other server to get region-specific whois server, then if quick
         flag is false, perform a second lookup on the region-specific
