@@ -40,6 +40,7 @@ import sys
 import re
 from builtins import *
 import logging
+from .parser import PywhoisError
 standard_library.install_aliases()
 
 logger = logging.getLogger(__name__)
@@ -503,7 +504,7 @@ class NICClient(object):
             if nichost is not None:
                 result = self.whois(query_arg, nichost, flags, quiet=quiet)
             else:
-                result = ''
+                raise PywhoisError("No whois server found for domain '{0}'.".format(query_arg))
         else:
             result = self.whois(query_arg, options['whoishost'], flags, quiet=quiet)
         return result

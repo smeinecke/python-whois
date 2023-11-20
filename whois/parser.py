@@ -882,13 +882,15 @@ class WhoisEntry(dict):
         pattern = re.compile(r'^\s+([\w.-]+)(?=\s*[\r\n]+|$)', re.MULTILINE)
         name_servers_section_match = re.search(r'Name Servers:(?:\s*[\r\n]+)*(.*)', text, re.DOTALL | re.IGNORECASE)
 
-        name_servers = list()
+        name_servers = set()
         if name_servers_section_match:
             name_servers_section = name_servers_section_match.group(1)
             name_servers_found = pattern.findall(name_servers_section)
             for name_server in name_servers_found:
-                name_servers.append(name_server.strip())
-        return {"name_servers": name_servers}
+                name_server = name_server.strip(". \t\r\n").lower()
+                if not name_server.startswith("-"):
+                    name_servers.add(name_server)
+        return {"name_servers": list(name_servers)}
 
     def __setitem__(self, name, value):
         super(WhoisEntry, self).__setitem__(name, value)
@@ -2120,11 +2122,23 @@ class WhoisUk(WhoisEntry):
         'name_servers': WhoisEntry.parse_indented_nameservers,
     }
 
+    TAG_RE = re.compile(r"\s*\[Tag = ([^\]]+)\]", re.I)
+
     def __init__(self, domain, text):
         if 'No match for ' in text:
             raise PywhoisError(text)
         else:
             WhoisEntry.__init__(self, domain, text, self.regex)
+
+    def _preprocess(self, attr, value):
+        value = super(WhoisUk, self)._preprocess(attr, value)
+        if attr == 'registrar':
+            f = WhoisUk.TAG_RE.search(value)
+            if f:
+                self['registrar_nomnet_id'] = f.group(1)
+                value = WhoisUk.TAG_RE.sub('', value)
+
+        return value
 
 
 class WhoisAfnic(WhoisEntry):
